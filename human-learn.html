@@ -94,5 +94,88 @@
     function ignore(){
         console.log("ignore")
     }
+
+    var ptdata = [];
+    var session = [];
+    var path;
+    var points;
+    var drawing = false;
+
+    var line = d3.line()
+      .x(function(d, i) { return d.x; })
+      .y(function(d, i) { return d.y; });
+
+    function listen () {
+        drawing = true;
+        ptdata = []; // reset point data
+        path = svg.append("path") // start a new line
+        .data([ptdata])
+        .attr("class", "line")
+        .attr("d", line)
+        .style("opacity", 0.5);
+
+        if (d3.event.type === 'mousedown') {
+        svg.on("mousemove", onmove);
+        } else {
+        svg.on("touchmove", onmove);
+        }
+    }
+
+    function ignore () {
+        var before, after;
+        svg.on("mousemove", null);
+        svg.on("touchmove", null);
+
+        // skip out if we're not drawing
+        if (!drawing) return;
+        drawing = false;
+
+        // add newly created line to the drawing session
+        session.push(ptdata);
+        
+        // redraw the line after simplification
+        tick();
+    }
+
+    function onmove (e) {
+        var type = d3.event.type;
+        var point;
+
+        if (type === 'mousemove') {
+            point = d3.mouse(this);
+        } else {
+        // only deal with a single touch input
+            point = d3.touches(this)[0];
+        }
+
+        // push a new data point onto the back
+        ptdata.push({ 
+            x: point[0], 
+            y: point[1], 
+            color: "black"
+        });
+        tick();
+    }
+
+    function tick() {
+        path.attr("d", function(d) { return line(d); }) // Redraw the path:
+        // svg.selectAll("circle").remove();
+        svg
+            .selectAll("circle")
+            .data(session.flat())
+            .enter()
+            .append("circle")
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", 2)
+            .style("fill", d => color_map[d.color]);
+    }
+
+    function reset(){
+        session = [];
+        ptdata = [];
+        d3.selectAll("path").remove();
+        // d3.selectAll("circle").remove();
+    }
 })
     </script>
