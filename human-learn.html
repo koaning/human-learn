@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+    
+    //Read the data
+    function only_unique(value, index, self) { 
+        return self.indexOf(value) === index;
+    }
+
+    all_data = 0;
+    d3.csv("peng.csv", function(data) {
+      var col1 = "bill_length_mm",
+          col2 = "bill_depth_mm";
+      var label = "species";
+      var uniq_labels = data.map(d => d["species"]).filter(only_unique)
+
+      var color = d3.scaleOrdinal()
+        .domain(uniq_labels)
+        .range(["#440154ff", "#21908dff", "#fde725ff"])
+    
+      all_data = data;
+    
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain(d3.extent(all_data.map(d => d[col1])))
+        .range([ 0, width ]);
+
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+    
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain(d3.extent(all_data.map(d => d[col2])))
+        .range([ height, 0]);
+      svg.append("g")
+        .call(d3.axisLeft(y));
+    
+      // Add dots
+      svg.append('g')
+        .attr("class", "point-group")
+        .selectAll("dot")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("cx", function (d) { return x(d[col1]); } )
+          .attr("cy", function (d) { return y(d[col2]); } )
+          .style("fill", function(d){ return color(d[label])})
+          .attr("r", 3.5)
+
+    svg
+        .on("mousedown", listen)
+        .on("touchstart", listen)
+        .on("touchend", ignore)
+        .on("touchleave", ignore)
+        .on("mouseup", ignore)
+        .on("mouseleave", ignore);
+
+    var group_stats = d3.select("g.point-group").node().getBBox();
+    var draw_group = svg
+        .append("rect")
+        .attr("x", group_stats["x"])
+        .attr("y", group_stats["y"])
+        .attr("width", group_stats["width"])
+        .attr("height", group_stats["height"])
+        .attr("opacity", 0.0)
+        .attr("class", "draw-group");
+
+    function listen(){
+        console.log("listen")
+    }
+
+    function ignore(){
+        console.log("ignore")
+    }
+})
+    </script>
