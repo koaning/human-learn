@@ -3,12 +3,12 @@
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<script src="common.js"></script>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
 
 <script>
-
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
         width = 460 - margin.left - margin.right,
@@ -22,12 +22,8 @@
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
-    
-    //Read the data
-    function only_unique(value, index, self) { 
-        return self.indexOf(value) === index;
-    }
 
+    //Read the data
     all_data = 0;
     d3.csv("peng.csv", function(data) {
       var col1 = "bill_length_mm",
@@ -43,7 +39,7 @@
     
       // Add X axis
       var x = d3.scaleLinear()
-        .domain(d3.extent(all_data.map(d => d[col1])))
+        .domain(calc_norm_extend(data, col1))
         .range([ 0, width ]);
 
       svg.append("g")
@@ -52,7 +48,7 @@
     
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain(d3.extent(all_data.map(d => d[col2])))
+        .domain(calc_norm_extend(data, col2))
         .range([ height, 0]);
       svg.append("g")
         .call(d3.axisLeft(y));
