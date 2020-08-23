@@ -6,7 +6,7 @@ import hulearn
 base_packages = [
     "scikit-learn>=0.20.2",
     "pandas>=0.23.4",
-    "typer>=0.3.2"
+    "typer=0.3.2"
 ]
 docs_packages = [
 ]
@@ -39,8 +39,6 @@ setup(
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
     package_data={"hulearn": ["data/*.zip"]},
-    long_description=read("readme.md"),
-    long_description_content_type="text/markdown",
     install_requires=base_packages,
     extras_require={"docs": docs_packages, "dev": dev_packages, "test": test_packages},
     classifiers=[
