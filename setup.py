@@ -6,7 +6,8 @@ import hulearn
 base_packages = [
     "scikit-learn>=0.20.2",
     "pandas>=0.23.4",
-    "typer>=0.3.2"
+    "typer>=0.3.2",
+    "clumper>=0.2.5"
 ]
 docs_packages = [
 ]

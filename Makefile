@@ -1,4 +1,4 @@
-.PHONY: docs
+.PHONY: docs build
 
 flake:
 	flake8 hulearn
@@ -43,3 +43,7 @@ pypi: clean
 	python setup.py sdist
 	python setup.py bdist_wheel --universal
 	twine upload dist/*
+
+build:
+	npm run build
+	cp -r public/* hulearn/static
