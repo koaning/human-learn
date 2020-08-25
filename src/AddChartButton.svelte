@@ -1,13 +1,14 @@
 <script>
-    let numbers = [1, 2, 3];
+    import ChartPicker from './ChartPicker.svelte';
+    let numbers = [];
     function handleClick() {
 		numbers = numbers.concat([numbers.length + 1]);
-	}
+    }
 </script>
 
 <ul>
     {#each numbers as n}
-        <li>{n}</li>
+        <ChartPicker></ChartPicker>
     {/each}
 </ul>
 <button on:click={handleClick}>+</button>

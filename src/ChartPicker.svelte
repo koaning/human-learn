@@ -1,13 +1,22 @@
 <script>
-    let numbers = [1, 2, 3];
-    function handleClick() {
-		numbers = numbers.concat([numbers.length + 1]);
-	}
+    import { fade, fly } from 'svelte/transition';
+    let visible = true;
+
+    function turnOff(){
+        visible = False;
+    }
 </script>
 
-<ul>
-    {#each numbers as n}
-        <li>{n}</li>
-    {/each}
-</ul>
-<button on:click={handleClick}>+</button>
+{#if visible}
+    <div in:fly="{{duration: 1000 }}" out:fade>
+        <button>
+            Basic Tree
+        </button>
+        <button>
+            Histogram Selector
+        </button>
+        <button on:click={turnOff}>
+            x
+        </button>
+    </div>
+{/if}

@@ -1,6 +1,5 @@
 <script>
 	import AddChartButton from './AddChartButton.svelte';
-	export let name;
 	let fp;
 	fetch(window.location.href + "info").then(d => d.json()).then(d => fp = d['filepath']);
 </script>
