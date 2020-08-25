@@ -1,22 +1,23 @@
 <script>
     import { fade, fly } from 'svelte/transition';
-    let visible = true;
+    import { createEventDispatcher } from 'svelte';
 
-    function turnOff(){
-        visible = False;
-    }
+    const dispatch = createEventDispatcher();
+
+    export let chartInfo;
 </script>
 
-{#if visible}
-    <div in:fly="{{duration: 1000 }}" out:fade>
-        <button>
-            Basic Tree
-        </button>
-        <button>
-            Histogram Selector
-        </button>
-        <button on:click={turnOff}>
-            x
-        </button>
-    </div>
-{/if}
+<div in:fly="{{ duration: 1000 }}" out:fade>
+    <button>
+        Basic Tree
+    </button>
+    <button>
+        Histogram Selector
+    </button>
+    <button on:click={() => dispatch('delete')}>
+        x
+    </button>
+    <p>
+        {JSON.stringify(chartInfo)}
+    </p>
+</div>
