@@ -6,6 +6,12 @@ from sklearn.utils.validation import check_is_fitted, check_array, check_X_y
 class FunctionClassifier(BaseEstimator, ClassifierMixin):
     """
     This class allows you to pass a function to make the predictions you're interested in.
+
+    Usage:
+
+    ```python
+    from hulearn.classification import FunctionClassifier
+    ```
     """
 
     def __init__(self, func):

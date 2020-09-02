@@ -13,9 +13,9 @@ base_packages = [
     "aiofiles>=0.5.0",
 ]
 docs_packages = [
-    "mkdocs>=1.1",
-    "mkdocs-material>=4.6.3",
-    "mkdocstrings>=0.8.0",
+    "mkdocs==1.1",
+    "mkdocs-material==4.6.3",
+    "mkdocstrings==0.8.0",
 ]
 test_packages = [
     "flake8>=3.6.0",
