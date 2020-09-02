@@ -1,7 +1,6 @@
 import itertools as it
 
 import numpy as np
-import pandas as pd
 import pytest
 from sklearn.utils import estimator_checks
 

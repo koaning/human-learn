@@ -1,0 +1,55 @@
+site_name: Clumper Docs
+extra_css: [style.css]
+repo_url: https://github.com/koaning/clumper
+site_url: https://koaning.github.io/clumper/
+site_description: A small python library that can clump lists of data together.
+site_author: Vincent D. Warmerdam
+use_directory_urls: false
+nav:
+  - Home:
+    - Index: index.md
+  - Guides:
+      - Getting Started: guides/getting-started.md
+      - Common Verbs: guides/verbs.md
+      - About Groups: guides/understanding-groups.md
+      - Merge Verbs: guides/understanding-joins.md
+      - Reshaping Verbs: guides/understanding-reshaping.md
+      - More Verbs: guides/useful-verbs.md
+      - Useful Methods: guides/summary-methods.md
+      - FAQ: guides/faq.md
+      - Releases: guides/releases.md
+  - API:
+      - Clumper: api/clumper.md
+      - sequence: api/sequence.md
+  - Examples:
+      - Game of Thrones: examples/got.md
+plugins:
+  - mkdocstrings:
+      watch:
+        - clumper
+  - search
+copyright: Copyright &copy; 2020 Maintained by <a href="https://twitter.com/fishnets88">Vincent</a>.
+theme:
+  name: material
+  custom_dir: theme/
+  icon:
+    logo: material/library
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+  favicon: logo.png
+  logo: logo.png
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: blue
+markdown_extensions:
+  - codehilite
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.highlight:
+      use_pygments: true
+  - toc:
+      permalink: true
