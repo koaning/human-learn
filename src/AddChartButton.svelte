@@ -1,8 +1,12 @@
 <script>
     import ChartPicker from './ChartPicker.svelte';
+
     export let charts;
+
+    let i = 0;
     function handleClick() {
-        charts = charts.concat([{type: "chartpicker", id: charts.length + 1}]);
+        i++;
+        charts = charts.concat([{type: "chartpicker", id: i}]);
         console.log(charts);
     }
 
