@@ -9,6 +9,7 @@ from fastapi.responses import HTMLResponse
 
 import pandas as pd
 
+
 def create_app(filepath, label):
     """
     This function creates the app.
@@ -27,12 +28,14 @@ def create_app(filepath, label):
         return {
             "filepath": filepath,
             "label": label,
-            "columns": {k: 'num' if v == 'O' else 'str'  for k, v in dict(df.dtypes).items()}
+            "columns": {
+                k: "num" if v == "O" else "str" for k, v in dict(df.dtypes).items()
+            },
         }
 
     @app.get("/dataset")
     async def dataset():
-        return df.to_dict(orient='records')
+        return df.to_dict(orient="records")
 
     @app.get("/uniq_labels")
     async def uniq_labels():

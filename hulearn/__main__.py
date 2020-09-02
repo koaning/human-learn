@@ -13,7 +13,7 @@ def version():
 
 
 @app.command()
-def serve(filepath: str, host: str="0.0.0.0", port: int=8000, label: str=None):
+def serve(filepath: str, host: str = "0.0.0.0", port: int = 8000, label: str = None):
     app = create_app(filepath, label)
     uvicorn.run(app, host=host, port=port)
 
