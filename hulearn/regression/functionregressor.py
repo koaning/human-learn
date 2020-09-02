@@ -19,7 +19,7 @@ class FunctionRegressor(BaseEstimator, RegressorMixin):
         # Run it to confirm no error happened.
         self.fitted_ = True
         X, y = check_X_y(X, y)
-        predictions = self.func(X)
+        _ = self.func(X)
         return self
 
     def predict(self, X):

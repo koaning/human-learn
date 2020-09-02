@@ -1,0 +1,5 @@
+[flake8]
+per-file-ignores =
+  clumper/__init__.py: F401
+max-line-length = 160
+ignore = E203

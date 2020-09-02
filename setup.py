@@ -10,9 +10,13 @@ base_packages = [
     "uvicorn>=0.11.8",
     "clumper>=0.2.5",
     "fastapi>=0.61.0",
-    "aiofiles>=0.5.0"
+    "aiofiles>=0.5.0",
 ]
-docs_packages = []
+docs_packages = [
+    "mkdocs>=1.1",
+    "mkdocs-material>=4.6.3",
+    "mkdocstrings>=0.8.0",
+]
 test_packages = [
     "flake8>=3.6.0",
     "nbval>=0.9.1",

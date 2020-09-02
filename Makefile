@@ -6,7 +6,7 @@ flake:
 	flake8 setup.py
 
 install:
-	pip install -e .
+	pip install -e ".[test]"
 
 develop:
 	pip install -e ".[dev]"
@@ -14,12 +14,8 @@ develop:
 	python setup.py develop
 
 test:
-	pytest --disable-warnings --cov=sklego
-	rm -rf .coverage*
-	pytest --nbval-lax doc/*.ipynb
-
-precommit:
-	pre-commit run
+	pytest --disable-warnings --cov=hulearn
+	#rm -rf .coverage*
 
 docs:
 	rm -rf doc/.ipynb_checkpoints
@@ -35,9 +31,9 @@ clean:
 	rm -rf .coverage*
 
 black:
-	black sklego tests setup.py
+	black --check .
 
-check: flake precommit test spelling clean
+check: black flake test clean
 
 pypi: clean
 	python setup.py sdist
