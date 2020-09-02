@@ -9,7 +9,8 @@ base_packages = [
     "typer>=0.3.2",
     "uvicorn>=0.11.8",
     "clumper>=0.2.5",
-    "fastapi>=0.61.0"
+    "fastapi>=0.61.0",
+    "aiofiles>=0.5.0"
 ]
 docs_packages = []
 test_packages = [
