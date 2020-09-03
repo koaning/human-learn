@@ -4,7 +4,7 @@ from pkg_resources import resource_filename
 import pandas as pd
 
 
-def load_titanic(return_X_y: bool=False, as_frame: bool=False):
+def load_titanic(return_X_y: bool = False, as_frame: bool = False):
     """
     Loads in a subset of the titanic dataset. You can find the full dataset [here](https://www.kaggle.com/c/titanic/data).
 
@@ -26,7 +26,7 @@ def load_titanic(return_X_y: bool=False, as_frame: bool=False):
     if as_frame:
         return df
     X, y = (
-        df[['pclass', 'name', 'sex', 'age', 'fare', 'sibsp', 'parch']].values,
+        df[["pclass", "name", "sex", "age", "fare", "sibsp", "parch"]].values,
         df["survived"].values,
     )
     if return_X_y:

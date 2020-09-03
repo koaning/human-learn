@@ -41,7 +41,7 @@ def predict_variant(X):
             "check_complex_data",
             "check_estimators_empty_data_messages",
             "check_estimators_nan_inf",
-            "check_estimator_sparse_data"
+            "check_estimator_sparse_data",
         ],
     ),
 )

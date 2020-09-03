@@ -31,12 +31,12 @@ class FunctionRegressor(BaseEstimator, RegressorMixin):
 
     def get_params(self, deep=True):
         """"""
-        return {**self.kwargs, 'func': self.func}
+        return {**self.kwargs, "func": self.func}
 
     def set_params(self, **params):
         """"""
         for k, v in params.items():
-            if k == 'func':
+            if k == "func":
                 self.func = v
             else:
                 self.kwargs[k] = v
