@@ -1,3 +1,3 @@
-# `from hulearn.classification import *`
+# `from hulearn.regression import *`
 
 ::: hulearn.regression.functionregressor

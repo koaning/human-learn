@@ -26,7 +26,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
     df = load_titanic(as_frame=True)
     X, y = df.drop(columns=['survived']), df['survived']
 
-    def last_name(dataf, sex='male', pclass=1):
+    def class_based(dataf, sex='male', pclass=1):
         predicate = (dataf['sex'] == sex) & (dataf['pclass'] == pclass)
         return np.array(predicate).astype(int)
 

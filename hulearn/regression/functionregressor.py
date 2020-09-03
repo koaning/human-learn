@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, RegressorMixin
-from sklearn.utils.validation import check_is_fitted, check_array, check_X_y
+from sklearn.utils.validation import check_is_fitted
 
 
 class FunctionRegressor(BaseEstimator, RegressorMixin):
@@ -41,4 +41,3 @@ class FunctionRegressor(BaseEstimator, RegressorMixin):
             else:
                 self.kwargs[k] = v
         return self
-
