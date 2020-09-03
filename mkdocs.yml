@@ -9,7 +9,7 @@ nav:
   - Home:
     - Index: index.md
   - Api:
-    - Classification: api/function-classifier.md
+    - Classification: api/classification.md
     - Regression: api/regression.md
 plugins:
   - mkdocstrings:
@@ -25,8 +25,8 @@ theme:
   font:
     text: Ubuntu
     code: Ubuntu Mono
-  favicon: logo.png
-  logo: logo.png
+  favicon: icon.png
+  logo: icon.png
   feature:
     tabs: true
   palette:
