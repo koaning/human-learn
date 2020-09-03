@@ -27,9 +27,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e ".[test]"
     - name: Run Checking Mechanisms
-      run: |
-        make check
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        pytest
+      run: make check

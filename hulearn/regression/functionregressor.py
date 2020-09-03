@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, RegressorMixin
-from sklearn.utils.validation import check_is_fitted, check_array, check_X_y
+from sklearn.utils.validation import check_is_fitted
 
 
 class FunctionRegressor(BaseEstimator, RegressorMixin):
@@ -7,8 +7,9 @@ class FunctionRegressor(BaseEstimator, RegressorMixin):
     This class allows you to pass a function to make the predictions you're interested in.
     """
 
-    def __init__(self, func):
+    def __init__(self, func, **kwargs):
         self.func = func
+        self.kwargs = kwargs
 
     def fit(self, X, y):
         """
@@ -17,15 +18,26 @@ class FunctionRegressor(BaseEstimator, RegressorMixin):
         This classifier tries to confirm if the passed function can predict appropriate values on the train set.
         """
         # Run it to confirm no error happened.
+        _ = self.func(X, **self.kwargs)
         self.fitted_ = True
-        X, y = check_X_y(X, y)
-        _ = self.func(X)
         return self
 
     def predict(self, X):
         """
         Make predictions using the passed function.
         """
-        X = check_array(X)
         check_is_fitted(self, ["fitted_"])
-        return self.func(X)
+        return self.func(X, **self.kwargs)
+
+    def get_params(self, deep=True):
+        """"""
+        return {**self.kwargs, "func": self.func}
+
+    def set_params(self, **params):
+        """"""
+        for k, v in params.items():
+            if k == "func":
+                self.func = v
+            else:
+                self.kwargs[k] = v
+        return self

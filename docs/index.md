@@ -1,8 +1,10 @@
-<img src="docs/logo.png" width=125 height=125 align="right">
+<img src="logo.png" width=225 align="right">
 
-# Human Learning 
+# Human Learn
 
 > Machine Learning models should play by the rules, literally. 
+
+<br>
 
 This package contains scikit-learn compatible tools that should make it easier
 to construct and benchmark rule based systems that are designed by humans.

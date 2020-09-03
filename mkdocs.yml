@@ -9,8 +9,9 @@ nav:
   - Home:
     - Index: index.md
   - Api:
-    - Classification: api/function-classifier.md
+    - Classification: api/classification.md
     - Regression: api/regression.md
+    - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
       watch:
@@ -25,8 +26,8 @@ theme:
   font:
     text: Ubuntu
     code: Ubuntu Mono
-  favicon: logo.png
-  logo: logo.png
+  favicon: icon.png
+  logo: icon.png
   feature:
     tabs: true
   palette:
