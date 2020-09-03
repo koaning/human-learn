@@ -38,6 +38,13 @@ def predict_variant(X):
             "check_supervised_y_2d",
             "check_estimators_pickle",
             "check_pipeline_consistency",
+            "check_fit2d_predict1d",
+            "check_fit1d",
+            "check_dtype_object",
+            "check_complex_data",
+            "check_estimators_empty_data_messages",
+            "check_estimators_nan_inf",
+            "check_estimator_sparse_data"
         ],
     ),
 )

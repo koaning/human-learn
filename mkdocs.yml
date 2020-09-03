@@ -11,6 +11,7 @@ nav:
   - Api:
     - Classification: api/classification.md
     - Regression: api/regression.md
+    - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
       watch:

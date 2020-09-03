@@ -32,6 +32,16 @@ def predict_variant(X):
             "check_fit2d_1sample",
             "check_fit2d_1feature",
             "check_regressors_train",
+            "check_fit2d_predict1d",
+            "check_fit1d",
+            "check_regressor_data_not_an_array",
+            "check_supervised_y_2d",
+            "check_supervised_y_no_nan",
+            "check_dtype_object",
+            "check_complex_data",
+            "check_estimators_empty_data_messages",
+            "check_estimators_nan_inf",
+            "check_estimator_sparse_data"
         ],
     ),
 )
