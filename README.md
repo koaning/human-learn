@@ -1,4 +1,4 @@
-<img src="docs/logo.png" width=125 height=125 align="right">
+<img src="docs/logo.png" width=225 align="right">
 
 # Human Learning 
 
