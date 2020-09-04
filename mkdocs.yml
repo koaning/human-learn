@@ -8,6 +8,8 @@ use_directory_urls: false
 nav:
   - Home:
     - Index: index.md
+  - Guides:
+      - Function as a Model: guide/function-classifier.md
   - Api:
     - Models:
       - Classification: api/classification.md

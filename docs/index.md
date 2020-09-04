@@ -24,6 +24,7 @@ This library hosts a couple of models that you can play with.
 ### Utility Tools 
 
 - `hulearn.case_when.CaseWhen`: a utility to construct case-when trees for Function-models.
+- `hulearn.underscore._`: a utility to construct lambda functions that you can pickle.
 
 ### Datasets 
 
