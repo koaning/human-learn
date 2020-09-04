@@ -9,9 +9,12 @@ nav:
   - Home:
     - Index: index.md
   - Api:
-    - Classification: api/classification.md
-    - Regression: api/regression.md
-    - Datasets: api/datasets.md
+    - Models:
+      - Classification: api/classification.md
+      - Regression: api/regression.md
+    - Utility:
+      - CaseWhen: api/casewhen.md
+      - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
       watch:
