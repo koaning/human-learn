@@ -11,6 +11,33 @@ class CaseWhen:
     Arguments:
         default: the default value that will be predicted of none of the cases are hit
         cases: a list of tuples that describe all the predictions
+
+    Usage:
+
+    ```python
+    import pandas as pd
+    from sklearn.model_selection import GridSearchCV
+
+    from hulearn.case_when import CaseWhen
+    from hulearn.datasets import load_titanic
+    from hulearn.classification import FunctionClassifier
+
+    def women_only(d):
+        return d['sex'] == 'female'
+
+    def pclass_high(d, pclass):
+        return d['pclass'] == pclass
+
+    df = load_titanic(as_frame=True)
+    X, y = df.drop(columns=['survived']), df['survived']
+
+    func = (CaseWhen(default=0)
+            .when(women_only, 1)
+            .when(pclass_high, 1))
+
+    mod = FunctionClassifier(func, pclass=3)
+    grid = GridSearchCV(mod, cv=3, param_grid={'pclass': [1, 2, 3]}).fit(X, y)
+    ```
     """
 
     def __init__(self, default, cases=tuple([])):

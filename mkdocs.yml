@@ -14,6 +14,7 @@ nav:
       - Regression: api/regression.md
     - Utility:
       - CaseWhen: api/casewhen.md
+      - Underscore: api/underscore.md
       - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
