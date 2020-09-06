@@ -13,7 +13,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
 
     The functions that are passed need to be pickle-able. That means no lambda functions!
 
-    Usage:
+    **Usage:**
 
     ```python
     import numpy as np

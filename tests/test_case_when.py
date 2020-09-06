@@ -11,35 +11,31 @@ def women_only(d):
     return d['sex'] == 'female'
 
 
-def pclass_high(d, pclass):
+def pclass_high(d, pclass=3):
     return d['pclass'] == pclass
+
+
+def case_when_func(d, pclass):
+    func = CaseWhen(default=0).when(_['sex'] == 'female', 1).when(_['pclass'] == pclass, 1)
+    return func(d)
+
+
+def 
 
 
 def test_case_when_func_classifier():
     df = load_titanic(as_frame=True)
     X, y = df.drop(columns=['survived']), df['survived']
 
-    func = CaseWhen(default=0).when(women_only, 1).when(pclass_high, 1)
-    mod = FunctionClassifier(func, pclass=3)
+    mod = FunctionClassifier(case_when_func)
     grid = GridSearchCV(mod, cv=3, param_grid={'pclass': [1, 2, 3]}).fit(X, y)
     assert pd.DataFrame(grid.cv_results_).shape[0] == 3
 
 
-def test_case_when_func_classifier_underscore():
+def test_case_when_func_classifier_grid():
     df = load_titanic(as_frame=True)
     X, y = df.drop(columns=['survived']), df['survived']
 
-    func = CaseWhen(default=0).when(_['sex'] == 'female', 1).when(_['pclass'] == 3, 1)
-    mod = FunctionClassifier(func, pclass=3)
+    mod = FunctionClassifier(case_when_func, pclass=3)
     grid = GridSearchCV(mod, cv=3, param_grid={}).fit(X, y)
     assert pd.DataFrame(grid.cv_results_).shape[0] == 1
-
-
-def test_case_when_func_classifier_underscore_both():
-    df = load_titanic(as_frame=True)
-    X, y = df.drop(columns=['survived']), df['survived']
-
-    func = CaseWhen(default=0).when(_['sex'] == 'female', 1).when(pclass_high, 1)
-    mod = FunctionClassifier(func, pclass=3)
-    grid = GridSearchCV(mod, cv=3, param_grid={'pclass': [1, 2, 3]}).fit(X, y)
-    assert pd.DataFrame(grid.cv_results_).shape[0] == 3

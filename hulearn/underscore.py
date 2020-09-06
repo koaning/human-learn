@@ -1,8 +1,9 @@
 class _underscore:
     """
     The underscore object allows you to replace lambda functions with something that you can pickle.
+    It's a lovely hack; we overwrite the `_` variable with a custom class.
 
-    Base Usage:
+    **Base Usage:**
 
     ```python
     # This shows the general use-age.
@@ -10,7 +11,7 @@ class _underscore:
     list(map(_ + 1, numbers)) # [2, 3, 4, 5]
     ```
 
-    Library Usage:
+    **Library Usage:**
 
     This example shows how you can use this feature with the other ones in this library.
 

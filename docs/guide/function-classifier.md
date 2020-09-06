@@ -112,7 +112,7 @@ If we make a chart of the `grid.cv_results_` then they would look something like
 A precision of 80% is not bad! It confirms our hunch that the folks who paid more for their ticket
 (potentially those in 1st class) had a better chance of surviving. An interesting thing to mention is
 that if you were to train a `RandomForestClassifier` using the `'pclass', 'sex', 'age', 'fare'` columns
-that you wouldn't get such a high precision. 
+that the precision score would be about the same.
 
 ### Bigger Grids
 
