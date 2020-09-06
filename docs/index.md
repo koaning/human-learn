@@ -13,13 +13,13 @@ to construct and benchmark rule based systems that are designed by humans.
 
 This library hosts a couple of models that you can play with.
 
-### Regression Models
-
-- `FunctionRegressor`: define a function that can make regression predictions.
-
 ### Classification Models 
 
 - `FunctionClassifier`: define a function that can make classification predictions.
+
+### Regression Models
+
+- `FunctionRegressor`: define a function that can make regression predictions.
 
 ### Utility Tools 
 

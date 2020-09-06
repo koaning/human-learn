@@ -4,8 +4,8 @@ in this library is the ability to re-use functions as if they are scikit-learn m
 
 ## Titanic
 
-Let's see how this might work. We'll need a dataset so we'll grab the titanic dataset. 
-It is the dataset that comes with this library. 
+Let's see how this might work. We'll grab a dataset that is packaged along 
+with this library.   
 
 ```python
 from hulearn.datasets import load_titanic
@@ -14,7 +14,7 @@ df = load_titanic(as_frame=True)
 df.head()
 ```
 
-The dataset represents a dataframe and it has the following contents:
+The `df` variable represents a dataframe and it has the following contents:
 
 |   survived |   pclass | sex    |   age |    fare |   sibsp |
 |-----------:|---------:|:-------|------:|--------:|--------:|
@@ -24,29 +24,31 @@ The dataset represents a dataframe and it has the following contents:
 |          1 |        1 | female |    35 | 53.1    |       1 |
 |          0 |        3 | male   |    35 |  8.05   |       0 |
 
-There's actually some more columns in this dataset but we'll limit ourselves to just these for now.
-The goal of the dataset is to predict if you survived the titanic or not based on the other attributes.
+There's actually some more columns in this dataset but we'll limit ourselves 
+to just these for now. The goal of the dataset is to predict if you survived 
+the titanic disaster based on the other attributes in this dataframe.
 
 ### Preparation
 
-To prepare our data we will first get it into the common `X`, `y` format for scikit-learn.
+To prepare our data we will first get it into the common `X`, `y` format for 
+scikit-learn.
 
 ```python
 X, y = df.drop(columns=['survived']), df['survived']
 ```
 
-We could now start to import fancy machine learning models. It's what a lot of people do. 
-Import a random forest, and see how high we can get the accuracy statistics. The goal of this
-library is to do the exact opposite. It might be a better idea to create a simple benchmark
-using, well, common sense? 
+We could now start to import fancy machine learning models. It's what a lot of 
+people do. Import a random forest, and see how high we can get the accuracy 
+statistics. The goal of this library is to do the exact opposite. It might be a 
+better idea to create a simple benchmark using, well, common sense? 
 
-It's the goal of this library to make this easier for scikit-learn. In part because this helps
-us get to sensible benchmarks but also because this exercise usually makes you understand the 
-data a whole lot better. 
+It's the goal of this library to make this easier for scikit-learn. In part 
+because this helps us get to sensible benchmarks but also because this exercise 
+usually makes you understand the data a whole lot better. 
 
 ### FunctionClassifier 
 
-So let's write a simple python function that determines if you survived based on the amount
+Let's write a simple python function that determines if you survived based on the amount
 of money you paid for your ticket. It might serve as a proxy for your survival rate. To get
 such a model to act as a scikit-learn model you can use the `FunctionClassifier`. You can see
 an example of that below. 
@@ -56,6 +58,10 @@ import numpy as np
 from hulearn.classification import FunctionClassifier
 
 def fare_based(dataf, threshold=10):
+    """
+    The assumption is that folks who paid more are wealthier and are more
+    likely to have recieved access to lifeboats.
+    """
     return np.array(dataf['fare'] > threshold).astype(int)
 
 mod = FunctionClassifier(fare_based)
@@ -118,7 +124,10 @@ def last_name(dataf, sex='male', pclass=1):
     predicate = (dataf['sex'] == sex) & (dataf['pclass'] == pclass)
     return np.array(predicate).astype(int)
 
+# Once again, remember to declare your arguments here too! 
 mod = FunctionClassifier(last_name, pclass=10, sex='male')
+
+# The arguments of the function can now be "grid-searched".
 grid = GridSearchCV(mod, 
                     cv=2, 
                     param_grid={'pclass': [1, 2, 3], 'sex': ['male', 'female']},
@@ -128,3 +137,13 @@ grid = GridSearchCV(mod,
                     refit='accuracy')
 grid.fit(X, y)
 ```
+
+## Conclusion 
+
+In this guide we've seen the `FunctionClassifier`. It is one of the many models in this
+library that will help you construct more "human" models.
+
+### Notebook 
+
+If you want to download with this code yourself, feel free to download the 
+notebook [here](notebooks/01-function-classifier.ipynb). 
