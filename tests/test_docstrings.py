@@ -1,5 +1,3 @@
-from hulearn.regression import FunctionRegressor
-from hulearn.classification import FunctionClassifier
 from hulearn.datasets import load_titanic
 from hulearn.common import flatten, df_to_dictlist
 

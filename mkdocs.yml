@@ -10,10 +10,12 @@ nav:
     - Index: index.md
   - Guides:
       - Function as a Model: guide/function-classifier.md
+      - Human Preprocessing: guide/function-preprocessing.md
   - Api:
     - Models:
       - Classification: api/classification.md
       - Regression: api/regression.md
+      - Preprocessing: api/preprocessing.md
     - Utility:
       - Common: api/common.md
       - Datasets: api/datasets.md

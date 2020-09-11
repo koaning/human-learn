@@ -15,11 +15,30 @@ This library hosts a couple of models that you can play with.
 
 ### Classification Models 
 
-- `FunctionClassifier`: define a function that can make classification predictions.
+#### `FunctionClassifier`
+
+This allows you to define a function that can make classification predictions. It's 
+constructed in such a way that you can use the arguments of the function as a parameter
+that you can benchmark in a grid-search.
 
 ### Regression Models
 
-- `FunctionRegressor`: define a function that can make regression predictions.
+#### `FunctionRegressor`
+
+This allows you to define a function that can make regression predictions. It's 
+constructed in such a way that you can use the arguments of the function as a parameter
+that you can benchmark in a grid-search.
+
+
+### Preprocessing Models
+
+#### `PipeTransformer`
+
+This allows you to define a function that can make handle preprocessing. It's 
+constructed in such a way that you can use the arguments of the function as a parameter
+that you can benchmark in a grid-search. This is especially powerful in combination
+with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, yo may appreciate
+[this tutorial](https://calmcode.io/pandas-pipe/introduction.html). 
 
 ### Datasets 
 
