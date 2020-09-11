@@ -35,9 +35,10 @@ that you can benchmark in a grid-search.
 
 This allows you to define a function that can make handle preprocessing. It's 
 constructed in such a way that you can use the arguments of the function as a parameter
-that you can benchmark in a grid-search. This is especially powerful in combination
-with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, yo may appreciate
-[this tutorial](https://calmcode.io/pandas-pipe/introduction.html). 
+that you can benchmark in a grid-search. 
+
+This is especially powerful in combination with the pandas `.pipe` method. If you're 
+unfamiliar with this amazing feature, you may appreciate [this tutorial](https://calmcode.io/pandas-pipe/introduction.html). 
 
 ### Datasets 
 
