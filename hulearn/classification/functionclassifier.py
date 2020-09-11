@@ -49,12 +49,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
         """
         # Run it to confirm no error happened.
         self.classes_ = unique_labels(y)
-        predictions = self.func(X, **self.kwargs)
-        for p in predictions:
-            if p not in self.classes_:
-                raise ValueError(
-                    f"Function created prediction {p} which is not in y={self.classes_}"
-                )
+        _ = self.func(X, **self.kwargs)
         return self
 
     def predict(self, X):
