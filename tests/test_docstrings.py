@@ -1,6 +1,7 @@
 from hulearn.regression import FunctionRegressor
 from hulearn.classification import FunctionClassifier
 from hulearn.datasets import load_titanic
+from hulearn.common import flatten, df_to_dictlist
 
 import pytest
 
@@ -23,7 +24,7 @@ def handle_docstring(doc):
             exec(code)
 
 
-@pytest.mark.parametrize("m", [load_titanic])
+@pytest.mark.parametrize("m", [load_titanic, flatten, df_to_dictlist])
 def test_mappers_docstrings(m):
     """
     Take the docstring of every method on the `Clumper` class.
