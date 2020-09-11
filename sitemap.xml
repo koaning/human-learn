@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+     <loc>https://koaning.github.io/human-learn/index.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/guide/function-classifier.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/guide/function-preprocessing.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/api/classification.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/api/regression.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/api/preprocessing.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/api/common.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/api/datasets.html</loc>
+     <lastmod>2020-09-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>
