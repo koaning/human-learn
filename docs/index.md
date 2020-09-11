@@ -13,6 +13,7 @@ to construct and benchmark rule based systems that are designed by humans.
 
 This library hosts a couple of models that you can play with.
 
+
 ### Classification Models 
 
 #### `FunctionClassifier`
@@ -42,4 +43,7 @@ with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, 
 
 ### Datasets 
 
-- `load_titanic`: loads in the popular titanic survivor dataset.
+#### `load_titanic`
+
+Loads in the popular titanic survivor dataset. The goal of this dataset is to predict 
+who might have survived the titanic disaster.
