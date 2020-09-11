@@ -15,6 +15,7 @@ nav:
       - Classification: api/classification.md
       - Regression: api/regression.md
     - Utility:
+      - Common: api/common.md
       - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
