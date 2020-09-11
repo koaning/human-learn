@@ -28,7 +28,7 @@ def double(x, factor=2):
             "check_transformer_data_not_an_array",
             "check_dtype_object",
             "check_complex_data",
-            "check_fit1d"
+            "check_fit1d",
         ],
     ),
 )
@@ -37,7 +37,7 @@ def test_estimator_checks(test_fn):
     test_fn(PipeTransformer.__name__, clf)
 
 
-@pytest.mark.parametrize('factor', [1.0, 2.0, 5.0])
+@pytest.mark.parametrize("factor", [1.0, 2.0, 5.0])
 def test_basic_example(factor):
     np.random.seed(42)
     X = np.random.normal(0, 1, (1000, 4))
@@ -48,9 +48,8 @@ def test_basic_example(factor):
 
 def test_works_with_pipeline_gridsearch(random_xy_dataset_clf):
     X, y = random_xy_dataset_clf
-    pipe = Pipeline([
-        ('pipe', PipeTransformer(func=double, factor=1)),
-        ('mod', GaussianNB())
-    ])
+    pipe = Pipeline(
+        [("pipe", PipeTransformer(func=double, factor=1)), ("mod", GaussianNB())]
+    )
     grid = GridSearchCV(pipe, cv=2, param_grid={"pipe__factor": [1, 2, 3]})
     grid.fit(X, y).predict(X)

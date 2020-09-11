@@ -78,7 +78,9 @@ class PipeTransformer(TransformerMixin, BaseEstimator):
         check_is_fitted(self, ["fitted_", "ncol_"])
         ncol = 0 if len(X.shape) == 1 else X.shape[1]
         if self.ncol_ != ncol:
-            raise ValueError(f"Reshape your data, there were {self.ncol_} features during training, now={ncol}.")
+            raise ValueError(
+                f"Reshape your data, there were {self.ncol_} features during training, now={ncol}."
+            )
         return self.func(X, **self.kwargs)
 
     def get_params(self, deep=True):
