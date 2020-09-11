@@ -21,11 +21,6 @@ This library hosts a couple of models that you can play with.
 
 - `FunctionRegressor`: define a function that can make regression predictions.
 
-### Utility Tools 
-
-- `hulearn.case_when.CaseWhen`: a utility to construct case-when trees for Function-models.
-- `hulearn.underscore._`: a utility to construct lambda functions that you can pickle.
-
 ### Datasets 
 
 - `load_titanic`: loads in the popular titanic survivor dataset.

@@ -3,6 +3,9 @@ class _underscore:
     The underscore object allows you to replace lambda functions with something that you can pickle.
     It's a lovely hack; we overwrite the `_` variable with a custom class.
 
+    Important:
+        This feature is experimental and unsupported
+
     **Base Usage:**
 
     ```python

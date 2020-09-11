@@ -8,6 +8,9 @@ class CaseWhen:
     Many custom models created with `FunctionClassifier` and `FunctionRegressor` fall into the "case-when"-category.
     To make it easier to construct these kinds of models you can use this object to define the logic.
 
+    Important:
+        This feature is experimental and unsupported
+
     Arguments:
         default: the default value that will be predicted of none of the cases are hit
         cases: a list of tuples that describe all the predictions
