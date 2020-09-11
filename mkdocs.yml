@@ -8,10 +8,17 @@ use_directory_urls: false
 nav:
   - Home:
     - Index: index.md
+  - Guides:
+      - Function as a Model: guide/function-classifier.md
+      - Human Preprocessing: guide/function-preprocessing.md
   - Api:
-    - Classification: api/classification.md
-    - Regression: api/regression.md
-    - Datasets: api/datasets.md
+    - Models:
+      - Classification: api/classification.md
+      - Regression: api/regression.md
+      - Preprocessing: api/preprocessing.md
+    - Utility:
+      - Common: api/common.md
+      - Datasets: api/datasets.md
 plugins:
   - mkdocstrings:
       watch:

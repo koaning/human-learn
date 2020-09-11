@@ -5,6 +5,12 @@ from sklearn.utils.validation import check_is_fitted
 class FunctionRegressor(BaseEstimator, RegressorMixin):
     """
     This class allows you to pass a function to make the predictions you're interested in.
+
+    Arguments:
+        func: the function that can make predictions
+        kwargs: extra keyword arguments will be pass to the function, can be grid-search-able
+
+    The functions that are passed need to be pickle-able. That means no lambda functions!
     """
 
     def __init__(self, func, **kwargs):
