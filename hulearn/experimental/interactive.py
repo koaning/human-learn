@@ -33,16 +33,23 @@ class InteractiveClassifier:
 class InteractiveChart:
     def __init__(self, dataf, labels, x, y):
         self.plot = figure(width=400, height=400, title=f"{x} vs. {y}")
-        self.source = ColumnDataSource(data=dataf)
         self._colors = ["red", "blue", "green", "purple", "cyan"]
+
         if isinstance(labels, str):
             self.labels = list(dataf[labels].unique())
-            self.plot.circle(x=x, y=y, color="gray", source=self.source)
+            d = {k: col for k, col in zip(self.labels, self._colors)}
+            dataf = dataf.assign(color=[d[lab] for lab in dataf[labels]])
+            self.source = ColumnDataSource(data=dataf)
         else:
+            dataf = dataf.assign(color=["gray" for _ in range(dataf.shape[0])])
+            self.source = ColumnDataSource(data=dataf)
             self.labels = labels
-            self.plot.circle(x=x, y=y, color="gray", source=self.source)
+
         if len(self.labels) > 5:
             raise ValueError("We currently only allow for 5 classes max.")
+        self.plot.circle(x=x, y=y, color="color", source=self.source)
+
+        # Create all the tools for drawing
         self.poly_patches = {}
         self.poly_draw = {}
         for k, col in zip(self.labels, self._colors):
@@ -72,6 +79,3 @@ class InteractiveChart:
     @property
     def data(self):
         return {k: v.data_source.data for k, v in self.poly_patches.items()}
-
-
-# chart = InteractiveChart(df, labels="species", x="bill_length_mm", y="bill_depth_mm")
