@@ -15,6 +15,9 @@ from bokeh.models import Label
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
 
+from sklearn.base import BaseEstimator, ClassifierMixin
+from sklearn.utils.validation import check_is_fitted
+
 
 def color_dot(name, color):
     dot = f"<span style='height: 15px; width: 15px; background-color: {color}; border-radius: 50%; display: inline-block;'></span>"
@@ -153,7 +156,7 @@ class InteractiveChart:
         }
 
 
-class HumanClassifier:
+class HumanClassifier(BaseEstimator, ClassifierMixin):
     """
     This tool allows you to take a drawn model and use it as a classifier.
 
@@ -192,7 +195,8 @@ class HumanClassifier:
         self.json_desc = json_desc
         self.smoothing = smoothing
 
-    def from_json(self, path):
+    @classmethod
+    def from_json(cls, path):
         json_desc = json.loads(pathlib.Path(path).read_text())
         return HumanClassifier(json_desc=json_desc)
 
@@ -239,3 +243,7 @@ class HumanClassifier:
             np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
         )
         return count_arr / count_arr.sum(axis=1).reshape(-1, 1)
+
+    def predict(self, X):
+        check_is_fitted(self, ["classes_"])
+        return self.classes_[self.predict_proba(X).argmax(axis=1)]
