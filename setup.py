@@ -26,6 +26,7 @@ test_packages = [
     "pytest-cov>=2.6.1",
     "pytest-mock>=1.6.3",
     "pre-commit>=1.18.3",
+    "nbval>=0.9.6",
 ]
 util_packages = [
     "matplotlib>=3.0.2",
@@ -45,7 +46,7 @@ setup(
     description="natural intelligence benchmarks for scikit-learn",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
-    package_data={"hulearn": ["data/*.zip"]},
+    package_data={"hulearn": ["data/*.zip", "images/*.png"]},
     install_requires=base_packages,
     extras_require={"docs": docs_packages, "dev": dev_packages, "test": test_packages},
     classifiers=[

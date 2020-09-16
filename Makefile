@@ -12,7 +12,7 @@ develop:
 	python setup.py develop
 
 test:
-	pytest --disable-warnings --cov=hulearn
+	pytest --disable-warnings --nb-val-lax --cov=hulearn
 
 clean:
 	rm -rf .pytest_cache
