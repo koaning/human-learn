@@ -5,7 +5,7 @@ from sklego.datasets import load_penguins
 from sklearn.pipeline import Pipeline
 
 from hulearn.preprocessing import PipeTransformer
-from hulearn.experimental.interactive import HumanClassifier
+from hulearn.experimental.interactive import InteractiveClassifier
 from hulearn.common import flatten
 
 from tests.conftest import (
@@ -49,12 +49,12 @@ def test_estimator_checks(test_fn):
     We're skipping a lot of tests here mainly because this model is "bespoke"
     it is *not* general. Therefore a lot of assumptions are broken.
     """
-    clf = HumanClassifier.from_json("tests/test_experimental/demo-data.json")
-    test_fn(HumanClassifier, clf)
+    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
+    test_fn(InteractiveClassifier, clf)
 
 
 def test_base_predict_usecase():
-    clf = HumanClassifier.from_json("tests/test_experimental/demo-data.json")
+    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
     df = load_penguins(as_frame=True).dropna()
     X, y = df.drop(columns=["species"]), df["species"]
 
@@ -69,7 +69,7 @@ def identity(x):
 
 
 def test_grid_predict_usecase():
-    clf = HumanClassifier.from_json("tests/test_experimental/demo-data.json")
+    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
     pipe = Pipeline(
         [
             ("id", PipeTransformer(identity)),

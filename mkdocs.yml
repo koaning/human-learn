@@ -9,13 +9,16 @@ nav:
   - Home:
     - Index: index.md
   - Guides:
-      - Function as a Model: guide/function-classifier.md
-      - Human Preprocessing: guide/function-preprocessing.md
+      - Function as a Model: guide/function-classifier/function-classifier.md
+      - Human Preprocessing: guide/function-preprocess/function-preprocessing.md
+      - Drawing as a Model: guide/drawing-classifier/drawing.md
   - Api:
     - Models:
       - Classification: api/classification.md
       - Regression: api/regression.md
       - Preprocessing: api/preprocessing.md
+    - Interactive:
+      - Charts: api/interactive-charts.md
     - Utility:
       - Common: api/common.md
       - Datasets: api/datasets.md

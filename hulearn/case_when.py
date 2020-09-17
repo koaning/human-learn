@@ -9,7 +9,7 @@ class CaseWhen:
     To make it easier to construct these kinds of models you can use this object to define the logic.
 
     Important:
-        This feature is experimental and unsupported
+        This feature is drawing-classifier and unsupported
 
     Arguments:
         default: the default value that will be predicted of none of the cases are hit

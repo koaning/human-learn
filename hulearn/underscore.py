@@ -4,7 +4,7 @@ class _underscore:
     It's a lovely hack; we overwrite the `_` variable with a custom class.
 
     Important:
-        This feature is experimental and unsupported
+        This feature is drawing-classifier and unsupported
 
     **Base Usage:**
 

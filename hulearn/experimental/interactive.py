@@ -1,13 +1,7 @@
 import uuid
-import json
-import pathlib
 from pkg_resources import resource_filename
 
-import numpy as np
-import pandas as pd
 from clumper import Clumper
-from shapely.geometry import Point
-from shapely.geometry.polygon import Polygon
 from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
@@ -15,9 +9,6 @@ from bokeh.layouts import row
 from bokeh.models import Label
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
-
-from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.utils.validation import check_is_fitted
 
 
 def color_dot(name, color):
@@ -33,30 +24,10 @@ class InteractiveClassifierCharts:
 
     ```python
     from sklego.datasets import load_penguins
-    from hulearn.experimental.interactive import InteractiveClassifierCharts
+    from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts
 
     df = load_penguins(as_frame=True)
     charts = InteractiveClassifierCharts(df, labels="species")
-
-    # Next notebook cell
-    charts.add_chart(x="bill_length_mm", y="bill_depth_mm")
-    # Next notebook cell
-    charts.add_chart(x="flipper_length_mm", y="body_mass_g")
-
-    # After drawing a model, export the data
-    json_data = charts.data()
-
-    # You can now use your drawn intuition as a model!
-    from hulearn.experimental.interactive import HumanClassifier
-    clf = HumanClassifier(clf_data)
-    X, y = df.drop(columns=['species']), df['species']
-
-    # This doesn't do anything. But scikit-learn demands it.
-    clf.fit(X, y)
-
-    # This makes predictions, based on your drawn model.
-    # It can also be used in `GridSearchCV` for benchmarking!
-    clf.predict(X)
     ```
     """
 
@@ -76,6 +47,28 @@ class InteractiveClassifierCharts:
         to finalize the draw action double tap to insert the final vertex or press the <<esc> key.
         - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.
         - Delete patch or multi-line: Tap a patch/multi-line to select it then press <<backspace>> key while the mouse is within the plot area.
+
+        Arguments:
+            x: the column from the dataset to place on the x-axis
+            y: the column from the dataset to place on the y-axis
+
+        Usage:
+
+        ```python
+        from sklego.datasets import load_penguins
+        from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts
+
+        df = load_penguins(as_frame=True)
+        charts = InteractiveClassifierCharts(df, labels="species")
+
+        # Next notebook cell
+        charts.add_chart(x="bill_length_mm", y="bill_depth_mm")
+        # Next notebook cell
+        charts.add_chart(x="flipper_length_mm", y="body_mass_g")
+
+        # After drawing a model, export the data
+        json_data = charts.data()
+        ```
         """
         chart = InteractiveChart(dataf=self.dataf.copy(), labels=self.labels, x=x, y=y)
         self.charts.append(chart)
@@ -155,106 +148,3 @@ class InteractiveChart:
                 for k, v in self.poly_patches.items()
             },
         }
-
-
-class HumanClassifier(BaseEstimator, ClassifierMixin):
-    """
-    This tool allows you to take a drawn model and use it as a classifier.
-
-    Usage:
-
-    ```python
-    from sklego.datasets import load_penguins
-    from hulearn.experimental.interactive import InteractiveClassifierCharts
-
-    df = load_penguins(as_frame=True)
-    charts = InteractiveClassifierCharts(df, labels="species")
-
-    # Next notebook cell
-    charts.add_chart(x="bill_length_mm", y="bill_depth_mm")
-    # Next notebook cell
-    charts.add_chart(x="flipper_length_mm", y="body_mass_g")
-
-    # After drawing a model, export the data
-    json_data = charts.data()
-
-    # You can now use your drawn intuition as a model!
-    from hulearn.experimental.interactive import HumanClassifier
-    clf = HumanClassifier(clf_data)
-    X, y = df.drop(columns=['species']), df['species']
-
-    # This doesn't do anything. But scikit-learn demands it.
-    clf.fit(X, y)
-
-    # This makes predictions, based on your drawn model.
-    # It can also be used in `GridSearchCV` for benchmarking!
-    clf.predict(X)
-    ```
-    """
-
-    def __init__(self, json_desc, smoothing=0.001):
-        self.json_desc = json_desc
-        self.smoothing = smoothing
-
-    @classmethod
-    def from_json(cls, path):
-        json_desc = json.loads(pathlib.Path(path).read_text())
-        return HumanClassifier(json_desc=json_desc)
-
-    def _clean_poly_data(self, json_desc):
-        """TODO: we need to prevent poly data with only two datapoints"""
-        return json_desc
-
-    @property
-    def poly_data(self):
-        for chart in self.json_desc:
-            chard_id = chart["chart_id"]
-            labels = chart["polygons"].keys()
-            coords = chart["polygons"].values()
-            for lab, p in zip(labels, coords):
-                x_lab, y_lab = p.keys()
-                x_coords, y_coords = list(p.values())
-                for poly in [
-                    Polygon(list(zip(x_coords[i], y_coords[i])))
-                    for i in range(len(x_coords))
-                ]:
-                    yield {
-                        "x_lab": x_lab,
-                        "y_lab": y_lab,
-                        "poly": poly,
-                        "label": lab,
-                        "chart_id": chard_id,
-                    }
-
-    def _count_hits(self, clf_data, data_in):
-        counts = {k: 0 for k in self.classes_}
-        for c in clf_data:
-            point = Point(data_in[c["x_lab"]], data_in[c["y_lab"]])
-            if c["poly"].contains(point):
-                counts[c["label"]] += 1
-        return counts
-
-    def fit(self, X, y):
-        self.classes_ = list(self.json_desc[0]["polygons"].keys())
-        return self
-
-    def predict_proba(self, X):
-        if isinstance(X, pd.DataFrame):
-            hits = [
-                self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
-            ]
-        else:
-            hits = [
-                self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
-                for x in X
-            ]
-        count_arr = (
-            np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
-        )
-        return count_arr / count_arr.sum(axis=1).reshape(-1, 1)
-
-    def predict(self, X):
-        check_is_fitted(self, ["classes_"])
-        return np.array(
-            [self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)]
-        )
