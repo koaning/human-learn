@@ -27,6 +27,7 @@ test_packages = [
     "pytest-mock>=1.6.3",
     "pre-commit>=1.18.3",
     "nbval>=0.9.6",
+    "scikit-lego>=0.6.0",
 ]
 util_packages = [
     "matplotlib>=3.0.2",
