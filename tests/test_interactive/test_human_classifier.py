@@ -118,4 +118,4 @@ def test_ignore_bad_data():
     ]
 
     clf = InteractiveClassifier(json_desc=data)
-    assert len(clf.poly_data) == 0
+    assert len(list(clf.poly_data)) == 0
