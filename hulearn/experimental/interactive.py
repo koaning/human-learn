@@ -4,6 +4,7 @@ import pathlib
 from pkg_resources import resource_filename
 
 import numpy as np
+import pandas as pd
 from clumper import Clumper
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
@@ -238,7 +239,15 @@ class HumanClassifier(BaseEstimator, ClassifierMixin):
         return self
 
     def predict_proba(self, X):
-        hits = [self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()]
+        if isinstance(X, pd.DataFrame):
+            hits = [
+                self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
+            ]
+        else:
+            hits = [
+                self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
+                for x in X
+            ]
         count_arr = (
             np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
         )
