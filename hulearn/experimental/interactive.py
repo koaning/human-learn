@@ -246,4 +246,6 @@ class HumanClassifier(BaseEstimator, ClassifierMixin):
 
     def predict(self, X):
         check_is_fitted(self, ["classes_"])
-        return self.classes_[self.predict_proba(X).argmax(axis=1)]
+        return np.array(
+            [self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)]
+        )
