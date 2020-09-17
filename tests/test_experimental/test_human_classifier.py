@@ -5,7 +5,7 @@ from sklego.datasets import load_penguins
 from sklearn.pipeline import Pipeline
 
 from hulearn.preprocessing import PipeTransformer
-from hulearn.experimental.interactive import InteractiveClassifier
+from hulearn.classification import InteractiveClassifier
 from hulearn.common import flatten
 
 from tests.conftest import (

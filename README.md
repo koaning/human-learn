@@ -27,6 +27,12 @@ This allows you to define a function that can make classification predictions. I
 constructed in such a way that you can use the arguments of the function as a parameter
 that you can benchmark in a grid-search.
 
+#### `InteractiveClassifier`
+
+This allows you to draw decision boundaries in interactive charts to create a
+model. You can create charts interactively in the notebook and export it as a
+scikit-learn compatible model.
+
 ### Regression Models
 
 #### `FunctionRegressor`
