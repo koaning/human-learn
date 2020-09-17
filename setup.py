@@ -11,6 +11,7 @@ base_packages = [
     "clumper>=0.2.5",
     "fastapi>=0.61.0",
     "aiofiles>=0.5.0",
+    "Shapely>=1.7.1",
 ]
 docs_packages = [
     "mkdocs==1.1",
