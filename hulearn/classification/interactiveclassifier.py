@@ -81,17 +81,17 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
             for lab, p in zip(labels, coords):
                 x_lab, y_lab = p.keys()
                 x_coords, y_coords = list(p.values())
-                for poly in [
-                    Polygon(list(zip(x_coords[i], y_coords[i])))
-                    for i in range(len(x_coords))
-                ]:
-                    yield {
-                        "x_lab": x_lab,
-                        "y_lab": y_lab,
-                        "poly": poly,
-                        "label": lab,
-                        "chart_id": chard_id,
-                    }
+                for i in range(len(x_coords)):
+                    poly_data = list(zip(x_coords[i], y_coords[i]))
+                    if len(poly_data) >= 3:
+                        poly = Polygon(poly_data)
+                        yield {
+                            "x_lab": x_lab,
+                            "y_lab": y_lab,
+                            "poly": poly,
+                            "label": lab,
+                            "chart_id": chard_id,
+                        }
 
     def _count_hits(self, clf_data, data_in):
         counts = {k: 0 for k in self.classes_}

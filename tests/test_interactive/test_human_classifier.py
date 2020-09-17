@@ -49,12 +49,12 @@ def test_estimator_checks(test_fn):
     We're skipping a lot of tests here mainly because this model is "bespoke"
     it is *not* general. Therefore a lot of assumptions are broken.
     """
-    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
+    clf = InteractiveClassifier.from_json("tests/test_interactive/demo-data.json")
     test_fn(InteractiveClassifier, clf)
 
 
 def test_base_predict_usecase():
-    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
+    clf = InteractiveClassifier.from_json("tests/test_interactive/demo-data.json")
     df = load_penguins(as_frame=True).dropna()
     X, y = df.drop(columns=["species"]), df["species"]
 
@@ -69,7 +69,7 @@ def identity(x):
 
 
 def test_grid_predict_usecase():
-    clf = InteractiveClassifier.from_json("tests/test_experimental/demo-data.json")
+    clf = InteractiveClassifier.from_json("tests/test_interactive/demo-data.json")
     pipe = Pipeline(
         [
             ("id", PipeTransformer(identity)),
@@ -84,3 +84,38 @@ def test_grid_predict_usecase():
 
     assert preds.shape[0] == df.shape[0]
     assert preds.shape[1] == 3
+
+
+def test_ignore_bad_data():
+    """
+    There might be some "bad data" drawn. For example, when you quickly hit double-click you might
+    draw a line instead of a poly. Bokeh is "okeh" with it, but our point-in-poly algorithm is not.
+    """
+    data = [
+        {
+            "chart_id": "9ec8e755-2",
+            "x": "bill_length_mm",
+            "y": "bill_depth_mm",
+            "polygons": {
+                "Adelie": {"bill_length_mm": [], "bill_depth_mm": []},
+                "Gentoo": {"bill_length_mm": [], "bill_depth_mm": []},
+                "Chinstrap": {"bill_length_mm": [], "bill_depth_mm": []},
+            },
+        },
+        {
+            "chart_id": "11640372-c",
+            "x": "flipper_length_mm",
+            "y": "body_mass_g",
+            "polygons": {
+                "Adelie": {
+                    "flipper_length_mm": [[214.43261376806052, 256.2612913545137]],
+                    "body_mass_g": [[3950.9482324534456, 3859.9137496948247]],
+                },
+                "Gentoo": {"flipper_length_mm": [], "body_mass_g": []},
+                "Chinstrap": {"flipper_length_mm": [], "body_mass_g": []},
+            },
+        },
+    ]
+
+    clf = InteractiveClassifier(json_desc=data)
+    assert len(clf.poly_data) == 0
