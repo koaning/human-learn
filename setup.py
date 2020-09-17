@@ -12,12 +12,15 @@ base_packages = [
     "fastapi>=0.61.0",
     "aiofiles>=0.5.0",
     "Shapely>=1.7.1",
+    "bokeh>=2.2.1",
 ]
+
 docs_packages = [
     "mkdocs==1.1",
     "mkdocs-material==4.6.3",
     "mkdocstrings==0.8.0",
 ]
+
 test_packages = [
     "flake8>=3.6.0",
     "nbval>=0.9.1",
