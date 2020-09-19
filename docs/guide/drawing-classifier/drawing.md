@@ -68,7 +68,7 @@ In reality one 2D chart is probably not going to cut it. So in a jupyter noteboo
 
 ```python
 from sklego.datasets import load_penguins
-from hulearn.experimental.interactive import InteractiveClassifierCharts
+from hulearn.experimental.interactive import InteractiveCharts
 
 df = load_penguins(as_frame=True).dropna()
 clf = InteractiveClassifierCharts(df, labels="species")

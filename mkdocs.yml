@@ -12,10 +12,12 @@ nav:
       - Function as a Model: guide/function-classifier/function-classifier.md
       - Human Preprocessing: guide/function-preprocess/function-preprocessing.md
       - Drawing as a Model: guide/drawing-classifier/drawing.md
+      - Outliers and Comfort: guide/finding-outliers/outliers.md
   - Api:
     - Models:
       - Classification: api/classification.md
       - Regression: api/regression.md
+      - Outlier: api/outlier.md
       - Preprocessing: api/preprocessing.md
     - Interactive:
       - Charts: api/interactive-charts.md

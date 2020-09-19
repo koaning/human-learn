@@ -1,3 +1,3 @@
-from .interactive import InteractiveClassifierCharts
+from .interactive import InteractiveCharts
 
-__all__ = ["InteractiveClassifierCharts"]
+__all__ = ["InteractiveCharts"]

@@ -6,13 +6,17 @@ import pandas as pd
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
-from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.utils.validation import check_is_fitted
+from sklearn.base import BaseEstimator, OutlierMixin
 
 
-class InteractiveClassifier(BaseEstimator, ClassifierMixin):
+class InteractiveOutlierDetector(BaseEstimator, OutlierMixin):
     """
-    This tool allows you to take a drawn model and use it as a classifier.
+    This tool allows you to take a drawn model and use it as an outlier detector. If a datapoint
+    does not fit in any of the drawn polygons it becomes a candidate to become an outlier.
+
+    Arguments:
+        json_desc: python dictionary that contains drawn data
+        threshold: the minimum number of polygons a point needs to be in to not be considered an outlier
 
     Usage:
 
@@ -32,8 +36,8 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     json_data = charts.data()
 
     # You can now use your drawn intuition as a model!
-    from hulearn.classification.interactive import InteractiveClassifier
-    clf = InteractiveClassifier(clf_data)
+    from hulearn.outlier import InteractiveOutlierDetector
+    clf = InteractiveOutlierDetector(clf_data)
     X, y = df.drop(columns=['species']), df['species']
 
     # This doesn't do anything. But scikit-learn demands it.
@@ -45,32 +49,29 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     ```
     """
 
-    def __init__(self, json_desc, smoothing=0.001):
+    def __init__(self, json_desc, threshold=1):
         self.json_desc = json_desc
-        self.smoothing = smoothing
+        self.threshold = threshold
 
     @classmethod
-    def from_json(cls, path):
+    def from_json(cls, path, threshold=1):
         """
         Load the classifier from json stored on disk.
 
         Arguments:
             path: path of the json file
+            threshold: the minimum number of polygons a point needs to be in to not be considered an outlier
 
         Usage:
 
         ```python
-        from hulearn.classification import InteractiveClassifier
+        from hulearn.outlier import InteractiveOutlierDetector
 
-        InteractiveClassifier.from_json("path/to/file.json")
+        InteractiveOutlierDetector.from_json("path/to/file.json")
         ```
         """
         json_desc = json.loads(pathlib.Path(path).read_text())
-        return InteractiveClassifier(json_desc=json_desc)
-
-    def _clean_poly_data(self, json_desc):
-        """TODO: we need to prevent poly data with only two datapoints"""
-        return json_desc
+        return InteractiveOutlierDetector(json_desc=json_desc, threshold=threshold)
 
     @property
     def poly_data(self):
@@ -108,15 +109,16 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         self.classes_ = list(self.json_desc[0]["polygons"].keys())
         return self
 
-    def predict_proba(self, X):
+    def predict(self, X):
         """
         Predicts the associated probabilities for each class.
 
         Usage:
 
         ```python
-        from hulearn.classification import InteractiveClassifier
-        clf = InteractiveClassifier(clf_data)
+        from hulearn.drawing-classifier.interactive import InteractiveOutlierDetector
+        # Assuming a variable `clf_data` that contains the drawn polygons.
+        clf = InteractiveOutlierDetector(clf_data)
         X, y = load_data(...)
 
         # This doesn't do anything. But scikit-learn demands it.
@@ -135,30 +137,5 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
                 self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
                 for x in X
             ]
-        count_arr = (
-            np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
-        )
-        return count_arr / count_arr.sum(axis=1).reshape(-1, 1)
-
-    def predict(self, X):
-        """
-        Predicts the class for each item in `X`.
-
-        Usage:
-
-        ```python
-        from hulearn.classification import InteractiveClassifier
-        clf = InteractiveClassifier(clf_data)
-        X, y = load_data(...)
-
-        # This doesn't do anything. But scikit-learn demands it.
-        clf.fit(X, y)
-
-        # This makes predictions, based on your drawn model.
-        clf.predict(X)
-        ```
-        """
-        check_is_fitted(self, ["classes_"])
-        return np.array(
-            [self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)]
-        )
+        count_arr = np.array([[h[c] for c in self.classes_] for h in hits])
+        return np.where(count_arr.sum(axis=1) < self.threshold, -1, 1)

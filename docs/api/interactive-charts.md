@@ -1,3 +1,3 @@
 # `InteractiveClassifierCharts`
 
-::: hulearn.experimental.InteractiveClassifierCharts
+::: hulearn.experimental.InteractiveCharts

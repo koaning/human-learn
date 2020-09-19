@@ -16,7 +16,7 @@ def color_dot(name, color):
     return f"<p>{dot} {name}</p>"
 
 
-class InteractiveClassifierCharts:
+class InteractiveCharts:
     """
     This tool allows you to interactively "draw" a model.
 
@@ -70,7 +70,9 @@ class InteractiveClassifierCharts:
         json_data = charts.data()
         ```
         """
-        chart = InteractiveChart(dataf=self.dataf.copy(), labels=self.labels, x=x, y=y)
+        chart = SingleInteractiveChart(
+            dataf=self.dataf.copy(), labels=self.labels, x=x, y=y
+        )
         self.charts.append(chart)
         chart.show()
 
@@ -81,7 +83,7 @@ class InteractiveClassifierCharts:
         return Clumper(self.data).write_json(path, indent=2)
 
 
-class InteractiveChart:
+class SingleInteractiveChart:
     def __init__(self, dataf, labels, x, y):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
