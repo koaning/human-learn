@@ -5,21 +5,13 @@ This page is still under construction.
 
 ## Insurance for Future Data
 
-If you know a certain region needs to be a specific class, you shouldn't
-need data to tell you what the label is going to be.
-
 ## No Data No Problem
 
 ## Model Guarantees
 
-Let's say that we're dealing with a financial compliance use-case.
-
 ## Precision and Subgroups
 
 ## Dealing with NA
-
-Missing data can throw off a lot of machine learning models. We are able
-however to deal with it in different ways in production.
 
 ## Comfort Zone
 
