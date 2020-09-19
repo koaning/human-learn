@@ -24,6 +24,9 @@ nav:
     - Utility:
       - Common: api/common.md
       - Datasets: api/datasets.md
+  - Examples:
+    - Examples: examples/examples.md
+    - FAQ: examples/faq.md
 plugins:
   - mkdocstrings:
       watch:

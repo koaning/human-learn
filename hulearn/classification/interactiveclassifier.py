@@ -15,7 +15,7 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     This tool allows you to take a drawn model and use it as a classifier.
 
     Arguments:
-        path: path of the json file
+        json_desc: chart data in dictionary form
         smoothing: smoothing to apply to poly-counts
         refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
 
