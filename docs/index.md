@@ -4,10 +4,24 @@
 
 > Machine Learning models should play by the rules, literally.
 
-<br>
+## Project Goal
+
+Back in the old days, it was common to write rule-based systems. Systems that do;
+
+![](examples/rules.png)
+
+Nowadays, it's much more fashionable to use machine learning instead. Something like;
+
+![](examples/ml.png)
+
+We started wondering if we might have lost something in this transition. Sure,
+machine learning covers a lot of ground but it is also capable of making bad
+decision. We've also reached a stage of hype that folks forget that many
+classification problems can be handled by natural intelligence too.
 
 This package contains scikit-learn compatible tools that should make it easier
-to construct and benchmark rule based systems that are designed by humans.
+to construct and benchmark rule based systems that are designed by humans. You
+can also use it in combination with ML models.
 
 ## Install
 

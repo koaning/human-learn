@@ -103,6 +103,10 @@ model = InteractiveOutlierDetector(json_desc=charts.data(), threshold=2)
 You might wonder, can we combine the `FunctionClassifier` with an outlier model like
 we've got here? Yes! Use a `FunctionClassifier`!
 
+![](diagram.png)
+
+As an illustrative example we'll implement a diagram like above as a `Classifier`.
+
 ```python
 import numpy as np
 from hulearn.outlier import InteractiveOutlierDetector
@@ -114,8 +118,15 @@ classifier = InteractiveClassifier.from_json("path/to/file.json")
 def make_decision(dataf):
     # First we create a resulting array with all the predictions
     res = classifier.predict(dataf)
-    # If we detect an outlier, "classify" it as a fallback instead.
+
+    # If we detect doubt, "classify" it as a fallback instead.
+    proba = classifier.predict_proba(dataf)
+    res = np.where(proba.max(axis=1) < 0.8, "doubt_fallback", res)
+
+    # If we detect an ourier, we'll fallback too.
     res = np.where(outlier.predict(dataf) == -1, "outlier_fallback", res)
+
+    # This `res` array contains the output of the drawn diagram.
     return res
 
 fallback_model = FunctionClassifier(make_decision)
