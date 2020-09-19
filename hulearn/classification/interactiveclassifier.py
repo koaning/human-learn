@@ -14,6 +14,11 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     """
     This tool allows you to take a drawn model and use it as a classifier.
 
+    Arguments:
+        path: path of the json file
+        smoothing: smoothing to apply to poly-counts
+        refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
+
     Usage:
 
     ```python
@@ -45,17 +50,20 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     ```
     """
 
-    def __init__(self, json_desc, smoothing=0.001):
+    def __init__(self, json_desc, smoothing=0.001, refit=True):
         self.json_desc = json_desc
         self.smoothing = smoothing
+        self.refit = refit
 
     @classmethod
-    def from_json(cls, path):
+    def from_json(cls, path, smoothing=0.001, refit=True):
         """
         Load the classifier from json stored on disk.
 
         Arguments:
             path: path of the json file
+            smoothing: smoothing to apply to poly-counts
+            refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
 
         Usage:
 
@@ -66,7 +74,9 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         ```
         """
         json_desc = json.loads(pathlib.Path(path).read_text())
-        return InteractiveClassifier(json_desc=json_desc)
+        return InteractiveClassifier(
+            json_desc=json_desc, smoothing=smoothing, refit=refit
+        )
 
     def _clean_poly_data(self, json_desc):
         """TODO: we need to prevent poly data with only two datapoints"""
@@ -106,6 +116,7 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         Fit the classifier. Bit of a formality, it's not doing anything specifically.
         """
         self.classes_ = list(self.json_desc[0]["polygons"].keys())
+        self.fitted_ = True
         return self
 
     def predict_proba(self, X):
@@ -126,6 +137,13 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         clf.predict_proba(X)
         ```
         """
+        # Because we're not doing anything during training, for convenience this
+        # method can formally "fit" during the predict call. This is a scikit-learn
+        # anti-pattern so we allow you to turn this off.
+        if self.refit:
+            if not self.fitted_:
+                self.fit(X)
+        check_is_fitted(self, ["classes_", "fitted_"])
         if isinstance(X, pd.DataFrame):
             hits = [
                 self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
@@ -158,7 +176,7 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         clf.predict(X)
         ```
         """
-        check_is_fitted(self, ["classes_"])
+        check_is_fitted(self, ["classes_", "fitted_"])
         return np.array(
             [self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)]
         )

@@ -102,7 +102,7 @@ class InteractiveOutlierDetector(BaseEstimator, OutlierMixin):
                 counts[c["label"]] += 1
         return counts
 
-    def fit(self, X, y):
+    def fit(self, X, y=None):
         """
         Fit the classifier. Bit of a formality, it's not doing anything specifically.
         """

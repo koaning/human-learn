@@ -98,7 +98,7 @@ model = InteractiveOutlierDetector(json_desc=charts.data(), threshold=2)
 
 ![](outlier-demo-threshold.png)
 
-## Must I use this?
+## Combine
 
 You might wonder, can we combine the `FunctionClassifier` with an outlier model like
 we've got here? Yes! Use a `FunctionClassifier`!
