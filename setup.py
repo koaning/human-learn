@@ -4,13 +4,9 @@ from setuptools import setup, find_packages
 import hulearn
 
 base_packages = [
-    "scikit-learn>=0.20.2",
+    "scikit-learn>=0.23.2",
     "pandas>=0.23.4",
-    "typer>=0.3.2",
-    "uvicorn>=0.11.8",
     "clumper>=0.2.5",
-    "fastapi>=0.61.0",
-    "aiofiles>=0.5.0",
     "Shapely>=1.7.1",
     "bokeh>=2.2.1",
 ]
