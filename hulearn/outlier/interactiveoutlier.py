@@ -109,6 +109,18 @@ class InteractiveOutlierDetector(BaseEstimator, OutlierMixin):
         self.classes_ = list(self.json_desc[0]["polygons"].keys())
         return self
 
+    def score(self, X):
+        if isinstance(X, pd.DataFrame):
+            hits = [
+                self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
+            ]
+        else:
+            hits = [
+                self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
+                for x in X
+            ]
+        return np.array([[h[c] for c in self.classes_] for h in hits])
+
     def predict(self, X):
         """
         Predicts the associated probabilities for each class.
@@ -128,14 +140,5 @@ class InteractiveOutlierDetector(BaseEstimator, OutlierMixin):
         clf.predict_proba(X)
         ```
         """
-        if isinstance(X, pd.DataFrame):
-            hits = [
-                self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
-            ]
-        else:
-            hits = [
-                self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
-                for x in X
-            ]
-        count_arr = np.array([[h[c] for c in self.classes_] for h in hits])
+        count_arr = self.score(X)
         return np.where(count_arr.sum(axis=1) < self.threshold, -1, 1)

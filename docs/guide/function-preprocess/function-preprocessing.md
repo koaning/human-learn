@@ -207,3 +207,11 @@ do not need to worry about the `dataf.copy()` that needs to happen.
 In our case however, we cannot use it. The grid-search no longer works
 inside of scikit-learn if you use `lambda` functions because it cannot
 pickle the code.
+
+### Don't Cheat!
+
+The functions that you write are supposed to be stateless in the sense
+that they don't learn from the data that goes in. You could theoretically
+bypass this with global variables but by doing so you're doing yourself
+a disservice. If you do this you'll be cheating the statistics by leaking
+information.

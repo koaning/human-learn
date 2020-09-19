@@ -278,4 +278,4 @@ The goal of this library is to make it easier to apply common sense to construct
 
 ### Notebook
 
-If you want to run this code yourself, feel free to download the [notebook](03-interactive.ipynb).
+If you want to run this code yourself, feel free to download the [notebook](../notebooks/03-interactive.ipynb).

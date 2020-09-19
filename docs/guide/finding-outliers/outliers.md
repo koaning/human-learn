@@ -9,7 +9,7 @@ from sklego.datasets import load_penguins
 from hulearn.experimental.interactive import InteractiveCharts
 
 df = load_penguins(as_frame=True).dropna()
-charts = InteractiveClassifierCharts(df, labels="species")
+clf = InteractiveClassifierCharts(df, labels="species")
 ```
 
 ![](new-drawing.png)
@@ -20,7 +20,7 @@ algorithms might typically still assign a class to those regions but that can be
 
 ![](new-drawing-outlier.png)
 
-We might consider these points "outside" of the comfort zone of the prediction. In these situations
+We might consider these points outside of the "comfort zone" of the predicted areas. In these situations
 it might be best to declare it an outlier and to handle it differently. That way we don't automate a
 decision that we're likely to regret later.
 
@@ -87,7 +87,7 @@ Here's the output of the model.
 A point is considered an outlier if it does not fall inside of enough drawn polygons. The number
 of poylgons that a point must fall into is a parameter that you can set manually or even search
 for in a grid-search. For example, let's repeat the exercise. The base setting is that a point needs
-to be in at least 1 polygon but we can change this to two.
+to be in at least one polygon but we can change this to two.
 
 ```python
 # Before
@@ -98,10 +98,25 @@ model = InteractiveOutlierDetector(json_desc=charts.data(), threshold=2)
 
 ![](outlier-demo-threshold.png)
 
-## Combine!
+## Must I use this?
 
-You might wonder, can we combine the two approaches? Yes! Use a `FunctionClassifier`!
+You might wonder, can we combine the `FunctionClassifier` with an outlier model like
+we've got here? Yes! Use a `FunctionClassifier`!
 
 ```python
+import numpy as np
+from hulearn.outlier import InteractiveOutlierDetector
+from hulearn.classification import FunctionClassifier, InteractiveClassifier
 
+outlier    = InteractiveOutlierDetector.from_json("path/to/file.json")
+classifier = InteractiveClassifier.from_json("path/to/file.json")
+
+def make_decision(dataf):
+    # First we create a resulting array with all the predictions
+    res = classifier.predict(dataf)
+    # If we detect an outlier, "classify" it as a fallback instead.
+    res = np.where(outlier.predict(dataf) == -1, "outlier_fallback", res)
+    return res
+
+fallback_model = FunctionClassifier(make_decision)
 ```
