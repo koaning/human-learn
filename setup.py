@@ -4,19 +4,19 @@ from setuptools import setup, find_packages
 import hulearn
 
 base_packages = [
-    "scikit-learn>=0.20.2",
+    "scikit-learn>=0.23.2",
     "pandas>=0.23.4",
-    "typer>=0.3.2",
-    "uvicorn>=0.11.8",
     "clumper>=0.2.5",
-    "fastapi>=0.61.0",
-    "aiofiles>=0.5.0",
+    "Shapely>=1.7.1",
+    "bokeh>=2.2.1",
 ]
+
 docs_packages = [
     "mkdocs==1.1",
     "mkdocs-material==4.6.3",
     "mkdocstrings==0.8.0",
 ]
+
 test_packages = [
     "flake8>=3.6.0",
     "nbval>=0.9.1",
@@ -26,6 +26,8 @@ test_packages = [
     "pytest-cov>=2.6.1",
     "pytest-mock>=1.6.3",
     "pre-commit>=1.18.3",
+    "nbval>=0.9.6",
+    "scikit-lego>=0.6.0",
 ]
 util_packages = [
     "matplotlib>=3.0.2",
@@ -45,7 +47,7 @@ setup(
     description="natural intelligence benchmarks for scikit-learn",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
-    package_data={"hulearn": ["data/*.zip"]},
+    package_data={"hulearn": ["data/*.zip", "images/*.png"]},
     install_requires=base_packages,
     extras_require={"docs": docs_packages, "dev": dev_packages, "test": test_packages},
     classifiers=[

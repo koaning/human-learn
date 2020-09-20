@@ -12,15 +12,16 @@ develop:
 	python setup.py develop
 
 test:
-	pytest --disable-warnings --cov=hulearn
+	pytest --nbval-lax --disable-warnings --cov=hulearn tests
 
 clean:
 	rm -rf .pytest_cache
 	rm -rf build
 	rm -rf dist
-	rm -rf scikit_lego.egg-info
+	rm -rf hulearn.egg-info
 	rm -rf .ipynb_checkpoints
 	rm -rf .coverage*
+	rm -rf tests/.ipynb_checkpoints
 
 black:
 	black --check .
