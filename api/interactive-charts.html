@@ -13,7 +13,7 @@
         <meta name="description" content="Machine Learning models that play by the rules, literally.">
       
       
-        <link rel="canonical" href="https://koaning.github.io/human-learn/api/preprocessing.html">
+        <link rel="canonical" href="https://koaning.github.io/human-learn/api/interactive-charts.html">
       
       
         <meta name="author" content="Vincent D. Warmerdam">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Preprocessing - Human-Learn</title>
+        <title>Charts - Human-Learn</title>
       
     
     
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#from-hulearnpreprocessing-import" tabindex="0" class="md-skip">
+      <a href="#interactiveclassifiercharts" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -119,7 +119,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Preprocessing
+                Charts
               
             </span>
           
@@ -228,7 +228,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="classification.html" class="md-tabs__link md-tabs__link--active">
+        <a href="classification.html" class="md-tabs__link">
           Api
         </a>
       
@@ -427,12 +427,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
     <label class="md-nav__link" for="nav-3-1">
       Models
@@ -484,69 +482,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Preprocessing
-      </label>
-    
-    <a href="preprocessing.html" title="Preprocessing" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="preprocessing.html" title="Preprocessing" class="md-nav__link">
       Preprocessing
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer" class="md-nav__link">
-    PipeTransformer
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.fit" class="md-nav__link">
-    fit()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" class="md-nav__link">
-    transform()
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -559,10 +499,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Interactive
@@ -578,11 +520,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="interactive-charts.html" title="Charts" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Charts
+      </label>
+    
+    <a href="interactive-charts.html" title="Charts" class="md-nav__link md-nav__link--active">
       Charts
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" class="md-nav__link">
+    add_chart()
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -713,29 +693,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer" class="md-nav__link">
-    PipeTransformer
+  <a href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" class="md-nav__link">
+    add_chart()
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.fit" class="md-nav__link">
-    fit()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" class="md-nav__link">
-    transform()
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -755,14 +715,107 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/koaning/human-learn/edit/master/docs/api/preprocessing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/koaning/human-learn/edit/master/docs/api/interactive-charts.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="from-hulearnpreprocessing-import"><code>from hulearn.preprocessing import *</code><a class="headerlink" href="#from-hulearnpreprocessing-import" title="Permanent link">&para;</a></h1>
-<h2 id="hulearn.preprocessing.pipetransformer.PipeTransformer"><code class="highlight"><span class="n">PipeTransformer</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer" title="Permanent link">&para;</a></h2>
-<p>This transformer allows you to define a function that will take in
-data and transform it however you like. You can specify keyword arguments
-that you can benchmark as well.</p>
+                <h1 id="interactiveclassifiercharts"><code>InteractiveClassifierCharts</code><a class="headerlink" href="#interactiveclassifiercharts" title="Permanent link">&para;</a></h1>
+<p>This tool allows you to interactively "draw" a model.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
+<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveClassifierCharts</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveClassifierCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>experimental/interactive.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate an interactive chart to a cell.</span>
+
+<span class="sd">        The supported actions include:</span>
+
+<span class="sd">        - Add patch or multi-line: Double tap to add the first vertex, then use tap to add each subsequent vertex,</span>
+<span class="sd">        to finalize the draw action double tap to insert the final vertex or press the &lt;&lt;esc&gt; key.</span>
+<span class="sd">        - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.</span>
+<span class="sd">        - Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;&lt;backspace&gt;&gt; key while the mouse is within the plot area.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: the column from the dataset to place on the x-axis</span>
+<span class="sd">            y: the column from the dataset to place on the y-axis</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        from sklego.datasets import load_penguins</span>
+<span class="sd">        from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts</span>
+
+<span class="sd">        df = load_penguins(as_frame=True)</span>
+<span class="sd">        charts = InteractiveClassifierCharts(df, labels=&quot;species&quot;)</span>
+
+<span class="sd">        # Next notebook cell</span>
+<span class="sd">        charts.add_chart(x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;)</span>
+<span class="sd">        # Next notebook cell</span>
+<span class="sd">        charts.add_chart(x=&quot;flipper_length_mm&quot;, y=&quot;body_mass_g&quot;)</span>
+
+<span class="sd">        # After drawing a model, export the data</span>
+<span class="sd">        json_data = charts.data()</span>
+<span class="sd">        ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">SingleInteractiveChart</span><span class="p">(</span>
+            <span class="n">dataf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">labels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+        <span class="n">chart</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Generate an interactive chart to a cell.</p>
+<p>The supported actions include:</p>
+<ul>
+<li>Add patch or multi-line: Double tap to add the first vertex, then use tap to add each subsequent vertex,
+to finalize the draw action double tap to insert the final vertex or press the &lt;<esc> key.</li>
+<li>Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.</li>
+<li>Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;<backspace>&gt; key while the mouse is within the plot area.</li>
+</ul>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -775,113 +828,34 @@ that you can benchmark as well.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>func</code></td>
+<td><code>x</code></td>
 <td></td>
-<td>the function that can make predictions</td>
+<td>the column from the dataset to place on the x-axis</td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>**kwargs</code></td>
+<td><code>y</code></td>
 <td></td>
-<td>extra keyword arguments will be pass to the function, can be grid-search-able</td>
-<td><code>{}</code></td>
+<td>the column from the dataset to place on the y-axis</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
-<p>The functions that are passed need to be pickle-able. That means no lambda functions!</p>
 <p>Usage:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
+<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveClassifierCharts</span>
 
-<span class="kn">from</span> <span class="nn">hulearn.datasets</span> <span class="kn">import</span> <span class="n">load_titanic</span>
-<span class="kn">from</span> <span class="nn">hulearn.preprocessing</span> <span class="kn">import</span> <span class="n">PipeTransformer</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveClassifierCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 
+<span class="c1"># Next notebook cell</span>
+<span class="n">charts</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
+<span class="c1"># Next notebook cell</span>
+<span class="n">charts</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">n_char</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="n">dataf</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="c1"># I&#39;m not using .assign() in this pipeline because lambda functions</span>
-    <span class="c1"># do not pickle and GridSearchCV demands that it can.</span>
-    <span class="k">if</span> <span class="n">n_char</span><span class="p">:</span>
-        <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;nchar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">gender</span><span class="p">:</span>
-        <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">dataf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span>
-
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span>
-
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;prep&#39;</span><span class="p">,</span> <span class="n">PipeTransformer</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">,</span> <span class="n">n_char</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;mod&#39;</span><span class="p">,</span> <span class="n">GaussianNB</span><span class="p">())</span>
-<span class="p">])</span>
-
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;prep__n_char&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
-    <span class="s2">&quot;prep__gender&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)[[</span><span class="s1">&#39;param_prep__gender&#39;</span><span class="p">,</span> <span class="s1">&#39;param_prep__n_char&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_test_score&#39;</span><span class="p">]]</span>
+<span class="c1"># After drawing a model, export the data</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">charts</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
 </code></pre></div>
-
-<h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fit the classifier.</span>
-
-<span class="sd">        This classifier tries to confirm if the passed function can predict appropriate values on the train set.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Run it to confirm no error happened.</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ncol_</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Fit the classifier.</p>
-<p>This classifier tries to confirm if the passed function can predict appropriate values on the train set.</p>
-<h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.transform"><code class="highlight"><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Make predictions using the passed function.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;fitted_&quot;</span><span class="p">,</span> <span class="s2">&quot;ncol_&quot;</span><span class="p">])</span>
-        <span class="n">ncol</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncol_</span> <span class="o">!=</span> <span class="n">ncol</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Reshape your data, there were </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ncol_</span><span class="si">}</span><span class="s2"> features during training, now=</span><span class="si">{</span><span class="n">ncol</span><span class="si">}</span><span class="s2">.&quot;</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Make predictions using the passed function.</p>
                 
                   
                 
@@ -903,7 +877,7 @@ that you can benchmark as well.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="outlier.html" title="Outlier" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="preprocessing.html" title="Preprocessing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -912,19 +886,19 @@ that you can benchmark as well.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Outlier
+                Preprocessing
               </span>
             </div>
           </a>
         
         
-          <a href="interactive-charts.html" title="Charts" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="common.html" title="Common" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Charts
+                Common
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

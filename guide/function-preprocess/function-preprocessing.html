@@ -13,7 +13,7 @@
         <meta name="description" content="Machine Learning models that play by the rules, literally.">
       
       
-        <link rel="canonical" href="https://koaning.github.io/human-learn/guide/function-preprocessing.html">
+        <link rel="canonical" href="https://koaning.github.io/human-learn/guide/function-preprocess/function-preprocessing.html">
       
       
         <meta name="author" content="Vincent D. Warmerdam">
@@ -37,7 +37,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../icon.png">
+      <link rel="shortcut icon" href="../../icon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -66,10 +66,10 @@
         <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="../../style.css">
     
     
       
@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://koaning.github.io/human-learn/" title="Human-Learn" aria-label="Human-Learn" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../icon.png" width="24" height="24">
+            <img alt="logo" src="../../icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -198,7 +198,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../index.html" class="md-tabs__link">
+        <a href="../../index.html" class="md-tabs__link">
           Home
         </a>
       
@@ -211,7 +211,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="function-classifier.html" class="md-tabs__link md-tabs__link--active">
+        <a href="../function-classifier/function-classifier.html" class="md-tabs__link md-tabs__link--active">
           Guides
         </a>
       
@@ -228,13 +228,26 @@
   
     <li class="md-tabs__item">
       
-        <a href="../api/classification.html" class="md-tabs__link">
+        <a href="../../api/classification.html" class="md-tabs__link">
           Api
         </a>
       
     </li>
   
 
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/examples.html" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
   
 
       
@@ -253,7 +266,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://koaning.github.io/human-learn/" title="Human-Learn" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../icon.png" width="48" height="48">
+        <img alt="logo" src="../../icon.png" width="48" height="48">
       
     </a>
     Human-Learn
@@ -306,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../index.html" title="Index" class="md-nav__link">
+    <a href="../../index.html" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -344,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="function-classifier.html" title="Function as a Model" class="md-nav__link">
+    <a href="../function-classifier/function-classifier.html" title="Function as a Model" class="md-nav__link">
       Function as a Model
     </a>
   </li>
@@ -448,6 +461,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dont-cheat" class="md-nav__link">
+    Don't Cheat!
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -461,6 +481,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../drawing-classifier/drawing.html" title="Drawing as a Model" class="md-nav__link">
+      Drawing as a Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../finding-outliers/outliers.html" title="Outliers and Comfort" class="md-nav__link">
+      Outliers and Comfort
+    </a>
   </li>
 
         
@@ -513,7 +557,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/classification.html" title="Classification" class="md-nav__link">
+    <a href="../../api/classification.html" title="Classification" class="md-nav__link">
       Classification
     </a>
   </li>
@@ -525,7 +569,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/regression.html" title="Regression" class="md-nav__link">
+    <a href="../../api/regression.html" title="Regression" class="md-nav__link">
       Regression
     </a>
   </li>
@@ -537,7 +581,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/preprocessing.html" title="Preprocessing" class="md-nav__link">
+    <a href="../../api/outlier.html" title="Outlier" class="md-nav__link">
+      Outlier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/preprocessing.html" title="Preprocessing" class="md-nav__link">
       Preprocessing
     </a>
   </li>
@@ -558,10 +614,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
     <label class="md-nav__link" for="nav-3-2">
-      Utility
+      Interactive
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-2">
+        Interactive
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/interactive-charts.html" title="Charts" class="md-nav__link">
+      Charts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Utility
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
         Utility
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -573,7 +665,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/common.html" title="Common" class="md-nav__link">
+    <a href="../../api/common.html" title="Common" class="md-nav__link">
       Common
     </a>
   </li>
@@ -585,7 +677,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/datasets.html" title="Datasets" class="md-nav__link">
+    <a href="../../api/datasets.html" title="Datasets" class="md-nav__link">
       Datasets
     </a>
   </li>
@@ -593,6 +685,54 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/examples.html" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
   </li>
 
         
@@ -689,6 +829,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dont-cheat" class="md-nav__link">
+    Don't Cheat!
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -710,20 +857,22 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/koaning/human-learn/edit/master/docs/guide/function-preprocessing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/koaning/human-learn/edit/master/docs/guide/function-preprocess/function-preprocessing.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>Human Preprocessing</h1>
                 
                 <p>In python the most popular data analysis tool is pandas while the most popular
 tool for making models is scikit-learn. We love the data wrangling tools of pandas
-while we appreciate the benchmarking capability of scikit-learn. </p>
-<p>The fact that these tools don't fully interact is slightly awkward. The data 
-going into the model has an big effect on the output. </p>
-<p>So how might we more easily combine the two? </p>
+while we appreciate the benchmarking capability of scikit-learn.</p>
+<p>The fact that these tools don't fully interact is slightly awkward. The data
+going into the model has an big effect on the output.</p>
+<p>So how might we more easily combine the two?</p>
 <h2 id="pipe">Pipe<a class="headerlink" href="#pipe" title="Permanent link">&para;</a></h2>
-<p>In pandas there's an amazing trick that you can do with the <code>.pipe</code> method. To
-demonstrate how this works, let's load in the titanic dataset.</p>
+<p>In pandas there's an amazing trick that you can do with the <code>.pipe</code> method. We'll
+give a quick overview on how it works but if you're new to this idea you may appreciate
+<a href="https://calmcode.io/pandas-pipe/introduction.html">this resource</a> or
+<a href="https://tomaugspurger.github.io/method-chaining">this blogpost</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.datasets</span> <span class="kn">import</span> <span class="n">load_titanic</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -731,8 +880,9 @@ demonstrate how this works, let's load in the titanic dataset.</p>
 <span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
 
-<p>The <code>X</code> variable represents a dataframe with variables that we're going to use 
-to predict the survival rate (stored in <code>y</code>). Here's a preview of what <code>X</code> might have.</p>
+<p>The goal of the titanic dataset is to predict weather or not a passenger survived
+the disaster. The <code>X</code> variable represents a dataframe with variables that we're going to use
+to predict survival (stored in <code>y</code>). Here's a preview of what <code>X</code> might have.</p>
 <table>
 <thead>
 <tr>
@@ -785,28 +935,28 @@ to predict the survival rate (stored in <code>y</code>). Here's a preview of wha
 </tbody>
 </table>
 <p>Let's say we want to do some preprocessing. Maybe the length of name of somebody
-says something about their status so we'd like to capture that. We could add this 
-feature with this line of code. </p>
+says something about their status so we'd like to capture that. We could add this
+feature with this line of code.</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">[</span><span class="s1">&#39;nchar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
 </code></pre></div>
 
 <p>This line of code has downsides though. It changes the original dataset. If we do
-a lot of this then our code is going to turn into something unmaintainable rather 
-quickly. To prevent this, we might want to change the code into a function. </p>
+a lot of this then our code is going to turn into something unmaintainable rather
+quickly. To prevent this, we might want to change the code into a function.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
     <span class="c1"># Make a copy of the dataframe to prevent it from overwriting the original data.</span>
     <span class="n">dataf</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="c1"># Make the changes </span>
+    <span class="c1"># Make the changes</span>
     <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;nchar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
     <span class="c1"># Return the name dataframe</span>
     <span class="k">return</span> <span class="n">dataf</span>
 </code></pre></div>
 
-<p>We now have a nice function that makes our changes and we can use it like so; </p>
+<p>We now have a nice function that makes our changes and we can use it like so;</p>
 <div class="highlight"><pre><span></span><code><span class="n">X_new</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 
-<p>We can do something more powerful though. </p>
+<p>We can do something more powerful though.</p>
 <h3 id="paramaters">Paramaters<a class="headerlink" href="#paramaters" title="Permanent link">&para;</a></h3>
 <p>Let's make some more changes to our <code>process</code> function.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">n_char</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -818,17 +968,17 @@ quickly. To prevent this, we might want to change the code into a function. </p>
     <span class="k">return</span> <span class="n">dataf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-<p>This function works slightly differently now. The most important part is that the 
+<p>This function works slightly differently now. The most important part is that the
 function now accepts arguments that change the way it behaves internally. The function
-also drops the non-numeric columns at the end. </p>
+also drops the non-numeric columns at the end.</p>
 <p>We've changed the way we've defined our function but we're also changing the way
-that we're going to apply it. </p>
+that we're going to apply it.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This is equivalent to preprocessing(X)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span>
 </code></pre></div>
 
 <p>The benefit of this notation is that if we have more functions that handle
-data processing that it would remain a clean overview. </p>
+data processing that it would remain a clean overview.</p>
 <h3 id="with-pipe">With <code>.pipe()</code><a class="headerlink" href="#with-pipe" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">df</span>
   <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">set_col_types</span><span class="p">)</span>
@@ -840,11 +990,11 @@ data processing that it would remain a clean overview. </p>
 <div class="highlight"><pre><span></span><code><span class="n">add_time_info</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">set_col_types</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">nchar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
 
-<p>Let's be honest, this looks messy. </p>
+<p>Let's be honest, this looks messy.</p>
 <h2 id="pipetransformer">PipeTransformer<a class="headerlink" href="#pipetransformer" title="Permanent link">&para;</a></h2>
-<p>It would be great if we could use the <code>preprocessing</code>-function as part of a 
-scikit-learn pipeline that we can benchmark. It'd be great if we could use 
-a function with a pandas <code>.pipe</code>-line in general! </p>
+<p>It would be great if we could use the <code>preprocessing</code>-function as part of a
+scikit-learn pipeline that we can benchmark. It'd be great if we could use
+a function with a pandas <code>.pipe</code>-line in general!</p>
 <p>For that we've got another feature in our library, the <code>PipeTransformer</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.preprocessing</span> <span class="kn">import</span> <span class="n">PipeTransformer</span>
 
@@ -915,36 +1065,42 @@ the results of our pipeline.</p>
 </tbody>
 </table>
 <p>It seems that we gender of the passenger has more of an effect on their
-survival than the length of their name. </p>
+survival than the length of their name.</p>
 <h2 id="utility">Utility<a class="headerlink" href="#utility" title="Permanent link">&para;</a></h2>
-<p>The use-case here has been a relatively simple demonstration on a toy 
-dataset but hopefully you can recognize that this opens up a lot of 
-flexibility for your machine learning pipelines. You can keep the 
+<p>The use-case here has been a relatively simple demonstration on a toy
+dataset but hopefully you can recognize that this opens up a lot of
+flexibility for your machine learning pipelines. You can keep the
 preprocessing interpretable but you can keep everything running by
-just writing pandas code. </p>
-<p>There's a few small caveats to be aware of. </p>
+just writing pandas code.</p>
+<p>There's a few small caveats to be aware of.</p>
 <h3 id="dont-remove-data">Don't remove data<a class="headerlink" href="#dont-remove-data" title="Permanent link">&para;</a></h3>
-<p>Pandas pipelines allow you to filter away rows, scikit-learn on the 
-other hand assumes this does not happen. Please be mindful of this. </p>
+<p>Pandas pipelines allow you to filter away rows, scikit-learn on the
+other hand assumes this does not happen. Please be mindful of this.</p>
 <h3 id="dont-sort-data">Don't sort data<a class="headerlink" href="#dont-sort-data" title="Permanent link">&para;</a></h3>
 <p>You need to keep the order in your dataframe the same because otherwise
-it will no longer correspond to the <code>y</code> variable that you're trying to 
+it will no longer correspond to the <code>y</code> variable that you're trying to
 predict.</p>
 <h3 id="dont-use-lambda">Don't use <code>lambda</code><a class="headerlink" href="#dont-use-lambda" title="Permanent link">&para;</a></h3>
-<p>There's two ways that you can add a new column to pandas. </p>
+<p>There's two ways that you can add a new column to pandas.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Method 1</span>
 <span class="n">dataf_new</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Don&#39;t overwrite data!</span>
-<span class="n">dataf_new</span><span class="p">[</span><span class="s1">&#39;new_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataf_new</span><span class="p">[</span><span class="s1">&#39;old_column&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> 
+<span class="n">dataf_new</span><span class="p">[</span><span class="s1">&#39;new_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataf_new</span><span class="p">[</span><span class="s1">&#39;old_column&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
 
-<span class="c1"># Method 2  </span>
+<span class="c1"># Method 2</span>
 <span class="n">dataf_new</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;old_column&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
 <p>In many cases you might argue that method #2 is safer because you
-do not need to worry about the <code>dataf.copy()</code> that needs to happen. 
+do not need to worry about the <code>dataf.copy()</code> that needs to happen.
 In our case however, we cannot use it. The grid-search no longer works
 inside of scikit-learn if you use <code>lambda</code> functions because it cannot
-pickle the code. =</p>
+pickle the code.</p>
+<h3 id="dont-cheat">Don't Cheat!<a class="headerlink" href="#dont-cheat" title="Permanent link">&para;</a></h3>
+<p>The functions that you write are supposed to be stateless in the sense
+that they don't learn from the data that goes in. You could theoretically
+bypass this with global variables but by doing so you're doing yourself
+a disservice. If you do this you'll be cheating the statistics by leaking
+information.</p>
                 
                   
                 
@@ -966,7 +1122,7 @@ pickle the code. =</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="function-classifier.html" title="Function as a Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../function-classifier/function-classifier.html" title="Function as a Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -981,13 +1137,13 @@ pickle the code. =</p>
           </a>
         
         
-          <a href="../api/classification.html" title="Classification" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../drawing-classifier/drawing.html" title="Drawing as a Model" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Classification
+                Drawing as a Model
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1019,9 +1175,9 @@ pickle the code. =</p>
       
     </div>
     
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
     
   </body>

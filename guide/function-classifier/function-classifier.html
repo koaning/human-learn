@@ -13,7 +13,7 @@
         <meta name="description" content="Machine Learning models that play by the rules, literally.">
       
       
-        <link rel="canonical" href="https://koaning.github.io/human-learn/guide/function-classifier.html">
+        <link rel="canonical" href="https://koaning.github.io/human-learn/guide/function-classifier/function-classifier.html">
       
       
         <meta name="author" content="Vincent D. Warmerdam">
@@ -37,7 +37,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../icon.png">
+      <link rel="shortcut icon" href="../../icon.png">
       <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
     
     
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -66,10 +66,10 @@
         <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="../../style.css">
     
     
       
@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="https://koaning.github.io/human-learn/" title="Human-Learn" aria-label="Human-Learn" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../icon.png" width="24" height="24">
+            <img alt="logo" src="../../icon.png" width="24" height="24">
           
         </a>
       </div>
@@ -198,7 +198,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../index.html" class="md-tabs__link">
+        <a href="../../index.html" class="md-tabs__link">
           Home
         </a>
       
@@ -228,13 +228,26 @@
   
     <li class="md-tabs__item">
       
-        <a href="../api/classification.html" class="md-tabs__link">
+        <a href="../../api/classification.html" class="md-tabs__link">
           Api
         </a>
       
     </li>
   
 
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../examples/examples.html" class="md-tabs__link">
+          Examples
+        </a>
+      
+    </li>
   
 
       
@@ -253,7 +266,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://koaning.github.io/human-learn/" title="Human-Learn" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../icon.png" width="48" height="48">
+        <img alt="logo" src="../../icon.png" width="48" height="48">
       
     </a>
     Human-Learn
@@ -306,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../index.html" title="Index" class="md-nav__link">
+    <a href="../../index.html" title="Index" class="md-nav__link">
       Index
     </a>
   </li>
@@ -444,8 +457,32 @@
 
 
   <li class="md-nav__item">
-    <a href="function-preprocessing.html" title="Human Preprocessing" class="md-nav__link">
+    <a href="../function-preprocess/function-preprocessing.html" title="Human Preprocessing" class="md-nav__link">
       Human Preprocessing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../drawing-classifier/drawing.html" title="Drawing as a Model" class="md-nav__link">
+      Drawing as a Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../finding-outliers/outliers.html" title="Outliers and Comfort" class="md-nav__link">
+      Outliers and Comfort
     </a>
   </li>
 
@@ -499,7 +536,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/classification.html" title="Classification" class="md-nav__link">
+    <a href="../../api/classification.html" title="Classification" class="md-nav__link">
       Classification
     </a>
   </li>
@@ -511,7 +548,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/regression.html" title="Regression" class="md-nav__link">
+    <a href="../../api/regression.html" title="Regression" class="md-nav__link">
       Regression
     </a>
   </li>
@@ -523,7 +560,19 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/preprocessing.html" title="Preprocessing" class="md-nav__link">
+    <a href="../../api/outlier.html" title="Outlier" class="md-nav__link">
+      Outlier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/preprocessing.html" title="Preprocessing" class="md-nav__link">
       Preprocessing
     </a>
   </li>
@@ -544,10 +593,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
     <label class="md-nav__link" for="nav-3-2">
-      Utility
+      Interactive
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-3-2">
+        Interactive
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/interactive-charts.html" title="Charts" class="md-nav__link">
+      Charts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Utility
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
         Utility
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -559,7 +644,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/common.html" title="Common" class="md-nav__link">
+    <a href="../../api/common.html" title="Common" class="md-nav__link">
       Common
     </a>
   </li>
@@ -571,7 +656,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/datasets.html" title="Datasets" class="md-nav__link">
+    <a href="../../api/datasets.html" title="Datasets" class="md-nav__link">
       Datasets
     </a>
   </li>
@@ -579,6 +664,54 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/examples.html" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
   </li>
 
         
@@ -682,17 +815,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/koaning/human-learn/edit/master/docs/guide/function-classifier.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/koaning/human-learn/edit/master/docs/guide/function-classifier/function-classifier.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>Function as a Model</h1>
                 
-                <p>The goal of this library is to make it easier to declare common sense models. 
+                <p>The goal of this library is to make it easier to declare common sense models.
 A very pythonic way of getting there is to declare a function. One of the first features
 in this library is the ability to re-use functions as if they are scikit-learn models.</p>
 <h2 id="titanic">Titanic<a class="headerlink" href="#titanic" title="Permanent link">&para;</a></h2>
-<p>Let's see how this might work. We'll grab a dataset that is packaged along 
-with this library.   </p>
+<p>Let's see how this might work. We'll grab a dataset that is packaged along
+with this library.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.datasets</span> <span class="kn">import</span> <span class="n">load_titanic</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -754,27 +887,27 @@ with this library.   </p>
 </tr>
 </tbody>
 </table>
-<p>There's actually some more columns in this dataset but we'll limit ourselves 
-to just these for now. The goal of the dataset is to predict if you survived 
+<p>There's actually some more columns in this dataset but we'll limit ourselves
+to just these for now. The goal of the dataset is to predict if you survived
 the titanic disaster based on the other attributes in this dataframe.</p>
 <h3 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h3>
-<p>To prepare our data we will first get it into the common <code>X</code>, <code>y</code> format for 
+<p>To prepare our data we will first get it into the common <code>X</code>, <code>y</code> format for
 scikit-learn.</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span>
 </code></pre></div>
 
-<p>We could now start to import fancy machine learning models. It's what a lot of 
-people do. Import a random forest, and see how high we can get the accuracy 
-statistics. The goal of this library is to do the exact opposite. It might be a 
-better idea to create a simple benchmark using, well, common sense? </p>
-<p>It's the goal of this library to make this easier for scikit-learn. In part 
-because this helps us get to sensible benchmarks but also because this exercise 
-usually makes you understand the data a whole lot better. </p>
+<p>We could now start to import fancy machine learning models. It's what a lot of
+people do. Import a random forest, and see how high we can get the accuracy
+statistics. The goal of this library is to do the exact opposite. It might be a
+better idea to create a simple benchmark using, well, common sense?</p>
+<p>It's the goal of this library to make this easier for scikit-learn. In part
+because this helps us get to sensible benchmarks but also because this exercise
+usually makes you understand the data a whole lot better.</p>
 <h3 id="functionclassifier">FunctionClassifier<a class="headerlink" href="#functionclassifier" title="Permanent link">&para;</a></h3>
 <p>Let's write a simple python function that determines if you survived based on the amount
 of money you paid for your ticket. It might serve as a proxy for your survival rate. To get
 such a model to act as a scikit-learn model you can use the <code>FunctionClassifier</code>. You can see
-an example of that below. </p>
+an example of that below.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">hulearn.classification</span> <span class="kn">import</span> <span class="n">FunctionClassifier</span>
 
@@ -788,16 +921,16 @@ an example of that below. </p>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">fare_based</span><span class="p">)</span>
 </code></pre></div>
 
-<p>This <code>mod</code> is a scikit-learn model, which means that you can <code>.fit(X, y).predict(X)</code>. </p>
+<p>This <code>mod</code> is a scikit-learn model, which means that you can <code>.fit(X, y).predict(X)</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 
 <p>During the <code>.fit(X, y)</code>-step there's actually nothing being "trained" but it's a scikit-learn
-formality that every model has a "fit"-step and a "predict"-step.  </p>
+formality that every model has a "fit"-step and a "predict"-step.</p>
 <h3 id="grid">Grid<a class="headerlink" href="#grid" title="Permanent link">&para;</a></h3>
 <p>Being able to <code>.fit(X, y).predict(X)</code> is nice. We could compare the predictions with the true
-values to get an idea of how well our heuristic works. But how do we know if we've picked the 
-best <code>threshold</code> value? For that, you might like to use <code>GridSearchCV</code>. </p>
+values to get an idea of how well our heuristic works. But how do we know if we've picked the
+best <code>threshold</code> value? For that, you might like to use <code>GridSearchCV</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">make_scorer</span>
 
@@ -805,15 +938,15 @@ best <code>threshold</code> value? For that, you might like to use <code>GridSea
 <span class="k">def</span> <span class="nf">fare_based</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;fare&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-<span class="c1"># Pay attention here, we set the threshold argument in here. </span>
+<span class="c1"># Pay attention here, we set the threshold argument in here.</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">fare_based</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># The GridSearch object can now &quot;grid-search&quot; over this argument.</span>
 <span class="c1"># We also add a bunch of metrics to our approach so we can measure.</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> 
-                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span>
+                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                     <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;threshold&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)},</span>
-                    <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">),</span> 
+                    <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">),</span>
                              <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">precision_score</span><span class="p">),</span>
                              <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">)},</span>
                     <span class="n">refit</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
@@ -833,14 +966,14 @@ for that.</p>
     <span class="n">predicate</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">sex</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pclass</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predicate</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-<span class="c1"># Once again, remember to declare your arguments here too! </span>
+<span class="c1"># Once again, remember to declare your arguments here too!</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">last_name</span><span class="p">,</span> <span class="n">pclass</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s1">&#39;male&#39;</span><span class="p">)</span>
 
 <span class="c1"># The arguments of the function can now be &quot;grid-searched&quot;.</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> 
-                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span>
+                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                     <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pclass&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">]},</span>
-                    <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">),</span> 
+                    <span class="n">scoring</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">),</span>
                              <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">precision_score</span><span class="p">),</span>
                              <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">)},</span>
                     <span class="n">refit</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
@@ -851,8 +984,8 @@ for that.</p>
 <p>In this guide we've seen the <code>FunctionClassifier</code>. It is one of the many models in this
 library that will help you construct more "human" models.</p>
 <h3 id="notebook">Notebook<a class="headerlink" href="#notebook" title="Permanent link">&para;</a></h3>
-<p>If you want to download with this code yourself, feel free to download the 
-notebook <a href="notebooks/01-function-classifier.ipynb">here</a>. </p>
+<p>If you want to download with this code yourself, feel free to download the
+notebook <a href="../notebooks/01-function-classifier.ipynb">here</a>.</p>
                 
                   
                 
@@ -874,7 +1007,7 @@ notebook <a href="notebooks/01-function-classifier.ipynb">here</a>. </p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../index.html" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../index.html" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -889,7 +1022,7 @@ notebook <a href="notebooks/01-function-classifier.ipynb">here</a>. </p>
           </a>
         
         
-          <a href="function-preprocessing.html" title="Human Preprocessing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../function-preprocess/function-preprocessing.html" title="Human Preprocessing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
@@ -927,9 +1060,9 @@ notebook <a href="notebooks/01-function-classifier.ipynb">here</a>. </p>
       
     </div>
     
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
     
   </body>
