@@ -31,10 +31,20 @@ You can install this tool via `pip`.
 python -m pip install human-learn
 ```
 
+## Guides
+
+To help you get started we've written some helpful getting started guides.
+
+1. [Functions as a Model](guide/function-classifier/function-classifier.html)
+2. [Human Preprocessing](guide/function-preprocess/function-preprocessing.html)
+3. [Drawing as a Model](guide/drawing-classifier/drawing.html)
+4. [Outliers and Comfort](guide/finding-outliers/outliers.html)
+
+You can also check out the API documentation [here](api/classification.html).
+
 ## Features
 
 This library hosts a couple of models that you can play with.
-
 
 ### Classification Models
 
