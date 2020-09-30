@@ -15,7 +15,7 @@ class InteractivePreprocessor(BaseEstimator):
     This tool allows you to take a drawn model and use it as a featurizer.
 
     Arguments:
-        json_desc: chart data in dictionary form
+        json_desc: chart da ta in dictionary form
         refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
     """
 
@@ -35,9 +35,9 @@ class InteractivePreprocessor(BaseEstimator):
         Usage:
 
         ```python
-        from hulearn.classification import InteractiveClassifier
+        from hulearn.classification import InteractivePreprocessor
 
-        InteractiveClassifier.from_json("path/to/file.json")
+        InteractivePreprocessor.from_json("path/to/file.json")
         ```
         """
         json_desc = json.loads(pathlib.Path(path).read_text())
@@ -72,7 +72,7 @@ class InteractivePreprocessor(BaseEstimator):
                 counts[c["label"]] += 1
         return counts
 
-    def fit(self, X, y):
+    def fit(self, X, y=None):
         """
         Fit the classifier. Bit of a formality, it's not doing anything specifically.
         """
@@ -116,3 +116,32 @@ class InteractivePreprocessor(BaseEstimator):
             ]
         count_arr = np.array([[h[c] for c in self.classes_] for h in hits])
         return count_arr
+
+    def pandas_pipe(self, dataf):
+        """
+        Use this transformer as part of a `.pipe()` method chain in pandas.
+
+        Usage:
+
+        ```python
+        import numpy as np
+        import pandas as pd
+
+        # Load in a dataframe from somewhere
+        df = load_data(...)
+
+        # Load in drawn chart data
+        from hulearn.preprocessing import InteractivePreprocessor
+        tfm = InteractivePreprocessor.from_json("path/file.json")
+
+        # This adds new columns to the dataframe
+        df.pipe(pandas_pipe)
+        ```
+        """
+        new_dataf = pd.DataFrame(
+            self.fit(dataf).transform(dataf), columns=self.classes_
+        )
+        return pd.concat(
+            [dataf.copy().reset_index(drop=True), new_dataf.reset_index(drop=True)],
+            axis=1,
+        )
