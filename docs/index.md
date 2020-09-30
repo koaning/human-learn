@@ -39,6 +39,7 @@ To help you get started we've written some helpful getting started guides.
 2. [Human Preprocessing](guide/function-preprocess/function-preprocessing.html)
 3. [Drawing as a Model](guide/drawing-classifier/drawing.html)
 4. [Outliers and Comfort](guide/finding-outliers/outliers.html)
+5. [Drawing Features](guide/function-classifier/function-classifier.html)
 
 You can also check out the API documentation [here](api/classification.html).
 
@@ -89,8 +90,14 @@ it an outlier. There's a threshold parameter for how strict you might want to be
 This allows you to define a function that can make handle preprocessing. It's
 constructed in such a way that you can use the arguments of the function as a parameter
 that you can benchmark in a grid-search. This is especially powerful in combination
-with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, yo may appreciate
-[this tutorial](https://calmcode.io/pandas-pipe/introduction.html).
+with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, you
+may appreciate [this tutorial](https://calmcode.io/pandas-pipe/introduction.html).
+
+#### InteractivePreprocessor
+
+This allows you to draw features that you'd like to add to your dataset or
+your machine learning pipeline. You can use it via `tfm.fit(df).transform(df)` and
+`df.pipe(tfm)`.
 
 ### Datasets
 

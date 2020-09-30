@@ -35,7 +35,6 @@ python -m pip install human-learn
 
 This library hosts a couple of models that you can play with.
 
-
 ### Classification Models
 
 #### FunctionClassifier
@@ -79,8 +78,14 @@ it an outlier. There's a threshold parameter for how strict you might want to be
 This allows you to define a function that can make handle preprocessing. It's
 constructed in such a way that you can use the arguments of the function as a parameter
 that you can benchmark in a grid-search. This is especially powerful in combination
-with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, yo may appreciate
-[this tutorial](https://calmcode.io/pandas-pipe/introduction.html).
+with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, you
+may appreciate [this tutorial](https://calmcode.io/pandas-pipe/introduction.html).
+
+#### InteractivePreprocessor
+
+This allows you to draw features that you'd like to add to your dataset or
+your machine learning pipeline. You can use it via `tfm.fit(df).transform(df)` and
+`df.pipe(tfm)`.
 
 ### Datasets
 
