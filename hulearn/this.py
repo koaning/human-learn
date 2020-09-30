@@ -7,12 +7,12 @@ and Artifical Stupidity a valid concern.
 Why worry about state of the art,
 maybe it's time that we all admit.
 That one-size-fits-all suit,
-usually does not fit.
+is not bespoke and usually does not fit.
 
 There are many ways to solve a problem,
 but don't let it go to your head.
 Why would you use a predefined solution,
-if you can customize one instead.
+if you can create a custom one instead.
 """
 
 print(msg)

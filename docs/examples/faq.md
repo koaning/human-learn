@@ -2,6 +2,15 @@
 
 Feel free to ask questions [here](https://github.com/koaning/human-learn/issues).
 
+## What are the Lessons Learned
+
+If you're interested in some of the lessons the creators of this tool learned
+while creating it, all you need to do is follow the python tradition.
+
+```python
+from hulearn import this
+```
+
 ## Why Make This?
 
 Back in the old days, it was common to write rule-based systems. Systems that do;
