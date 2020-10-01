@@ -71,10 +71,10 @@ from sklego.datasets import load_penguins
 from hulearn.experimental.interactive import InteractiveCharts
 
 df = load_penguins(as_frame=True).dropna()
-clf = InteractiveClassifierCharts(df, labels="species")
+clf = InteractiveCharts(df, labels="species")
 ```
 
-The `clf` variable contains a `InteractiveClassifierCharts` object that has assumed that the `"species"` column in `df`
+The `clf` variable contains a `InteractiveCharts` object that has assumed that the `"species"` column in `df`
 to represent the label that we're interested in. From here you can generate charts, via;
 
 ```python
