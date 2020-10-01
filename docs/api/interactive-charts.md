@@ -1,3 +1,3 @@
-# `InteractiveClassifierCharts`
+# `InteractiveCharts`
 
 ::: hulearn.experimental.InteractiveCharts

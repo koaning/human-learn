@@ -9,7 +9,7 @@ from sklego.datasets import load_penguins
 from hulearn.experimental.interactive import InteractiveCharts
 
 df = load_penguins(as_frame=True).dropna()
-clf = InteractiveClassifierCharts(df, labels="species")
+clf = InteractiveCharts(df, labels="species")
 ```
 
 ![](new-drawing.png)

@@ -22,10 +22,10 @@ class InteractiveOutlierDetector(BaseEstimator, OutlierMixin):
 
     ```python
     from sklego.datasets import load_penguins
-    from hulearn.experimental.interactive import InteractiveClassifierCharts
+    from hulearn.experimental.interactive import InteractiveCharts
 
     df = load_penguins(as_frame=True)
-    charts = InteractiveClassifierCharts(df, labels="species")
+    charts = InteractiveCharts(df, labels="species")
 
     # Next notebook cell
     charts.add_chart(x="bill_length_mm", y="bill_depth_mm")
