@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#interactiveclassifiercharts" tabindex="0" class="md-skip">
+      <a href="#interactivecharts" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -730,14 +730,14 @@
                   <a href="https://github.com/koaning/human-learn/edit/master/docs/api/interactive-charts.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="interactiveclassifiercharts"><code>InteractiveClassifierCharts</code><a class="headerlink" href="#interactiveclassifiercharts" title="Permanent link">&para;</a></h1>
+                <h1 id="interactivecharts"><code>InteractiveCharts</code><a class="headerlink" href="#interactivecharts" title="Permanent link">&para;</a></h1>
 <p>This tool allows you to interactively "draw" a model.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
-<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveClassifierCharts</span>
+<span class="kn">from</span> <span class="nn">hulearn.classification.interactive</span> <span class="kn">import</span> <span class="n">InteractiveCharts</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveClassifierCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
@@ -802,10 +802,10 @@
 
 <span class="sd">        ```python</span>
 <span class="sd">        from sklego.datasets import load_penguins</span>
-<span class="sd">        from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts</span>
+<span class="sd">        from hulearn.drawing-classifier.interactive import InteractiveCharts</span>
 
 <span class="sd">        df = load_penguins(as_frame=True)</span>
-<span class="sd">        charts = InteractiveClassifierCharts(df, labels=&quot;species&quot;)</span>
+<span class="sd">        charts = InteractiveCharts(df, labels=&quot;species&quot;)</span>
 
 <span class="sd">        # Next notebook cell</span>
 <span class="sd">        charts.add_chart(x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;)</span>
@@ -865,10 +865,10 @@ to finalize the draw action double tap to insert the final vertex or press the &
 </table>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
-<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveClassifierCharts</span>
+<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveCharts</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveClassifierCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 
 <span class="c1"># Next notebook cell</span>
 <span class="n">charts</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>

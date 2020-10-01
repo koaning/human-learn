@@ -980,10 +980,10 @@
 </table>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
-<span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">InteractiveClassifierCharts</span>
+<span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">InteractiveCharts</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveClassifierCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 
 <span class="c1"># Next notebook cell</span>
 <span class="n">charts</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
