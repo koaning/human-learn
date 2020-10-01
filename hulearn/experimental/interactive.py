@@ -6,6 +6,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
+from bokeh.models.annotations import Label
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
 
