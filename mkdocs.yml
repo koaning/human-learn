@@ -13,6 +13,7 @@ nav:
       - Human Preprocessing: guide/function-preprocess/function-preprocessing.md
       - Drawing as a Model: guide/drawing-classifier/drawing.md
       - Outliers and Comfort: guide/finding-outliers/outliers.md
+      - Drawing Features: guide/drawing-features/custom-features.md
   - Api:
     - Models:
       - Classification: api/classification.md

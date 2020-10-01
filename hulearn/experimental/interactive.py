@@ -6,7 +6,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
-from bokeh.models import Label
+from bokeh.models.annotations import Label
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
 
@@ -37,7 +37,7 @@ class InteractiveCharts:
         self.labels = labels
         self.charts = []
 
-    def add_chart(self, x, y):
+    def add_chart(self, x, y, size=5, alpha=0.5):
         """
         Generate an interactive chart to a cell.
 
@@ -71,7 +71,12 @@ class InteractiveCharts:
         ```
         """
         chart = SingleInteractiveChart(
-            dataf=self.dataf.copy(), labels=self.labels, x=x, y=y
+            dataf=self.dataf.copy(),
+            labels=self.labels,
+            x=x,
+            y=y,
+            size=size,
+            alpha=alpha,
         )
         self.charts.append(chart)
         chart.show()
@@ -84,7 +89,7 @@ class InteractiveCharts:
 
 
 class SingleInteractiveChart:
-    def __init__(self, dataf, labels, x, y):
+    def __init__(self, dataf, labels, x, y, size=5, alpha=0.5):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
         self.y = y
@@ -103,7 +108,9 @@ class SingleInteractiveChart:
 
         if len(self.labels) > 5:
             raise ValueError("We currently only allow for 5 classes max.")
-        self.plot.circle(x=x, y=y, color="color", source=self.source)
+        self.plot.circle(
+            x=x, y=y, color="color", source=self.source, size=size, alpha=alpha
+        )
 
         # Create all the tools for drawing
         self.poly_patches = {}
