@@ -127,6 +127,7 @@ class SingleInteractiveChart:
             renderers=list(self.poly_patches.values()), vertex_renderer=c
         )
         self.plot.add_tools(*self.poly_draw.values(), edit_tool)
+        self.plot.add_layout(Label(x=70, y=70, text="here your text"))
 
     def app(self, doc):
         html = "<ul style='width:100px'>"

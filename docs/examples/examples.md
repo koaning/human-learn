@@ -1,8 +1,6 @@
 This page contains a list of short examples that demonstrate the utility of
 the tools in this package. The goal for each example is to be small and consise.
 
-This page is still under construction.
-
 ## Precision and Subgroups
 
 It can be the case that for a subgroup of the population you do not need a model.
@@ -94,7 +92,7 @@ def make_decision(dataf):
     proba = classifier.predict_proba(dataf)
     res = np.where(proba.max(axis=1) < 0.8, "doubt_fallback", res)
 
-    # If we detect an outlier, we'll fallback too.
+    # If we detect an ourier, we'll fallback too.
     res = np.where(outlier.predict(dataf) == -1, "outlier_fallback", res)
 
     # This `res` array contains the output of the drawn diagram.

@@ -23,7 +23,7 @@ This package contains scikit-learn compatible tools that should make it easier
 to construct and benchmark rule based systems that are designed by humans. You
 can also use it in combination with ML models.
 
-## Install
+## Installation
 
 You can install this tool via `pip`.
 
@@ -31,9 +31,14 @@ You can install this tool via `pip`.
 python -m pip install human-learn
 ```
 
+## Documentation 
+
+Detailed documentation of this tool can be found [here](https://koaning.github.io/human-learn/). 
+
 ## Features
 
 This library hosts a couple of models that you can play with.
+
 
 ### Classification Models
 
