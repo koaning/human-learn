@@ -397,6 +397,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/drawing-features/custom-features.html" title="Drawing Features" class="md-nav__link">
+      Drawing Features
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -529,6 +541,47 @@
         
           <li class="md-nav__item">
   <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" class="md-nav__link">
+    transform()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor" class="md-nav__link">
+    InteractivePreprocessor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit" class="md-nav__link">
+    fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json" class="md-nav__link">
+    from_json()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe" class="md-nav__link">
+    pandas_pipe()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform" class="md-nav__link">
     transform()
   </a>
   
@@ -739,6 +792,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor" class="md-nav__link">
+    InteractivePreprocessor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit" class="md-nav__link">
+    fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json" class="md-nav__link">
+    from_json()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe" class="md-nav__link">
+    pandas_pipe()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform" class="md-nav__link">
+    transform()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -882,6 +976,290 @@ that you can benchmark as well.</p>
 
 </details>
 <p>Make predictions using the passed function.</p>
+<h2 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor"><code class="highlight"><span class="n">InteractivePreprocessor</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor" title="Permanent link">&para;</a></h2>
+<p>This tool allows you to take a drawn model and use it as a featurizer.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>json_desc</code></td>
+<td></td>
+<td>chart da ta in dictionary form</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>refit</code></td>
+<td></td>
+<td>if <code>True</code>, you no longer need to call <code>.fit(X, y)</code> in order to <code>.predict(X)</code></td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the classifier. Bit of a formality, it&#39;s not doing anything specifically.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">json_desc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;polygons&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Fit the classifier. Bit of a formality, it's not doing anything specifically.</p>
+<h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json"><code class="highlight"><span class="n">from_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the classifier from json stored on disk.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            path: path of the json file</span>
+<span class="sd">            refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        from hulearn.classification import InteractivePreprocessor</span>
+
+<span class="sd">        InteractivePreprocessor.from_json(&quot;path/to/file.json&quot;)</span>
+<span class="sd">        ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">json_desc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">InteractivePreprocessor</span><span class="p">(</span><span class="n">json_desc</span><span class="o">=</span><span class="n">json_desc</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="n">refit</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Load the classifier from json stored on disk.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td></td>
+<td>path of the json file</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>refit</code></td>
+<td></td>
+<td>if <code>True</code>, you no longer need to call <code>.fit(X, y)</code> in order to <code>.predict(X)</code></td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.classification</span> <span class="kn">import</span> <span class="n">InteractivePreprocessor</span>
+
+<span class="n">InteractivePreprocessor</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/to/file.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe"><code class="highlight"><span class="n">pandas_pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataf</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">pandas_pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataf</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use this transformer as part of a `.pipe()` method chain in pandas.</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        import pandas as pd</span>
+
+<span class="sd">        # Load in a dataframe from somewhere</span>
+<span class="sd">        df = load_data(...)</span>
+
+<span class="sd">        # Load in drawn chart data</span>
+<span class="sd">        from hulearn.preprocessing import InteractivePreprocessor</span>
+<span class="sd">        tfm = InteractivePreprocessor.from_json(&quot;path/file.json&quot;)</span>
+
+<span class="sd">        # This adds new columns to the dataframe</span>
+<span class="sd">        df.pipe(pandas_pipe)</span>
+<span class="sd">        ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_dataf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataf</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">dataf</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">dataf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">new_dataf</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Use this transformer as part of a <code>.pipe()</code> method chain in pandas.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Load in a dataframe from somewhere</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Load in drawn chart data</span>
+<span class="kn">from</span> <span class="nn">hulearn.preprocessing</span> <span class="kn">import</span> <span class="n">InteractivePreprocessor</span>
+<span class="n">tfm</span> <span class="o">=</span> <span class="n">InteractivePreprocessor</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/file.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># This adds new columns to the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">pandas_pipe</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform"><code class="highlight"><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply the counting/binning based on the drawings.</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        from hulearn.preprocessing import InteractivePreprocessor</span>
+<span class="sd">        clf = InteractivePreprocessor(clf_data)</span>
+<span class="sd">        X, y = load_data(...)</span>
+
+<span class="sd">        # This doesn&#39;t do anything. But scikit-learn demands it.</span>
+<span class="sd">        clf.fit(X, y)</span>
+
+<span class="sd">        # This makes predictions, based on your drawn model.</span>
+<span class="sd">        clf.transform(X)</span>
+<span class="sd">        ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Because we&#39;re not doing anything during training, for convenience this</span>
+        <span class="c1"># method can formally &quot;fit&quot; during the predict call. This is a scikit-learn</span>
+        <span class="c1"># anti-pattern so we allow you to turn this off.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refit</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;classes_&quot;</span><span class="p">,</span> <span class="s2">&quot;fitted_&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">hits</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_count_hits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">poly_data</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hits</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_count_hits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">poly_data</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
+            <span class="p">]</span>
+        <span class="n">count_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">h</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">]</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">count_arr</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Apply the counting/binning based on the drawings.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.preprocessing</span> <span class="kn">import</span> <span class="n">InteractivePreprocessor</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">InteractivePreprocessor</span><span class="p">(</span><span class="n">clf_data</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># This doesn&#39;t do anything. But scikit-learn demands it.</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># This makes predictions, based on your drawn model.</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
                 
                   
                 

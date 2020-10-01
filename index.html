@@ -465,6 +465,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#interactivepreprocessor" class="md-nav__link">
+    InteractivePreprocessor
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -574,6 +581,18 @@
   <li class="md-nav__item">
     <a href="guide/finding-outliers/outliers.html" title="Outliers and Comfort" class="md-nav__link">
       Outliers and Comfort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guide/drawing-features/custom-features.html" title="Drawing Features" class="md-nav__link">
+      Drawing Features
     </a>
   </li>
 
@@ -949,6 +968,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#interactivepreprocessor" class="md-nav__link">
+    InteractivePreprocessor
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1028,6 +1054,7 @@ can also use it in combination with ML models.</p>
 <li><a href="guide/function-preprocess/function-preprocessing.html">Human Preprocessing</a></li>
 <li><a href="guide/drawing-classifier/drawing.html">Drawing as a Model</a></li>
 <li><a href="guide/finding-outliers/outliers.html">Outliers and Comfort</a></li>
+<li><a href="guide/function-classifier/function-classifier.html">Drawing Features</a></li>
 </ol>
 <p>You can also check out the API documentation <a href="api/classification.html">here</a>.</p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
@@ -1060,8 +1087,12 @@ it an outlier. There's a threshold parameter for how strict you might want to be
 <p>This allows you to define a function that can make handle preprocessing. It's
 constructed in such a way that you can use the arguments of the function as a parameter
 that you can benchmark in a grid-search. This is especially powerful in combination
-with the pandas <code>.pipe</code> method. If you're unfamiliar with this amazing feature, yo may appreciate
-<a href="https://calmcode.io/pandas-pipe/introduction.html">this tutorial</a>.</p>
+with the pandas <code>.pipe</code> method. If you're unfamiliar with this amazing feature, you
+may appreciate <a href="https://calmcode.io/pandas-pipe/introduction.html">this tutorial</a>.</p>
+<h4 id="interactivepreprocessor">InteractivePreprocessor<a class="headerlink" href="#interactivepreprocessor" title="Permanent link">&para;</a></h4>
+<p>This allows you to draw features that you'd like to add to your dataset or
+your machine learning pipeline. You can use it via <code>tfm.fit(df).transform(df)</code> and
+<code>df.pipe(tfm)</code>.</p>
 <h3 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h3>
 <h4 id="titanic">Titanic<a class="headerlink" href="#titanic" title="Permanent link">&para;</a></h4>
 <p>This library hosts the popular titanic survivor dataset for demo purposes. The goal of

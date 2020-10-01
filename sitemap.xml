@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://koaning.github.io/human-learn/index.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/guide/function-classifier/function-classifier.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/guide/function-preprocess/function-preprocessing.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/guide/drawing-classifier/drawing.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/guide/finding-outliers/outliers.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://koaning.github.io/human-learn/guide/drawing-features/custom-features.html</loc>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/classification.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/regression.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/outlier.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/preprocessing.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/interactive-charts.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/common.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/api/datasets.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/examples/examples.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://koaning.github.io/human-learn/examples/faq.html</loc>
-     <lastmod>2020-09-30</lastmod>
+     <lastmod>2020-10-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
