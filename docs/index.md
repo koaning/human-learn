@@ -56,6 +56,13 @@ You can also check out the API documentation [here](api/classification.html).
 
 This library hosts a couple of models that you can play with.
 
+### Interactive Drawings
+
+This tool allows you to draw over your datasets. These drawings can later
+be converted to models or to preprocessing tools.
+
+![](draw-gif.gif)
+
 ### Classification Models
 
 #### FunctionClassifier
