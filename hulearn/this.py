@@ -6,7 +6,7 @@ is not bespoke and usually does not fit.
 
 Computers can flow a lot of tensors,
 but they never really learn.
-Natural Intelligence is a pretty good idea,
+Natural Intelligence is still a good idea,
 and Artifical Stupidity a valid concern.
 
 There are many ways to solve a problem,
