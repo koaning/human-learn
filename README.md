@@ -111,4 +111,5 @@ this dataset is to predict who might have survived the titanic disaster.
 #### Fish
 
 The fish market dataset is also hosted in this library. The goal of this dataset
-is to predict the weight of fish.
+is to predict the weight of fish. However, it can also be turned into a classification problem
+by predicting the species.
