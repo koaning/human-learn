@@ -24,10 +24,10 @@ class InteractiveCharts:
 
     ```python
     from sklego.datasets import load_penguins
-    from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts
+    from hulearn.classification.interactive import InteractiveCharts
 
     df = load_penguins(as_frame=True)
-    charts = InteractiveClassifierCharts(df, labels="species")
+    charts = InteractiveCharts(df, labels="species")
     ```
     """
 
@@ -56,10 +56,10 @@ class InteractiveCharts:
 
         ```python
         from sklego.datasets import load_penguins
-        from hulearn.drawing-classifier.interactive import InteractiveClassifierCharts
+        from hulearn.drawing-classifier.interactive import InteractiveCharts
 
         df = load_penguins(as_frame=True)
-        charts = InteractiveClassifierCharts(df, labels="species")
+        charts = InteractiveCharts(df, labels="species")
 
         # Next notebook cell
         charts.add_chart(x="bill_length_mm", y="bill_depth_mm")

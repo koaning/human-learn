@@ -36,7 +36,7 @@ a polygon by first clicking the polygon once and then hitting backspace.
 
 Once you're done drawing you might end up with a drawing that looks like this.
 
-<img src="draw.png" width=500/>
+<img src="../../draw-gif.gif" width=500/>
 
 When you look at it such a drawing. It makes you wonder, wouldn't it be nice if
 this was the output of a machine learning model?
@@ -71,10 +71,10 @@ from sklego.datasets import load_penguins
 from hulearn.experimental.interactive import InteractiveCharts
 
 df = load_penguins(as_frame=True).dropna()
-clf = InteractiveClassifierCharts(df, labels="species")
+clf = InteractiveCharts(df, labels="species")
 ```
 
-The `clf` variable contains a `InteractiveClassifierCharts` object that has assumed that the `"species"` column in `df`
+The `clf` variable contains a `InteractiveCharts` object that has assumed that the `"species"` column in `df`
 to represent the label that we're interested in. From here you can generate charts, via;
 
 ```python
@@ -275,6 +275,10 @@ The details of how points in polygons are weighted will be explored with hyperpa
 
 The goal of this library is to make it easier to apply common sense to construct models. By thinking more in terms of
 "human learning" as opposed to "machine learning" you might be able to make models that are guaranteed to follow the rules.
+
+Is this way of modelling perfect? No. Human made rules can also be biased and we should also
+consider that this model still needs to undergo testing via a validation set. You still need to "think" when designing
+rule based systems.
 
 ### Notebook
 
