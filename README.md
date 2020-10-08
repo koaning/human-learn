@@ -35,6 +35,8 @@ python -m pip install human-learn
 
 Detailed documentation of this tool can be found [here](https://koaning.github.io/human-learn/).
 
+A free video course can be found on [calmcode.io](https://calmcode.io/human-learn/introduction.html).
+
 ## Features
 
 This library hosts a couple of models that you can play with.
