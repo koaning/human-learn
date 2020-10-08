@@ -31,14 +31,21 @@ You can install this tool via `pip`.
 python -m pip install human-learn
 ```
 
-## Documentation 
+## Documentation
 
-Detailed documentation of this tool can be found [here](https://koaning.github.io/human-learn/). 
+Detailed documentation of this tool can be found [here](https://koaning.github.io/human-learn/).
 
 ## Features
 
 This library hosts a couple of models that you can play with.
 
+
+### Interactive Drawings
+
+This tool allows you to draw over your datasets. These drawings can later
+be converted to models or to preprocessing tools.
+
+![](docs/draw-gif.gif)
 
 ### Classification Models
 

@@ -33,6 +33,15 @@ python -m pip install human-learn
 
 ## Guides
 
+### Tutorial
+
+> There is a full course on this tool available on [calmcode.io](https://calmcode.io/human-learn/introduction.html).
+> This is the first video.
+
+<iframe src="https://player.vimeo.com/video/463961716" width="100%" height="460" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+### Getting Started
+
 To help you get started we've written some helpful getting started guides.
 
 1. [Functions as a Model](guide/function-classifier/function-classifier.html)
@@ -46,6 +55,13 @@ You can also check out the API documentation [here](api/classification.html).
 ## Features
 
 This library hosts a couple of models that you can play with.
+
+### Interactive Drawings
+
+This tool allows you to draw over your datasets. These drawings can later
+be converted to models or to preprocessing tools.
+
+![](draw-gif.gif)
 
 ### Classification Models
 
