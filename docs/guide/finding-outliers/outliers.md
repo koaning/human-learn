@@ -1,5 +1,3 @@
-# Drawing as a Model
-
 ## Rethinking Classification
 
 Let's have another look at the interactive canvas that we saw in the previous guide.
