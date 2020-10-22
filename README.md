@@ -89,7 +89,7 @@ it an outlier. There's a threshold parameter for how strict you might want to be
 
 #### PipeTransformer
 
-This allows you to define a function that can make handle preprocessing. It's
+This allows you to define a function that can handle preprocessing. It's
 constructed in such a way that you can use the arguments of the function as a parameter
 that you can benchmark in a grid-search. This is especially powerful in combination
 with the pandas `.pipe` method. If you're unfamiliar with this amazing feature, you
