@@ -24,7 +24,7 @@ class InteractiveCharts:
 
     ```python
     from sklego.datasets import load_penguins
-    from hulearn.classification.interactive import InteractiveCharts
+    from hulearn.experimental.interactive import InteractiveCharts
 
     df = load_penguins(as_frame=True)
     charts = InteractiveCharts(df, labels="species")
@@ -56,7 +56,7 @@ class InteractiveCharts:
 
         ```python
         from sklego.datasets import load_penguins
-        from hulearn.drawing-classifier.interactive import InteractiveCharts
+        from hulearn.experimental.interactive import InteractiveCharts
 
         df = load_penguins(as_frame=True)
         charts = InteractiveCharts(df, labels="species")
