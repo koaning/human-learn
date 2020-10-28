@@ -20,6 +20,12 @@ class InteractiveCharts:
     """
     This tool allows you to interactively "draw" a model.
 
+    Arguments:
+        dataf: the dataframe to make a single interactive chart for
+        labels: the labels to be drawn, if `str` we assume a column from the dataframe is chosen, if `list` we
+        color: you can manually override the color of the dots to be determined by a column in a dataframe.
+          This setting is useful when you want to input a list of labels but still want to color the dots based on a column value.
+
     Usage:
 
     ```python
@@ -31,13 +37,14 @@ class InteractiveCharts:
     ```
     """
 
-    def __init__(self, dataf, labels):
+    def __init__(self, dataf, labels, color=None):
         output_notebook()
         self.dataf = dataf
         self.labels = labels
         self.charts = []
+        self.color = color
 
-    def add_chart(self, x, y, size=5, alpha=0.5):
+    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400):
         """
         Generate an interactive chart to a cell.
 
@@ -45,12 +52,18 @@ class InteractiveCharts:
 
         - Add patch or multi-line: Double tap to add the first vertex, then use tap to add each subsequent vertex,
         to finalize the draw action double tap to insert the final vertex or press the <<esc> key.
-        - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.
-        - Delete patch or multi-line: Tap a patch/multi-line to select it then press <<backspace>> key while the mouse is within the plot area.
+        - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once
+        you let go of the mouse button.
+        - Delete patch or multi-line: Tap a patch/multi-line to select it then press <<backspace>> key while
+        the mouse is within the plot area.
 
         Arguments:
             x: the column from the dataset to place on the x-axis
             y: the column from the dataset to place on the y-axis
+            size: the size of the drawn points
+            alpha: the alpha (see-through-ness) of the drawn points
+            width: the width of the chart
+            height: the height of the chart
 
         Usage:
 
@@ -77,6 +90,9 @@ class InteractiveCharts:
             y=y,
             size=size,
             alpha=alpha,
+            width=width,
+            height=height,
+            color=self.color,
         )
         self.charts.append(chart)
         chart.show()
@@ -89,11 +105,34 @@ class InteractiveCharts:
 
 
 class SingleInteractiveChart:
-    def __init__(self, dataf, labels, x, y, size=5, alpha=0.5):
+    """
+    Create a single chart that you can drawn on.
+
+    Consider using `InteractiveChart` instead if you plan on drawing many charts.
+
+    Arguments:
+        dataf: the dataframe to make a single interactive chart for
+        labels: the labels to be drawn, if `str` we assume a column from the dataframe is chosen, if `list` we
+        assume that the labels are not in the dataset
+        x: the column from the dataset to place on the x-axis
+        y: the column from the dataset to place on the y-axis
+        size: the size of the drawn points
+        alpha: the alpha (see-through-ness) of the drawn points
+        width: the width of the chart
+        height: the height of the chart
+        color: you can manually override the color of the dots to be determined by a column
+          in a dataframe. This setting is useful when you want to input a list of labels but
+          still want to color the dots based on a column value.
+    """
+
+    def __init__(
+        self, dataf, labels, x, y, size=5, alpha=0.5, width=400, height=400, color=None
+    ):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
         self.y = y
-        self.plot = figure(width=400, height=400, title=f"{x} vs. {y}")
+        self.plot = figure(width=width, height=height, title=f"{x} vs. {y}")
+        self.color_column = labels if isinstance(labels, str) else color
         self._colors = ["red", "blue", "green", "purple", "cyan"]
 
         if isinstance(labels, str):
@@ -102,7 +141,12 @@ class SingleInteractiveChart:
             dataf = dataf.assign(color=[d[lab] for lab in dataf[labels]])
             self.source = ColumnDataSource(data=dataf)
         else:
-            dataf = dataf.assign(color=["gray" for _ in range(dataf.shape[0])])
+            if not self.color_column:
+                dataf = dataf.assign(color=["gray" for _ in range(dataf.shape[0])])
+            else:
+                color_labels = list(dataf[self.color_column].unique())
+                d = {k: col for k, col in zip(color_labels, self._colors)}
+                dataf = dataf.assign(color=[d[lab] for lab in dataf[self.color_column]])
             self.source = ColumnDataSource(data=dataf)
             self.labels = labels
 
