@@ -732,23 +732,47 @@
                 
                 <h1 id="interactivecharts"><code>InteractiveCharts</code><a class="headerlink" href="#interactivecharts" title="Permanent link">&para;</a></h1>
 <p>This tool allows you to interactively "draw" a model.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dataf</code></td>
+<td></td>
+<td>the dataframe to make a single interactive chart for</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td></td>
+<td>the labels to be drawn, if <code>str</code> we assume a column from the dataframe is chosen, if <code>list</code> we</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td></td>
+<td>you can manually override the color of the dots to be determined by a column in a dataframe. This setting is useful when you want to input a list of labels but still want to color the dots based on a column value.</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
-<span class="kn">from</span> <span class="nn">hulearn.classification.interactive</span> <span class="kn">import</span> <span class="n">InteractiveCharts</span>
+<span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">InteractiveCharts</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>experimental/interactive.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>40
-41
-42
-43
-44
-45
-46
-47
+<h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>experimental/interactive.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>47
 48
 49
 50
@@ -783,7 +807,23 @@
 79
 80
 81
-82</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate an interactive chart to a cell.</span>
 
@@ -791,18 +831,24 @@
 
 <span class="sd">        - Add patch or multi-line: Double tap to add the first vertex, then use tap to add each subsequent vertex,</span>
 <span class="sd">        to finalize the draw action double tap to insert the final vertex or press the &lt;&lt;esc&gt; key.</span>
-<span class="sd">        - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.</span>
-<span class="sd">        - Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;&lt;backspace&gt;&gt; key while the mouse is within the plot area.</span>
+<span class="sd">        - Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once</span>
+<span class="sd">        you let go of the mouse button.</span>
+<span class="sd">        - Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;&lt;backspace&gt;&gt; key while</span>
+<span class="sd">        the mouse is within the plot area.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            x: the column from the dataset to place on the x-axis</span>
 <span class="sd">            y: the column from the dataset to place on the y-axis</span>
+<span class="sd">            size: the size of the drawn points</span>
+<span class="sd">            alpha: the alpha (see-through-ness) of the drawn points</span>
+<span class="sd">            width: the width of the chart</span>
+<span class="sd">            height: the height of the chart</span>
 
 <span class="sd">        Usage:</span>
 
 <span class="sd">        ```python</span>
 <span class="sd">        from sklego.datasets import load_penguins</span>
-<span class="sd">        from hulearn.drawing-classifier.interactive import InteractiveCharts</span>
+<span class="sd">        from hulearn.experimental.interactive import InteractiveCharts</span>
 
 <span class="sd">        df = load_penguins(as_frame=True)</span>
 <span class="sd">        charts = InteractiveCharts(df, labels=&quot;species&quot;)</span>
@@ -823,6 +869,9 @@
             <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
             <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
             <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
         <span class="n">chart</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -835,8 +884,10 @@
 <ul>
 <li>Add patch or multi-line: Double tap to add the first vertex, then use tap to add each subsequent vertex,
 to finalize the draw action double tap to insert the final vertex or press the &lt;<esc> key.</li>
-<li>Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once you let go of the mouse button.</li>
-<li>Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;<backspace>&gt; key while the mouse is within the plot area.</li>
+<li>Move patch or ulti-line: Tap and drag an existing patch/multi-line, the point will be dropped once
+you let go of the mouse button.</li>
+<li>Delete patch or multi-line: Tap a patch/multi-line to select it then press &lt;<backspace>&gt; key while
+the mouse is within the plot area.</li>
 </ul>
 <p><strong>Parameters</strong></p>
 <table>
@@ -861,11 +912,35 @@ to finalize the draw action double tap to insert the final vertex or press the &
 <td>the column from the dataset to place on the y-axis</td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>size</code></td>
+<td></td>
+<td>the size of the drawn points</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>alpha</code></td>
+<td></td>
+<td>the alpha (see-through-ness) of the drawn points</td>
+<td><code>0.5</code></td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td></td>
+<td>the width of the chart</td>
+<td><code>400</code></td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td></td>
+<td>the height of the chart</td>
+<td><code>400</code></td>
+</tr>
 </tbody>
 </table>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklego.datasets</span> <span class="kn">import</span> <span class="n">load_penguins</span>
-<span class="kn">from</span> <span class="nn">hulearn.drawing</span><span class="o">-</span><span class="n">classifier</span><span class="o">.</span><span class="n">interactive</span> <span class="kn">import</span> <span class="nn">InteractiveCharts</span>
+<span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">InteractiveCharts</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>

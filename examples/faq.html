@@ -673,6 +673,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#im-getting-a-port-error" class="md-nav__link">
+    I'm getting a PORT error!
+  </a>
+  
+</li>
+      
       
       
       
@@ -723,6 +730,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#im-getting-a-port-error" class="md-nav__link">
+    I'm getting a PORT error!
+  </a>
+  
+</li>
+      
       
       
       
@@ -761,6 +775,20 @@ that folks forget that many classification problems can be handled by natural in
 <p>This made us wonder if we could make machine learning listen more to common sense.
 There's a lot of things that could go wrong otherwise. If you're interested in
 examples we might recommend <a href="https://www.youtube.com/watch?v=Z8MEFI7ZJlA">this pydata talk</a>.</p>
+<h2 id="im-getting-a-port-error">I'm getting a PORT error!<a class="headerlink" href="#im-getting-a-port-error" title="Permanent link">&para;</a></h2>
+<p>You might get an error that looks like; </p>
+<div class="highlight"><pre><span></span><code><span class="n">ERROR</span><span class="p">:</span><span class="n">bokeh</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">views</span><span class="o">.</span><span class="n">ws</span><span class="p">:</span><span class="n">Refusing</span> <span class="n">websocket</span> <span class="n">connection</span> <span class="kn">from</span> <span class="nn">Origin</span> <span class="s1">&#39;http://localhost:8889&#39;</span><span class="p">;</span>                       
+<span class="n">use</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">websocket</span><span class="o">-</span><span class="n">origin</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8889</span> <span class="ow">or</span> <span class="nb">set</span> <span class="n">BOKEH_ALLOW_WS_ORIGIN</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8889</span> 
+<span class="n">to</span> <span class="n">permit</span> <span class="n">this</span><span class="p">;</span> <span class="n">currently</span> <span class="n">we</span> <span class="n">allow</span> <span class="n">origins</span> <span class="p">{</span><span class="s1">&#39;localhost:8888&#39;</span><span class="p">}</span>
+</code></pre></div>
+
+<p>This is <a href="https://github.com/bokeh/bokeh/issues/8096#issuecomment-406815954">related</a> to something
+bokeh cannot do without explicit permission from jupyter. It can't be fixed by this library but you
+can circumvent this error by running jupyter via;</p>
+<div class="highlight"><pre><span></span><code>python -m jupyter lab --port 8889 --allow-websocket-origin=localhost:8889
+</code></pre></div>
+
+<p>You can also set an environment variable <code>BOKEH_ALLOW_WS_ORIGIN=localhost:8889</code>.</p>
                 
                   
                 
