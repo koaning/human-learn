@@ -16,7 +16,7 @@ Nowadays, it's much more fashionable to use machine learning instead. Something 
 
 We started wondering if we might have lost something in this transition. Sure,
 machine learning covers a lot of ground but it is also capable of making bad
-decision. We've also reached a stage of hype that folks forget that many
+decision. We need to remain careful about hype because and we shouldn't forget that many
 classification problems can be handled by natural intelligence too.
 
 This package contains scikit-learn compatible tools that should make it easier
