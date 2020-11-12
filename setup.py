@@ -28,9 +28,9 @@ test_packages = [
     "pre-commit>=1.18.3",
     "nbval>=0.9.6",
     "scikit-lego>=0.6.0",
+    "matplotlib>=3.0.2",
 ]
 util_packages = [
-    "matplotlib>=3.0.2",
     "jupyter>=1.0.0",
     "jupyterlab>=0.35.4",
 ]
