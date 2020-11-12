@@ -26,7 +26,10 @@ clean:
 black:
 	black --check .
 
-check: black flake test clean
+test-notebooks:
+	pytest --nbval-lax docs/guide/notebooks/*.ipynb
+
+check: black flake test clean test-notebooks
 
 pypi: clean
 	python setup.py sdist
