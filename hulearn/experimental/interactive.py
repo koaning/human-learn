@@ -6,7 +6,6 @@ from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
-from bokeh.models.annotations import Label
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
 
@@ -44,7 +43,7 @@ class InteractiveCharts:
         self.charts = []
         self.color = color
 
-    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400):
+    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400, legend=True):
         """
         Generate an interactive chart to a cell.
 
@@ -64,6 +63,7 @@ class InteractiveCharts:
             alpha: the alpha (see-through-ness) of the drawn points
             width: the width of the chart
             height: the height of the chart
+            legend: show a legend as well
 
         Usage:
 
@@ -93,6 +93,7 @@ class InteractiveCharts:
             width=width,
             height=height,
             color=self.color,
+            legend=legend,
         )
         self.charts.append(chart)
         chart.show()
@@ -123,10 +124,21 @@ class SingleInteractiveChart:
         color: you can manually override the color of the dots to be determined by a column
           in a dataframe. This setting is useful when you want to input a list of labels but
           still want to color the dots based on a column value.
+        legend: show a legend as well
     """
 
     def __init__(
-        self, dataf, labels, x, y, size=5, alpha=0.5, width=400, height=400, color=None
+        self,
+        dataf,
+        labels,
+        x,
+        y,
+        size=5,
+        alpha=0.5,
+        width=400,
+        height=400,
+        color=None,
+        legend=True,
     ):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
@@ -134,6 +146,7 @@ class SingleInteractiveChart:
         self.plot = figure(width=width, height=height, title=f"{x} vs. {y}")
         self.color_column = labels if isinstance(labels, str) else color
         self._colors = ["red", "blue", "green", "purple", "cyan"]
+        self.legend = legend
 
         if isinstance(labels, str):
             self.labels = list(dataf[labels].unique())
@@ -172,14 +185,17 @@ class SingleInteractiveChart:
             renderers=list(self.poly_patches.values()), vertex_renderer=c
         )
         self.plot.add_tools(*self.poly_draw.values(), edit_tool)
-        self.plot.add_layout(Label(x=70, y=70, text="here your text"))
+        self.plot.toolbar.active_tap = self.poly_draw[self.labels[0]]
 
     def app(self, doc):
         html = "<ul style='width:100px'>"
         for k, col in zip(self.labels, self._colors):
             html += f"<li>{color_dot(name=k, color=col)}</li>"
         html += "</ul>"
-        doc.add_root(row(Div(text=html), self.plot))
+        if self.legend:
+            doc.add_root(row(Div(text=html), self.plot))
+        else:
+            doc.add_root(self.plot)
 
     def show(self):
         show(self.app)
