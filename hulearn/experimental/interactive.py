@@ -118,7 +118,7 @@ class SingleInteractiveChart:
         x: the column from the dataset to place on the x-axis
         y: the column from the dataset to place on the y-axis
         size: the size of the drawn points
-        alpha: the alpha (see-through-ness) of the drawn points
+        alpha: changes the opacity of the data points
         width: the width of the chart
         height: the height of the chart
         color: you can manually override the color of the dots to be determined by a column
