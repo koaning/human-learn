@@ -2,12 +2,13 @@ import uuid
 from pkg_resources import resource_filename
 
 from clumper import Clumper
-from bokeh.models import ColumnDataSource
+from bokeh.models import ColumnDataSource, HoverTool
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
+
 
 
 def color_dot(name, color):
@@ -43,7 +44,7 @@ class InteractiveCharts:
         self.charts = []
         self.color = color
 
-    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400, legend=True):
+    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400, legend=True, tooltip=None):
         """
         Generate an interactive chart to a cell.
 
@@ -94,6 +95,7 @@ class InteractiveCharts:
             height=height,
             color=self.color,
             legend=legend,
+            tooltip=tooltip
         )
         self.charts.append(chart)
         chart.show()
@@ -125,6 +127,7 @@ class SingleInteractiveChart:
           in a dataframe. This setting is useful when you want to input a list of labels but
           still want to color the dots based on a column value.
         legend: show a legend as well
+        tooltip: accepts list of the columns that will show up on hover
     """
 
     def __init__(
@@ -139,11 +142,16 @@ class SingleInteractiveChart:
         height=400,
         color=None,
         legend=True,
+        tooltip=None
     ):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
         self.y = y
-        self.plot = figure(width=width, height=height, title=f"{x} vs. {y}")
+        if tooltip != None:
+            self.tooltips = [(x,'@'+x) for x in tooltip]
+        else:
+            self.tooltips = None
+        self.plot = figure(width=width, height=height, tooltips=self.tooltips,title=f"{x} vs. {y}")
         self.color_column = labels if isinstance(labels, str) else color
         self._colors = ["red", "blue", "green", "purple", "cyan"]
         self.legend = legend
@@ -162,6 +170,9 @@ class SingleInteractiveChart:
                 dataf = dataf.assign(color=[d[lab] for lab in dataf[self.color_column]])
             self.source = ColumnDataSource(data=dataf)
             self.labels = labels
+
+        # Add the tooltip according to user defined columns
+        #TODO: adding a common name accessor (x,y,Title etc) for all charts 
 
         if len(self.labels) > 5:
             raise ValueError("We currently only allow for 5 classes max.")
