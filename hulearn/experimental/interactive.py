@@ -2,7 +2,7 @@ import uuid
 from pkg_resources import resource_filename
 
 from clumper import Clumper
-from bokeh.models import ColumnDataSource, HoverTool
+from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
@@ -65,6 +65,7 @@ class InteractiveCharts:
             width: the width of the chart
             height: the height of the chart
             legend: show a legend as well
+            tooltip: accepts list of the columns that will show up on hover
 
         Usage:
 
@@ -170,9 +171,6 @@ class SingleInteractiveChart:
                 dataf = dataf.assign(color=[d[lab] for lab in dataf[self.color_column]])
             self.source = ColumnDataSource(data=dataf)
             self.labels = labels
-
-        # Add the tooltip according to user defined columns
-        #TODO: adding a common name accessor (x,y,Title etc) for all charts 
 
         if len(self.labels) > 5:
             raise ValueError("We currently only allow for 5 classes max.")
