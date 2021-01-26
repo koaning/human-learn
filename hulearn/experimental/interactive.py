@@ -10,7 +10,6 @@ from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
 
 
-
 def color_dot(name, color):
     dot = f"<span style='height: 15px; width: 15px; background-color: {color}; border-radius: 50%; display: inline-block;'></span>"
     return f"<p>{dot} {name}</p>"
@@ -44,7 +43,9 @@ class InteractiveCharts:
         self.charts = []
         self.color = color
 
-    def add_chart(self, x, y, size=5, alpha=0.5, width=400, height=400, legend=True, tooltip=None):
+    def add_chart(
+        self, x, y, size=5, alpha=0.5, width=400, height=400, legend=True, tooltip=None
+    ):
         """
         Generate an interactive chart to a cell.
 
@@ -96,7 +97,7 @@ class InteractiveCharts:
             height=height,
             color=self.color,
             legend=legend,
-            tooltip=tooltip
+            tooltip=tooltip,
         )
         self.charts.append(chart)
         chart.show()
@@ -143,16 +144,18 @@ class SingleInteractiveChart:
         height=400,
         color=None,
         legend=True,
-        tooltip=None
+        tooltip=None,
     ):
         self.uuid = str(uuid.uuid4())[:10]
         self.x = x
         self.y = y
-        if tooltip != None:
-            self.tooltips = [(x,'@'+x) for x in tooltip]
+        if tooltip is not None:
+            self.tooltips = [(x, "@" + x) for x in tooltip]
         else:
             self.tooltips = None
-        self.plot = figure(width=width, height=height, tooltips=self.tooltips,title=f"{x} vs. {y}")
+        self.plot = figure(
+            width=width, height=height, tooltips=self.tooltips, title=f"{x} vs. {y}"
+        )
         self.color_column = labels if isinstance(labels, str) else color
         self._colors = ["red", "blue", "green", "purple", "cyan"]
         self.legend = legend
