@@ -53,6 +53,8 @@ def class_based(dataf, sex="male", pclass=1):
             "check_estimators_empty_data_messages",
             "check_estimators_nan_inf",
             "check_estimator_sparse_data",
+            "check_supervised_y_no_nan",
+            "check_estimators_partial_fit_n_features",
         ],
     ),
 )
@@ -76,3 +78,11 @@ def test_smoke_with_pandas():
     params = {"pclass": [1, 2, 3], "sex": ["male", "female"]}
     grid = GridSearchCV(mod, cv=3, param_grid=params).fit(X, y)
     pd.DataFrame(grid.cv_results_)
+
+
+def test_smoke_partial_fit():
+    df = load_titanic(as_frame=True)
+    X, y = df.drop(columns=["survived"]), df["survived"]
+
+    mod = FunctionClassifier(class_based, pclass=10)
+    assert mod.partial_fit(X, y, classes=np.unique(y)).predict(X).shape[0] == y.shape[0]
