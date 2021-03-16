@@ -53,3 +53,9 @@ def test_works_with_pipeline_gridsearch(random_xy_dataset_clf):
     )
     grid = GridSearchCV(pipe, cv=2, param_grid={"pipe__factor": [1, 2, 3]})
     grid.fit(X, y).predict(X)
+
+
+def test_works_with_partial_fit(random_xy_dataset_clf):
+    X, y = random_xy_dataset_clf
+    pipe = PipeTransformer(func=double, factor=2)
+    assert np.all(np.isclose(pipe.partial_fit(X, y).transform(X), X * 2))

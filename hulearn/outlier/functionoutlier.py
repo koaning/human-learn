@@ -20,13 +20,21 @@ class FunctionOutlierDetector(BaseEstimator, OutlierMixin):
 
     def fit(self, X, y=None):
         """
-        Fit the classifier.
-
-        This classifier tries to confirm if the passed function can predict appropriate values on the train set.
+        Fit the classifier. No-Op.
         """
         # Run it to confirm no error happened.
         self.fitted_ = True
         _ = self.func(X, **self.kwargs)
+        return self
+
+    def partial_fit(self, X, y=None):
+        """
+        Fit the classifier partially. No-Op.
+        """
+        # Run it to confirm no error happened.
+        _ = self.func(X, **self.kwargs)
+        self.fitted_ = True
+        self.ncol_ = 0 if len(X.shape) == 1 else X.shape[1]
         return self
 
     def predict(self, X):
