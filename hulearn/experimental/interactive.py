@@ -217,3 +217,14 @@ class SingleInteractiveChart:
                 for k, v in self.poly_patches.items()
             },
         }
+
+
+class ParallelCoordChart:
+    def __init__(self, dataf, labels, color=None):
+        self.dataf = dataf
+        self.labels = labels
+        self.charts = []
+        self.color = color
+
+    def render(self):
+        pass

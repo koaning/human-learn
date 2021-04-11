@@ -1,0 +1,35 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://syntagmatic.github.io/parallel-coordinates/d3.parcoords.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://syntagmatic.github.io/parallel-coordinates/d3.parcoords.css">
+</head>
+<main>
+    <div id="$id" class="parcoords" style="height: $height"></div>
+    <script>
+        var colors = d3.scale.category20b();
+        // load csv file and create the chart
+        var parcoords;
+        var data = $data;
+
+        var colorgen = d3.scale.ordinal()
+        .range(["#a6cee3","#1f78b4","#b2df8a","#33a02c",
+                "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
+                "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
+
+        var color = function(d) { return colors(d.group); };
+
+        parcoords = d3.parcoords()("#$id")
+            .data(data)
+            .hideAxis(["name"])
+            .color(color)
+            .alpha(0.15)
+            .composite("darken")
+            .margin({ top: 20, left: 10, bottom: 10, right: 0 })
+            .mode("queue")
+            .render()
+            .reorderable()
+            .brushMode("1D-axes");  // enable brushing
+
+        parcoords.svg.selectAll("text").style("font", "10px sans-serif");
+    </script>
+</main>
