@@ -16,13 +16,14 @@
                 "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
                 "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
 
-        var color = function(d) { return colors(d.group); };
+        var color = function(d) { return colorgen(d.group); };
+        data.map(d => color(d.group))
 
         parcoords = d3.parcoords()("#$id")
             .data(data)
             .hideAxis(["name"])
             .color(color)
-            .alpha(0.15)
+            .alpha(0.55)
             .composite("darken")
             .margin({ top: 20, left: 10, bottom: 10, right: 0 })
             .mode("queue")
