@@ -1,3 +1,8 @@
+[![Downloads](https://pepy.tech/badge/human-learn/month)](https://pepy.tech/project/human-learn)
+[![Version](https://img.shields.io/pypi/v/human-learn)](https://pypi.org/project/scikit-lego/)
+![](https://img.shields.io/github/license/koaning/human-learn)
+![](https://img.shields.io/pypi/pyversions/human-learn)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![DOI](https://zenodo.org/badge/278844314.svg)](https://zenodo.org/badge/latestdoi/278844314)
 
 <img src="docs/logo.png" width=225 align="right">
