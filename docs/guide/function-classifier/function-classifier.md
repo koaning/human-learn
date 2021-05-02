@@ -138,10 +138,69 @@ grid = GridSearchCV(mod,
 grid.fit(X, y)
 ```
 
+## Guidance
+
+Human Learn doesn't just allow you to turn functions into classifiers. It also tries
+to help you find rules that could be useful. In particular, an interactive parallel
+coordinates chart could be very helpful here.
+
+You can create a parallel coordinates chart directly inside of jupyter.
+
+```python
+from hulearn.experimental.interactive import parallel_coordinates
+parallel_coordinates(df, label="survived", height=200)
+```
+
+What follows next are some explorations of the dataset. They are based on the scene
+from the titanic movie where they yell "Woman and Children First!". So let's see if
+we can confirm if this holds true.
+
+### Explore
+
+![](parcoords1.gif)
+
+It indeed seems that women in 1st/2nd class have a high chance of surviving.
+
+![](parcoords2.gif)
+
+It also seems that male children have an increased change of survival, but only
+if they were travelling 1st/2nd class.
+
+### Grid
+
+Here's a lovely observation. By doing exploratory analysis we not only understand the
+data better but we can now also turn the patterns that we've observed into a model!
+
+```python
+def make_prediction(dataf, age=15):
+    women_rule = (dataf['pclass'] < 3.0) & (dataf['sex'] == "female")
+    children_rule = (dataf['pclass'] < 3.0) & (dataf['age'] <= age)
+    return women_rule | children_rule
+
+mod = FunctionClassifier(make_prediction)
+```
+
+We're even able to use grid-search again to find the optimal threshold for `"age"`.
+
+### Comparison
+
+To compare our results we've also trained a `RandomForestClassifier` optimised for
+accuracy. Here's how the models compare;
+
+|Model | accuracy | precision  | recall|
+---    | ---      | ---        | ---
+|Women & Children Rule |0.808157	| 0.952168 | 0.558621
+|RandomForestClassifier|0.813869	| 0.785059 | 0.751724
+
+It seems like our rule based model is quite reasonable. A great follow-up exercise
+would be to try and understand when the random forest model disagrees with the rule
+based system. This could lead us to understand more patterns in the data.
+
 ## Conclusion
 
-In this guide we've seen the `FunctionClassifier`. It is one of the many models in this
-library that will help you construct more "human" models.
+In this guide we've seen the `FunctionClassifier` in action. It is one of the many
+models in this  library that will help you construct more "human" models. This component
+is very effective when it is combined with exploratory data analysis techniques.
 
 ### Notebook
 

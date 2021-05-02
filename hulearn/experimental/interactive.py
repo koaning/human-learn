@@ -234,9 +234,9 @@ def parallel_coordinates(dataf, label, height=200):
     Creates an interactive parallel coordinates chart to help with classification tasks.
 
     Arguments:
-        - dataf: the dataframe to render
-        - label: the column that represents the label, will be used for coloring
-        - height: the height of the chart, in pixels
+        dataf: the dataframe to render
+        label: the column that represents the label, will be used for coloring
+        height: the height of the chart, in pixels
     """
     t = Template(
         pathlib.Path(
