@@ -237,6 +237,16 @@ def parallel_coordinates(dataf, label, height=200):
         dataf: the dataframe to render
         label: the column that represents the label, will be used for coloring
         height: the height of the chart, in pixels
+
+    Usage:
+
+    ```python
+    from hulearn.datasets import load_titanic
+    from hulearn.experimental.interactive import parallel_coordinates
+
+    df = load_titanic(as_frame=True)
+    parallel_coordinates(df, label="survived", height=200)
+    ```
     """
     t = Template(
         pathlib.Path(

@@ -184,8 +184,8 @@ We're even able to use grid-search again to find the optimal threshold for `"age
 
 ### Comparison
 
-To compare our results we've also trained a `RandomForestClassifier` optimised for
-accuracy. Here's how the models compare;
+To compare our results we've also trained a `RandomForestClassifier`.
+Here's how the models compare;
 
 |Model | accuracy | precision  | recall|
 ---    | ---      | ---        | ---
