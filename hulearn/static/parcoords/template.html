@@ -1,0 +1,37 @@
+<head>
+</head>
+<main>
+    <div id="$id" class="parcoords" style="height: $height"></div>
+    <script>
+        $d3_blob
+
+        $parcoords_stuff
+
+        var colors = d3.scale.category20b();
+        // load csv file and create the chart
+        var parcoords;
+        var data = $data;
+
+        var colorgen = d3.scale.ordinal()
+        .range(["#a6cee3","#1f78b4","#b2df8a","#33a02c",
+                "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
+                "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
+
+        var color = function(d) { return colorgen(d.label); };
+        data.map(d => color(d.label))
+
+        parcoords = d3.parcoords()("#$id")
+            .data(data)
+            .hideAxis(["name"])
+            .color(color)
+            .alpha(0.55)
+            .composite("darken")
+            .margin({ top: 20, left: 10, bottom: 10, right: 0 })
+            .mode("queue")
+            .render()
+            .reorderable()
+            .brushMode("1D-axes");  // enable brushing
+
+        parcoords.svg.selectAll("text").style("font", "10px sans-serif");
+    </script>
+</main>

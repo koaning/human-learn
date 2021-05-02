@@ -47,7 +47,15 @@ setup(
     description="natural intelligence benchmarks for scikit-learn",
     author="Vincent D. Warmerdam",
     packages=find_packages(exclude=["notebooks"]),
-    package_data={"hulearn": ["data/*.zip", "images/*.png"]},
+    package_data={
+        "hulearn": [
+            "data/*.zip",
+            "images/*.png",
+            "static/*/*.css",
+            "static/*/*.js",
+            "static/*/*.html",
+        ]
+    },
     install_requires=base_packages,
     extras_require={"docs": docs_packages, "dev": dev_packages, "test": test_packages},
     classifiers=[

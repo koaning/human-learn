@@ -1,7 +1,12 @@
+import os
 import uuid
+import random
+import pathlib
+from string import Template
 from pkg_resources import resource_filename
 
 from clumper import Clumper
+from IPython.core.display import HTML
 from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
@@ -217,3 +222,58 @@ class SingleInteractiveChart:
                 for k, v in self.poly_patches.items()
             },
         }
+
+
+def _random_string():
+    """Generates a random HTML id for d3 charts."""
+    return "".join([random.choice("qwertyuiopasdfghjklzxcvbnm") for _ in range(6)])
+
+
+def parallel_coordinates(dataf, label, height=200):
+    """
+    Creates an interactive parallel coordinates chart to help with classification tasks.
+
+    Arguments:
+        dataf: the dataframe to render
+        label: the column that represents the label, will be used for coloring
+        height: the height of the chart, in pixels
+
+    Usage:
+
+    ```python
+    from hulearn.datasets import load_titanic
+    from hulearn.experimental.interactive import parallel_coordinates
+
+    df = load_titanic(as_frame=True)
+    parallel_coordinates(df, label="survived", height=200)
+    ```
+    """
+    t = Template(
+        pathlib.Path(
+            resource_filename(
+                "hulearn", os.path.join("static", "parcoords", "template.html")
+            )
+        ).read_text()
+    )
+    d3_blob_path = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.min.js")
+    )
+    css_blob_path = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.parcoords.css")
+    )
+    js_blob_path = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.parcoords.js")
+    )
+
+    json_data = dataf.rename(columns={label: "label"}).to_json(orient="records")
+    rendered = t.substitute(
+        {
+            "data": json_data,
+            "id": _random_string(),
+            "style": pathlib.Path(css_blob_path).read_text(),
+            "d3_blob": pathlib.Path(d3_blob_path).read_text(),
+            "parcoords_stuff": pathlib.Path(js_blob_path).read_text(),
+            "height": f"{height}px",
+        }
+    )
+    return HTML(rendered)
