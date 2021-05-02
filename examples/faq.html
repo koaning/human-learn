@@ -584,6 +584,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -763,7 +775,6 @@
 while creating it, all you need to do is follow the python tradition.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn</span> <span class="kn">import</span> <span class="n">this</span>
 </code></pre></div>
-
 <h2 id="why-make-this">Why Make This?<a class="headerlink" href="#why-make-this" title="Permanent link">&para;</a></h2>
 <p>Back in the old days, it was common to write rule-based systems. Systems that do;</p>
 <p><img alt="" src="rules.png" /></p>
@@ -781,13 +792,11 @@ examples we might recommend <a href="https://www.youtube.com/watch?v=Z8MEFI7ZJlA
 <span class="n">use</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">websocket</span><span class="o">-</span><span class="n">origin</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8889</span> <span class="ow">or</span> <span class="nb">set</span> <span class="n">BOKEH_ALLOW_WS_ORIGIN</span><span class="o">=</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8889</span>
 <span class="n">to</span> <span class="n">permit</span> <span class="n">this</span><span class="p">;</span> <span class="n">currently</span> <span class="n">we</span> <span class="n">allow</span> <span class="n">origins</span> <span class="p">{</span><span class="s1">&#39;localhost:8888&#39;</span><span class="p">}</span>
 </code></pre></div>
-
 <p>This is <a href="https://github.com/bokeh/bokeh/issues/8096#issuecomment-406815954">related</a> to something
 bokeh cannot do without explicit permission from jupyter. It can't be fixed by this library but you
 can circumvent this error by running jupyter via;</p>
 <div class="highlight"><pre><span></span><code>python -m jupyter lab --port 8889 --allow-websocket-origin=localhost:8889
 </code></pre></div>
-
 <p>You can also set an environment variable <code>BOKEH_ALLOW_WS_ORIGIN=localhost:8889</code>.</p>
                 
                   

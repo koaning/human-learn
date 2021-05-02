@@ -540,6 +540,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit" class="md-nav__link">
+    partial_fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" class="md-nav__link">
     transform()
   </a>
@@ -687,6 +694,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -776,6 +795,13 @@
           <li class="md-nav__item">
   <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.fit" class="md-nav__link">
     fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit" class="md-nav__link">
+    partial_fit()
   </a>
   
 </li>
@@ -920,7 +946,6 @@ that you can benchmark as well.</p>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)[[</span><span class="s1">&#39;param_prep__gender&#39;</span><span class="p">,</span> <span class="s1">&#39;param_prep__n_char&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_test_score&#39;</span><span class="p">]]</span>
 </code></pre></div>
-
 <h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.fit" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>62
 63
@@ -930,13 +955,9 @@ that you can benchmark as well.</p>
 67
 68
 69
-70
-71
-72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+70</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fit the classifier.</span>
-
-<span class="sd">        This classifier tries to confirm if the passed function can predict appropriate values on the train set.</span>
+<span class="sd">        Fit the classifier. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Run it to confirm no error happened.</span>
         <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
@@ -945,22 +966,42 @@ that you can benchmark as well.</p>
         <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
-<p>Fit the classifier.</p>
-<p>This classifier tries to confirm if the passed function can predict appropriate values on the train set.</p>
-<h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.transform"><code class="highlight"><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>74
+<p>Fit the classifier. No-Op.</p>
+<h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit"><code class="highlight"><span class="n">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>72
+73
+74
 75
 76
 77
 78
 79
-80
-81
-82
+80</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the classifier partially. No-Op.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Run it to confirm no error happened.</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ncol_</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<p>Fit the classifier partially. No-Op.</p>
+<h3 id="hulearn.preprocessing.pipetransformer.PipeTransformer.transform"><code class="highlight"><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.pipetransformer.PipeTransformer.transform" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>preprocessing/pipetransformer.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>82
 83
-84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Make predictions using the passed function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -973,7 +1014,6 @@ that you can benchmark as well.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Make predictions using the passed function.</p>
 <h2 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor"><code class="highlight"><span class="n">InteractivePreprocessor</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor" title="Permanent link">&para;</a></h2>
@@ -1019,7 +1059,6 @@ that you can benchmark as well.</p>
         <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Fit the classifier. Bit of a formality, it's not doing anything specifically.</p>
 <h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json"><code class="highlight"><span class="n">from_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json" title="Permanent link">&para;</a></h3>
@@ -1062,7 +1101,6 @@ that you can benchmark as well.</p>
         <span class="k">return</span> <span class="n">InteractivePreprocessor</span><span class="p">(</span><span class="n">json_desc</span><span class="o">=</span><span class="n">json_desc</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="n">refit</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Load the classifier from json stored on disk.</p>
 <p><strong>Parameters</strong></p>
@@ -1095,7 +1133,6 @@ that you can benchmark as well.</p>
 
 <span class="n">InteractivePreprocessor</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/to/file.json&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe"><code class="highlight"><span class="n">pandas_pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataf</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>120
 121
@@ -1154,7 +1191,6 @@ that you can benchmark as well.</p>
         <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Use this transformer as part of a <code>.pipe()</code> method chain in pandas.</p>
 <p>Usage:</p>
@@ -1171,7 +1207,6 @@ that you can benchmark as well.</p>
 <span class="c1"># This adds new columns to the dataframe</span>
 <span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">pandas_pipe</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform"><code class="highlight"><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>preprocessing/interactivepreprocessor.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 83
  84
@@ -1246,7 +1281,6 @@ that you can benchmark as well.</p>
         <span class="k">return</span> <span class="n">count_arr</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Apply the counting/binning based on the drawings.</p>
 <p>Usage:</p>

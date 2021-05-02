@@ -633,6 +633,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -785,7 +797,6 @@
     <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Helper function, takes a dataframe and turns it into a list of
 dictionaries. This might make it easier to write if else chains
@@ -798,7 +809,6 @@ in <code>FunctionClassifier</code>.</p>
 <span class="n">res</span> <span class="o">=</span> <span class="n">df_to_dictlist</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="p">[{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}]</span>
 </code></pre></div>
-
 <h2 id="hulearn.common.flatten"><code class="highlight"><span class="n">flatten</span><span class="p">(</span><span class="n">nested_iterable</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.common.flatten" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>hulearn/common.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 4
  5
@@ -847,7 +857,6 @@ in <code>FunctionClassifier</code>.</p>
             <span class="k">yield</span> <span class="n">el</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Helper function, returns an iterator of flattened values from an arbitrarily
 nested iterable.</p>

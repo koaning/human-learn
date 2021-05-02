@@ -626,6 +626,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -770,60 +782,61 @@
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">charts</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </code></pre></div>
-
-<h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>experimental/interactive.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+<h2 id="hulearn.experimental.interactive.InteractiveCharts.add_chart"><code class="highlight"><span class="n">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.experimental.interactive.InteractiveCharts.add_chart" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>experimental/interactive.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">add_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate an interactive chart to a cell.</span>
 
@@ -843,6 +856,7 @@
 <span class="sd">            alpha: the alpha (see-through-ness) of the drawn points</span>
 <span class="sd">            width: the width of the chart</span>
 <span class="sd">            height: the height of the chart</span>
+<span class="sd">            legend: show a legend as well</span>
 
 <span class="sd">        Usage:</span>
 
@@ -872,12 +886,12 @@
             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
             <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">charts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
         <span class="n">chart</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Generate an interactive chart to a cell.</p>
 <p>The supported actions include:</p>
@@ -936,6 +950,12 @@ the mouse is within the plot area.</li>
 <td>the height of the chart</td>
 <td><code>400</code></td>
 </tr>
+<tr>
+<td><code>legend</code></td>
+<td></td>
+<td>show a legend as well</td>
+<td><code>True</code></td>
+</tr>
 </tbody>
 </table>
 <p>Usage:</p>
@@ -952,6 +972,46 @@ the mouse is within the plot area.</li>
 
 <span class="c1"># After drawing a model, export the data</span>
 <span class="n">json_data</span> <span class="o">=</span> <span class="n">charts</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
+</code></pre></div>
+<h1 id="parallel_coordinates"><code>parallel_coordinates</code><a class="headerlink" href="#parallel_coordinates" title="Permanent link">&para;</a></h1>
+<p>Creates an interactive parallel coordinates chart to help with classification tasks.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dataf</code></td>
+<td></td>
+<td>the dataframe to render</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td></td>
+<td>the column that represents the label, will be used for coloring</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td></td>
+<td>the height of the chart, in pixels</td>
+<td><code>200</code></td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.datasets</span> <span class="kn">import</span> <span class="n">load_titanic</span>
+<span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">parallel_coordinates</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </code></pre></div>
                 
                   

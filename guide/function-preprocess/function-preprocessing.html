@@ -695,6 +695,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -891,7 +903,6 @@ give a quick overview on how it works but if you're new to this idea you may app
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span>
 <span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The goal of the titanic dataset is to predict weather or not a passenger survived
 the disaster. The <code>X</code> variable represents a dataframe with variables that we're going to use
 to predict survival (stored in <code>y</code>). Here's a preview of what <code>X</code> might have.</p>
@@ -951,7 +962,6 @@ says something about their status so we'd like to capture that. We could add thi
 feature with this line of code.</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">[</span><span class="s1">&#39;nchar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
 </code></pre></div>
-
 <p>This line of code has downsides though. It changes the original dataset. If we do
 a lot of this then our code is going to turn into something unmaintainable rather
 quickly. To prevent this, we might want to change the code into a function.</p>
@@ -963,11 +973,9 @@ quickly. To prevent this, we might want to change the code into a function.</p>
     <span class="c1"># Return the name dataframe</span>
     <span class="k">return</span> <span class="n">dataf</span>
 </code></pre></div>
-
 <p>We now have a nice function that makes our changes and we can use it like so;</p>
 <div class="highlight"><pre><span></span><code><span class="n">X_new</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <p>We can do something more powerful though.</p>
 <h3 id="paramaters">Paramaters<a class="headerlink" href="#paramaters" title="Permanent link">&para;</a></h3>
 <p>Let's make some more changes to our <code>process</code> function.</p>
@@ -979,7 +987,6 @@ quickly. To prevent this, we might want to change the code into a function.</p>
         <span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dataf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span>
 </code></pre></div>
-
 <p>This function works slightly differently now. The most important part is that the
 function now accepts arguments that change the way it behaves internally. The function
 also drops the non-numeric columns at the end.</p>
@@ -988,7 +995,6 @@ that we're going to apply it.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This is equivalent to preprocessing(X)</span>
 <span class="n">X</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The benefit of this notation is that if we have more functions that handle
 data processing that it would remain a clean overview.</p>
 <h3 id="with-pipe">With <code>.pipe()</code><a class="headerlink" href="#with-pipe" title="Permanent link">&para;</a></h3>
@@ -997,11 +1003,9 @@ data processing that it would remain a clean overview.</p>
   <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">,</span> <span class="n">nchar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
   <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_time_info</span><span class="p">))</span>
 </code></pre></div>
-
 <h3 id="without-pipe">Without <code>.pipe()</code><a class="headerlink" href="#without-pipe" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">add_time_info</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">set_col_types</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">nchar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Let's be honest, this looks messy.</p>
 <h2 id="pipetransformer">PipeTransformer<a class="headerlink" href="#pipetransformer" title="Permanent link">&para;</a></h2>
 <p>It would be great if we could use the <code>preprocessing</code>-function as part of a
@@ -1021,7 +1025,6 @@ a function with a pandas <code>.pipe</code>-line in general!</p>
 <span class="c1"># Important, don&#39;t forget to declare `n_char` and `gender` here.</span>
 <span class="n">tfm</span> <span class="o">=</span> <span class="n">PipeTransformer</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">,</span> <span class="n">n_char</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </code></pre></div>
-
 <p>The <code>tfm</code> variable now represents a component that can be used in a scikit-learn
 pipeline. We can also perform a cross-validated benchmark on the parameters our
 preprocessing function.</p>
@@ -1042,7 +1045,6 @@ preprocessing function.</p>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Once trained we can fetch the <code>grid.cv_results_</code> to get a glimpse at
 the results of our pipeline.</p>
 <table>
@@ -1101,7 +1103,6 @@ predict.</p>
 <span class="c1"># Method 2</span>
 <span class="n">dataf_new</span> <span class="o">=</span> <span class="n">dataf</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;old_column&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-
 <p>In many cases you might argue that method #2 is safer because you
 do not need to worry about the <code>dataf.copy()</code> that needs to happen.
 In our case however, we cannot use it. The grid-search no longer works

@@ -504,6 +504,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hulearn.classification.functionclassifier.FunctionClassifier.partial_fit" class="md-nav__link">
+    partial_fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hulearn.classification.functionclassifier.FunctionClassifier.predict" class="md-nav__link">
     predict()
   </a>
@@ -687,6 +694,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -776,6 +795,13 @@
           <li class="md-nav__item">
   <a href="#hulearn.classification.functionclassifier.FunctionClassifier.fit" class="md-nav__link">
     fit()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulearn.classification.functionclassifier.FunctionClassifier.partial_fit" class="md-nav__link">
+    partial_fit()
   </a>
   
 </li>
@@ -901,48 +927,60 @@
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.classification.functionclassifier.FunctionClassifier.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>44
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>43
+44
 45
 46
 47
 48
 49
-50
-51
-52
-53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fit the classifier.</span>
-
-<span class="sd">        This classifier tries to confirm if the passed function can predict appropriate values on the train set.</span>
+<span class="sd">        Fit the classifier. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Run it to confirm no error happened.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="n">unique_labels</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
-<p>Fit the classifier.</p>
-<p>This classifier tries to confirm if the passed function can predict appropriate values on the train set.</p>
-<h3 id="hulearn.classification.functionclassifier.FunctionClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>55
+<p>Fit the classifier. No-Op.</p>
+<h3 id="hulearn.classification.functionclassifier.FunctionClassifier.partial_fit"><code class="highlight"><span class="n">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.partial_fit" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>52
+53
+54
+55
 56
 57
 58
-59
-60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+59</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the classifier partially. No-Op.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Run it to confirm no error happened.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<p>Fit the classifier partially. No-Op.</p>
+<h3 id="hulearn.classification.functionclassifier.FunctionClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.predict" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Make predictions using the passed function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;classes_&quot;</span><span class="p">])</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;fitted_&quot;</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Make predictions using the passed function.</p>
 <h2 id="hulearn.classification.interactiveclassifier.InteractiveClassifier"><code class="highlight"><span class="n">InteractiveClassifier</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier" title="Permanent link">&para;</a></h2>
@@ -1005,7 +1043,6 @@
 <span class="c1"># It can also be used in `GridSearchCV` for benchmarking!</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.fit" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>114
 115
@@ -1022,7 +1059,6 @@
         <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Fit the classifier. Bit of a formality, it's not doing anything specifically.</p>
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json"><code class="highlight"><span class="n">from_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json" title="Permanent link">&para;</a></h3>
@@ -1071,7 +1107,6 @@
         <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Load the classifier from json stored on disk.</p>
 <p><strong>Parameters</strong></p>
@@ -1110,7 +1145,6 @@
 
 <span class="n">InteractiveClassifier</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/to/file.json&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>161
 162
@@ -1157,7 +1191,6 @@
         <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Predicts the class for each item in <code>X</code>.</p>
 <p>Usage:</p>
@@ -1171,7 +1204,6 @@
 <span class="c1"># This makes predictions, based on your drawn model.</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba"><code class="highlight"><span class="n">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba" title="Permanent link">&para;</a></h3>
 <details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>122
 123
@@ -1250,7 +1282,6 @@
         <span class="k">return</span> <span class="n">count_arr</span> <span class="o">/</span> <span class="n">count_arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 </details>
 <p>Predicts the associated probabilities for each class.</p>
 <p>Usage:</p>

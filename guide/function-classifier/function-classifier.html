@@ -421,6 +421,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#guidance" class="md-nav__link">
+    Guidance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore" class="md-nav__link">
+    Explore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid_1" class="md-nav__link">
+    Grid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     Conclusion
   </a>
@@ -674,6 +708,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -792,6 +838,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#guidance" class="md-nav__link">
+    Guidance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore" class="md-nav__link">
+    Explore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid_1" class="md-nav__link">
+    Grid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     Conclusion
   </a>
@@ -843,7 +923,6 @@ with this library.</p>
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-
 <p>The <code>df</code> variable represents a dataframe and it has the following contents:</p>
 <table>
 <thead>
@@ -907,7 +986,6 @@ the titanic disaster based on the other attributes in this dataframe.</p>
 scikit-learn.</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;survived&#39;</span><span class="p">]</span>
 </code></pre></div>
-
 <p>We could now start to import fancy machine learning models. It's what a lot of
 people do. Import a random forest, and see how high we can get the accuracy
 statistics. The goal of this library is to do the exact opposite. It might be a
@@ -932,11 +1010,9 @@ an example of that below.</p>
 
 <span class="n">mod</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">fare_based</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This <code>mod</code> is a scikit-learn model, which means that you can <code>.fit(X, y).predict(X)</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <p>During the <code>.fit(X, y)</code>-step there's actually nothing being "trained" but it's a scikit-learn
 formality that every model has a "fit"-step and a "predict"-step.</p>
 <h3 id="grid">Grid<a class="headerlink" href="#grid" title="Permanent link">&para;</a></h3>
@@ -964,7 +1040,6 @@ best <code>threshold</code> value? For that, you might like to use <code>GridSea
                     <span class="n">refit</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
-
 <p>If we make a chart of the <code>grid.cv_results_</code> then they would look something like;</p>
 <p><img alt="" src="function-classifier-scores.png" /></p>
 <p>A precision of 80% is not bad! It confirms our hunch that the folks who paid more for their ticket
@@ -991,10 +1066,68 @@ for that.</p>
                     <span class="n">refit</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="guidance">Guidance<a class="headerlink" href="#guidance" title="Permanent link">&para;</a></h2>
+<p>Human Learn doesn't just allow you to turn functions into classifiers. It also tries
+to help you find rules that could be useful. In particular, an interactive parallel
+coordinates chart could be very helpful here.</p>
+<p>You can create a parallel coordinates chart directly inside of jupyter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.experimental.interactive</span> <span class="kn">import</span> <span class="n">parallel_coordinates</span>
+<span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<p>What follows next are some explorations of the dataset. They are based on the scene
+from the titanic movie where they yell "Woman and Children First!". So let's see if
+we can confirm if this holds true.</p>
+<h3 id="explore">Explore<a class="headerlink" href="#explore" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="parcoords1.gif" /></p>
+<p>It indeed seems that women in 1st/2nd class have a high chance of surviving.</p>
+<p><img alt="" src="parcoords2.gif" /></p>
+<p>It also seems that male children have an increased change of survival, but only
+if they were travelling 1st/2nd class.</p>
+<h3 id="grid_1">Grid<a class="headerlink" href="#grid_1" title="Permanent link">&para;</a></h3>
+<p>Here's a lovely observation. By doing exploratory analysis we not only understand the
+data better but we can now also turn the patterns that we've observed into a model!</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">make_prediction</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">women_rule</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;pclass&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">)</span>
+    <span class="n">children_rule</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;pclass&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataf</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">age</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">women_rule</span> <span class="o">|</span> <span class="n">children_rule</span>
 
+<span class="n">mod</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">make_prediction</span><span class="p">)</span>
+</code></pre></div>
+<p>We're even able to use grid-search again to find the optimal threshold for <code>"age"</code>.</p>
+<h3 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h3>
+<p>To compare our results we've also trained a <code>RandomForestClassifier</code>.
+Here's how the models compare;</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>accuracy</th>
+<th>precision</th>
+<th>recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Women &amp; Children Rule</td>
+<td>0.808157</td>
+<td>0.952168</td>
+<td>0.558621</td>
+</tr>
+<tr>
+<td>RandomForestClassifier</td>
+<td>0.813869</td>
+<td>0.785059</td>
+<td>0.751724</td>
+</tr>
+</tbody>
+</table>
+<p>It seems like our rule based model is quite reasonable. A great follow-up exercise
+would be to try and understand when the random forest model disagrees with the rule
+based system. This could lead us to understand more patterns in the data.</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>In this guide we've seen the <code>FunctionClassifier</code>. It is one of the many models in this
-library that will help you construct more "human" models.</p>
+<p>In this guide we've seen the <code>FunctionClassifier</code> in action. It is one of the many
+models in this  library that will help you construct more "human" models. This component
+is very effective when it is combined with exploratory data analysis techniques.</p>
 <h3 id="notebook">Notebook<a class="headerlink" href="#notebook" title="Permanent link">&para;</a></h3>
 <p>If you want to download with this code yourself, feel free to download the
 notebook <a href="../notebooks/01-function-classifier.ipynb">here</a>.</p>

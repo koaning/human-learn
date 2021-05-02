@@ -692,6 +692,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -921,18 +933,15 @@ isn't significantly better than a drawn model, then you may not need the complex
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>The <code>clf</code> variable contains a <code>InteractiveCharts</code> object that has assumed that the <code>"species"</code> column in <code>df</code>
 to represent the label that we're interested in. From here you can generate charts, via;</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># It&#39;s best to run this in a single cell.</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>You can also generate a second chart.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Again, run this in a seperate cell.</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This will generate two interactive charts where you can "draw" you model. The final drawn result might look
 something like this;</p>
 <p><img alt="" src="jupyter.png" /></p>
@@ -943,7 +952,6 @@ translate your drawings to json.</p>
 <span class="c1"># You can also save the data to disk if you want.</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;drawn-model.json&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <details>
   <summary><b>What the json file looks like.</b></summary>
 <div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="s1">&#39;chart_id&#39;</span><span class="o">:</span> <span class="s1">&#39;3c680a70-0&#39;</span><span class="p">,</span>
@@ -1059,13 +1067,11 @@ as a scikit-learn model.</p>
 <span class="c1"># Alternatively you can also load from disk.</span>
 <span class="n">InteractiveClassifier</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;drawn-model.json&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This model can be used to make predictions but you will still need to follow the standard <code>.fit(X, y)</code> and <code>.predict(X)</code> pattern.</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
 
 <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <p>We can confirm that it has picked up the pattern that we drew too! The charts below show the predicted values
 <code>preds</code> plotted over the original charts that we drew.</p>
 <p><img alt="" src="preds-1.png" />

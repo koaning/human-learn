@@ -647,6 +647,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -786,7 +798,6 @@
 <span class="n">df</span> <span class="o">=</span> <span class="n">load_penguins</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">InteractiveCharts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="" src="new-drawing.png" /></p>
 <p>The drawn colors indicate that a human deemed a classification appropriate. You could wonder
 what we might want to do with the regions that have not been colored though. Machine learning
@@ -811,7 +822,6 @@ outlier detection model. This allows us to re-use earlier work for multiple purp
 <span class="c1"># Run this in a seperate cell</span>
 <span class="n">charts</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>To demonstrate how it works, let's assume that we've drawn the following:</p>
 <p><img alt="" src="outlier-demo-drawn.png" /></p>
 <p>We'll again fetch the drawn data but now we'll use it to detect outliers.</p>
@@ -823,7 +833,6 @@ outlier detection model. This allows us to re-use earlier work for multiple purp
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-
 <p>This model can now be used as a scikit-learn compatible outlier detection model.
 Here's the output of the model.</p>
 <p><img alt="" src="found-outliers.png" /></p>
@@ -853,7 +862,6 @@ to be in at least one polygon but we can change this to two.</p>
 <span class="c1"># After</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">InteractiveOutlierDetector</span><span class="p">(</span><span class="n">json_desc</span><span class="o">=</span><span class="n">charts</span><span class="o">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-
 <p><img alt="" src="outlier-demo-threshold.png" /></p>
 <h2 id="combine">Combine<a class="headerlink" href="#combine" title="Permanent link">&para;</a></h2>
 <p>You might wonder, can we combine the <code>FunctionClassifier</code> with an outlier model like
