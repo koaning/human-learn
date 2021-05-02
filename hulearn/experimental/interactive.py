@@ -1,6 +1,7 @@
 import os
 import uuid
 import random
+import pathlib
 from string import Template
 from pkg_resources import resource_filename
 
@@ -230,20 +231,27 @@ def _random_string():
 
 def parallel_coordinates(dataf, label, height=200):
     """
-    Creates an interactive parallel coordinates chart.
+    Creates an interactive parallel coordinates chart to help with classification tasks.
+
+    Arguments:
+        - dataf: the dataframe to render
+        - label: the column that represents the label, will be used for coloring
+        - height: the height of the chart, in pixels
     """
     t = Template(
-        resource_filename(
-            "hulearn", os.path.join("static", "parcoords", "template.html")
-        )
+        pathlib.Path(
+            resource_filename(
+                "hulearn", os.path.join("static", "parcoords", "template.html")
+            )
+        ).read_text()
     )
-    d3_blob = resource_filename(
+    d3_blob_path = resource_filename(
         "hulearn", os.path.join("static", "parcoords", "d3.min.js")
     )
-    css_blob = resource_filename(
+    css_blob_path = resource_filename(
         "hulearn", os.path.join("static", "parcoords", "d3.parcoords.css")
     )
-    js_blob = resource_filename(
+    js_blob_path = resource_filename(
         "hulearn", os.path.join("static", "parcoords", "d3.parcoords.js")
     )
 
@@ -252,9 +260,9 @@ def parallel_coordinates(dataf, label, height=200):
         {
             "data": json_data,
             "id": _random_string(),
-            "style": css_blob,
-            "d3_blob": d3_blob,
-            "parcoords_stuff": js_blob,
+            "style": pathlib.Path(css_blob_path).read_text(),
+            "d3_blob": pathlib.Path(d3_blob_path).read_text(),
+            "parcoords_stuff": pathlib.Path(js_blob_path).read_text(),
             "height": f"{height}px",
         }
     )
