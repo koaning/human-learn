@@ -29,6 +29,7 @@ test_packages = [
     "nbval>=0.9.6",
     "scikit-lego>=0.6.0",
     "matplotlib>=3.0.2",
+    "mktestdocs==0.1.1",
 ]
 util_packages = [
     "jupyter>=1.0.0",
