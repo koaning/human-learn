@@ -1,0 +1,3 @@
+# `CaseWhenRuler`
+
+::: hulearn.experimental.CaseWhenRuler

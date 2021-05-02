@@ -29,11 +29,14 @@ test_packages = [
     "nbval>=0.9.6",
     "scikit-lego>=0.6.0",
     "matplotlib>=3.0.2",
+    "mktestdocs==0.1.1",
 ]
+
 util_packages = [
     "jupyter>=1.0.0",
     "jupyterlab>=0.35.4",
 ]
+
 dev_packages = docs_packages + test_packages + util_packages
 
 
@@ -64,6 +67,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "License :: OSI Approved :: MIT License",
         "Topic :: Scientific/Engineering",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",

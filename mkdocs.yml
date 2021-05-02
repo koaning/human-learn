@@ -25,6 +25,7 @@ nav:
     - Utility:
       - Common: api/common.md
       - Datasets: api/datasets.md
+      - Rulers: api/rulers.md
   - Examples:
     - Examples: examples/examples.md
     - FAQ: examples/faq.md
