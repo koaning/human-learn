@@ -1,3 +1,10 @@
+[![Downloads](https://pepy.tech/badge/human-learn/month)](https://pepy.tech/project/human-learn)
+[![Version](https://img.shields.io/pypi/v/human-learn)](https://pypi.org/project/scikit-lego/)
+![](https://img.shields.io/github/license/koaning/human-learn)
+![](https://img.shields.io/pypi/pyversions/human-learn)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![DOI](https://zenodo.org/badge/278844314.svg)](https://zenodo.org/badge/latestdoi/278844314)
+
 <img src="docs/logo.png" width=225 align="right">
 
 # Human Learning
@@ -16,8 +23,9 @@ Nowadays, it's much more fashionable to use machine learning instead. Something 
 
 We started wondering if we might have lost something in this transition. Sure,
 machine learning covers a lot of ground but it is also capable of making bad
-decision. We need to remain careful about hype because and we shouldn't forget that many
-classification problems can be handled by natural intelligence too.
+decisions. We need to remain careful about hype. We also shouldn't forget that 
+many classification problems can be handled by natural intelligence too. If nothing
+else, it'd sure be a sensible benchmark.
 
 This package contains scikit-learn compatible tools that should make it easier
 to construct and benchmark rule based systems that are designed by humans. You

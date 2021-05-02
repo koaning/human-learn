@@ -1,5 +1,4 @@
 from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.utils.multiclass import unique_labels
 from sklearn.utils.validation import check_is_fitted
 
 
@@ -43,12 +42,19 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
 
     def fit(self, X, y):
         """
-        Fit the classifier.
-
-        This classifier tries to confirm if the passed function can predict appropriate values on the train set.
+        Fit the classifier. No-Op.
         """
         # Run it to confirm no error happened.
-        self.classes_ = unique_labels(y)
+        self.fitted_ = True
+        _ = self.func(X, **self.kwargs)
+        return self
+
+    def partial_fit(self, X, y, classes=None, sample_weight=None):
+        """
+        Fit the classifier partially. No-Op.
+        """
+        # Run it to confirm no error happened.
+        self.fitted_ = True
         _ = self.func(X, **self.kwargs)
         return self
 
@@ -56,7 +62,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
         """
         Make predictions using the passed function.
         """
-        check_is_fitted(self, ["classes_"])
+        check_is_fitted(self, ["fitted_"])
         return self.func(X, **self.kwargs)
 
     def get_params(self, deep=True):
