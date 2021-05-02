@@ -31,10 +31,12 @@ test_packages = [
     "matplotlib>=3.0.2",
     "mktestdocs==0.1.1",
 ]
+
 util_packages = [
     "jupyter>=1.0.0",
     "jupyterlab>=0.35.4",
 ]
+
 dev_packages = docs_packages + test_packages + util_packages
 
 
