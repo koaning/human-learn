@@ -2,8 +2,8 @@ import pytest
 from mktestdocs import check_docstring, get_codeblock_members
 
 from hulearn.datasets import load_titanic
-from hulearn.common import flatten, df_to_dictlist
 from hulearn.experimental import CaseWhenRuler
+from hulearn.common import flatten, df_to_dictlist
 
 members = get_codeblock_members(CaseWhenRuler)
 
