@@ -1,7 +1,11 @@
+import os
 import uuid
+import random
+from string import Template
 from pkg_resources import resource_filename
 
 from clumper import Clumper
+from IPython.core.display import HTML
 from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show
 from bokeh.models import PolyDrawTool, PolyEditTool
@@ -219,12 +223,39 @@ class SingleInteractiveChart:
         }
 
 
-class ParallelCoordChart:
-    def __init__(self, dataf, labels, color=None):
-        self.dataf = dataf
-        self.labels = labels
-        self.charts = []
-        self.color = color
+def _random_string():
+    """Generates a random HTML id for d3 charts."""
+    return "".join([random.choice("qwertyuiopasdfghjklzxcvbnm") for _ in range(6)])
 
-    def render(self):
-        pass
+
+def parallel_coordinates(dataf, label, height=200):
+    """
+    Creates an interactive parallel coordinates chart.
+    """
+    t = Template(
+        resource_filename(
+            "hulearn", os.path.join("static", "parcoords", "template.html")
+        )
+    )
+    d3_blob = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.min.js")
+    )
+    css_blob = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.parcoords.css")
+    )
+    js_blob = resource_filename(
+        "hulearn", os.path.join("static", "parcoords", "d3.parcoords.js")
+    )
+
+    json_data = dataf.rename(columns={label: "label"}).to_json(orient="records")
+    rendered = t.substitute(
+        {
+            "data": json_data,
+            "id": _random_string(),
+            "style": css_blob,
+            "d3_blob": d3_blob,
+            "parcoords_stuff": js_blob,
+            "height": f"{height}px",
+        }
+    )
+    return HTML(rendered)

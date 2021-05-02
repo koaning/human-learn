@@ -6,6 +6,10 @@
 <main>
     <div id="$id" class="parcoords" style="height: $height"></div>
     <script>
+        $d3_blob
+
+        $parcoords_stuff
+
         var colors = d3.scale.category20b();
         // load csv file and create the chart
         var parcoords;
@@ -16,8 +20,8 @@
                 "#fb9a99","#e31a1c","#fdbf6f","#ff7f00",
                 "#cab2d6","#6a3d9a","#ffff99","#b15928"]);
 
-        var color = function(d) { return colorgen(d.group); };
-        data.map(d => color(d.group))
+        var color = function(d) { return colorgen(d.label); };
+        data.map(d => color(d.label))
 
         parcoords = d3.parcoords()("#$id")
             .data(data)
