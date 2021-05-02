@@ -84,11 +84,11 @@ class PipeTransformer(TransformerMixin, BaseEstimator):
         return self.func(X, **self.kwargs)
 
     def get_params(self, deep=True):
-        """"""
+        """ """
         return {**self.kwargs, "func": self.func}
 
     def set_params(self, **params):
-        """"""
+        """ """
         for k, v in params.items():
             if k == "func":
                 self.func = v
