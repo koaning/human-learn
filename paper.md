@@ -23,7 +23,7 @@ There's been a transition from rule-based systems to ones that use machine-learn
 
 The user interface that can be used to draw machine learning models is drawn below. Note that the same UI can also be used for labelling tasks as well.
 
-![](screenshot.png)
+![](docs/screenshot.png)
 
 # Acknowledgements
 
