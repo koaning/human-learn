@@ -7,8 +7,9 @@ tags:
 authors:
   - name: Vincent D. Warmerdam
     orcid: 0000-0003-0845-4528
+    affiliation: 1
 affiliations:
-   - name: Self
+   - name: Personal
      index: 1
 date: May 3rd 2020
 bibliography: paper.bib
