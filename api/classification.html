@@ -243,7 +243,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../examples/examples.html" class="md-tabs__link">
+        <a href="../examples/model-mining.html" class="md-tabs__link">
           Examples
         </a>
       
@@ -741,8 +741,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/examples.html" title="Examples" class="md-nav__link">
-      Examples
+    <a href="../examples/model-mining.html" title="Model Mining" class="md-nav__link">
+      Model Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/usage.html" title="Usage" class="md-nav__link">
+      Usage
     </a>
   </li>
 
@@ -928,14 +940,14 @@
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.classification.functionclassifier.FunctionClassifier.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>43
-44
-45
-46
-47
-48
-49
-50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -948,14 +960,14 @@
 </details>
 <p>Fit the classifier. No-Op.</p>
 <h3 id="hulearn.classification.functionclassifier.FunctionClassifier.partial_fit"><code class="highlight"><span class="n">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.partial_fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier partially. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -968,12 +980,12 @@
 </details>
 <p>Fit the classifier partially. No-Op.</p>
 <h3 id="hulearn.classification.functionclassifier.FunctionClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.functionclassifier.FunctionClassifier.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>61
-62
-63
-64
-65
-66</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/functionclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Make predictions using the passed function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1044,13 +1056,13 @@
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>114
-115
-116
-117
-118
-119
-120</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier. Bit of a formality, it&#39;s not doing anything specifically.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1062,28 +1074,28 @@
 </details>
 <p>Fit the classifier. Bit of a formality, it's not doing anything specifically.</p>
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json"><code class="highlight"><span class="n">from_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@classmethod</span>
+<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the classifier from json stored on disk.</span>
@@ -1146,28 +1158,28 @@
 <span class="n">InteractiveClassifier</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/to/file.json&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Predicts the class for each item in `X`.</span>
 
@@ -1205,44 +1217,44 @@
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba"><code class="highlight"><span class="n">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>classification/interactiveclassifier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Predicts the associated probabilities for each class.</span>
 

@@ -243,7 +243,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../examples/examples.html" class="md-tabs__link">
+        <a href="../examples/model-mining.html" class="md-tabs__link">
           Examples
         </a>
       
@@ -680,8 +680,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/examples.html" title="Examples" class="md-nav__link">
-      Examples
+    <a href="../examples/model-mining.html" title="Model Mining" class="md-nav__link">
+      Model Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/usage.html" title="Usage" class="md-nav__link">
+      Usage
     </a>
   </li>
 
@@ -758,34 +770,34 @@
                 
                 <h1 id="from-hulearndatasets-import"><code>from hulearn.datasets import *</code><a class="headerlink" href="#from-hulearndatasets-import" title="Permanent link">&para;</a></h1>
 <h2 id="hulearn.datasets.load_fish"><code class="highlight"><span class="n">load_fish</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.datasets.load_fish" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>hulearn/datasets.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_fish</span><span class="p">(</span><span class="n">return_X_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>hulearn/datasets.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_fish</span><span class="p">(</span><span class="n">return_X_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads in a subset of the Fish market dataset. You can find the full dataset [here](https://www.kaggle.com/aungpyaeap/fish-market).</span>
 
@@ -849,34 +861,34 @@
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_fish</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="hulearn.datasets.load_titanic"><code class="highlight"><span class="n">load_titanic</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.datasets.load_titanic" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>hulearn/datasets.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_titanic</span><span class="p">(</span><span class="n">return_X_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>hulearn/datasets.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_titanic</span><span class="p">(</span><span class="n">return_X_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">as_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads in a subset of the titanic dataset. You can find the full dataset [here](https://www.kaggle.com/c/titanic/data).</span>
 

@@ -243,7 +243,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../examples/examples.html" class="md-tabs__link">
+        <a href="../examples/model-mining.html" class="md-tabs__link">
           Examples
         </a>
       
@@ -734,8 +734,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../examples/examples.html" title="Examples" class="md-nav__link">
-      Examples
+    <a href="../examples/model-mining.html" title="Model Mining" class="md-nav__link">
+      Model Mining
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/usage.html" title="Usage" class="md-nav__link">
+      Usage
     </a>
   </li>
 
@@ -895,14 +907,14 @@ of the function needs to be an array with [-1, 1] values (-1 denotes outliers).<
 </table>
 <p>The functions that are passed need to be pickle-able. That means no lambda functions!</p>
 <h3 id="hulearn.outlier.functionoutlier.FunctionOutlierDetector.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.outlier.functionoutlier.FunctionOutlierDetector.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>21
-22
-23
-24
-25
-26
-27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -915,15 +927,15 @@ of the function needs to be an array with [-1, 1] values (-1 denotes outliers).<
 </details>
 <p>Fit the classifier. No-Op.</p>
 <h3 id="hulearn.outlier.functionoutlier.FunctionOutlierDetector.partial_fit"><code class="highlight"><span class="n">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.outlier.functionoutlier.FunctionOutlierDetector.partial_fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>30
-31
-32
-33
-34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">partial_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier partially. No-Op.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -937,12 +949,12 @@ of the function needs to be an array with [-1, 1] values (-1 denotes outliers).<
 </details>
 <p>Fit the classifier partially. No-Op.</p>
 <h3 id="hulearn.outlier.functionoutlier.FunctionOutlierDetector.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.outlier.functionoutlier.FunctionOutlierDetector.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>40
-41
-42
-43
-44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>outlier/functionoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Make predictions using the passed function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1008,12 +1020,12 @@ does not fit in any of the drawn polygons it becomes a candidate to become an ou
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.fit"><code class="highlight"><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.fit" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>105
-106
-107
-108
-109
-110</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the classifier. Bit of a formality, it&#39;s not doing anything specifically.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1024,25 +1036,25 @@ does not fit in any of the drawn polygons it becomes a candidate to become an ou
 </details>
 <p>Fit the classifier. Bit of a formality, it's not doing anything specifically.</p>
 <h3 id="hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.from_json"><code class="highlight"><span class="n">from_json</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.from_json" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@classmethod</span>
+<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the classifier from json stored on disk.</span>
@@ -1096,27 +1108,27 @@ does not fit in any of the drawn polygons it becomes a candidate to become an ou
 <span class="n">InteractiveOutlierDetector</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;path/to/file.json&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.predict"><code class="highlight"><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span></code><a class="headerlink" href="#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.predict" title="Permanent link">&para;</a></h3>
-<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<details class="note"><summary>Show source code in <code>outlier/interactiveoutlier.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Predicts the associated probabilities for each class.</span>
 

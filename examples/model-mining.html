@@ -1,0 +1,1007 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Machine Learning models that play by the rules, literally.">
+      
+      
+        <link rel="canonical" href="https://koaning.github.io/human-learn/examples/model-mining.html">
+      
+      
+        <meta name="author" content="Vincent D. Warmerdam">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../icon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Model Mining - Human-Learn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../style.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#the-task" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://koaning.github.io/human-learn/" title="Human-Learn" aria-label="Human-Learn" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../icon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Human-Learn
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Model Mining
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/koaning/human-learn/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../index.html" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../guide/function-classifier/function-classifier.html" class="md-tabs__link">
+          Guides
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../api/classification.html" class="md-tabs__link">
+          Api
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="model-mining.html" class="md-tabs__link md-tabs__link--active">
+          Examples
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://koaning.github.io/human-learn/" title="Human-Learn" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../icon.png" width="48" height="48">
+      
+    </a>
+    Human-Learn
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/koaning/human-learn/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/function-classifier/function-classifier.html" title="Function as a Model" class="md-nav__link">
+      Function as a Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/function-preprocess/function-preprocessing.html" title="Human Preprocessing" class="md-nav__link">
+      Human Preprocessing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/drawing-classifier/drawing.html" title="Drawing as a Model" class="md-nav__link">
+      Drawing as a Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/finding-outliers/outliers.html" title="Outliers and Comfort" class="md-nav__link">
+      Outliers and Comfort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guide/drawing-features/custom-features.html" title="Drawing Features" class="md-nav__link">
+      Drawing Features
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Api
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Api
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Models
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Models
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/classification.html" title="Classification" class="md-nav__link">
+      Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/regression.html" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/outlier.html" title="Outlier" class="md-nav__link">
+      Outlier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/preprocessing.html" title="Preprocessing" class="md-nav__link">
+      Preprocessing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Interactive
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Interactive
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/interactive-charts.html" title="Charts" class="md-nav__link">
+      Charts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Utility
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Utility
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/common.html" title="Common" class="md-nav__link">
+      Common
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/datasets.html" title="Datasets" class="md-nav__link">
+      Datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/rulers.html" title="Rulers" class="md-nav__link">
+      Rulers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Model Mining
+      </label>
+    
+    <a href="model-mining.html" title="Model Mining" class="md-nav__link md-nav__link--active">
+      Model Mining
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-task" class="md-nav__link">
+    The Task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-learning" class="md-nav__link">
+    Deep Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-coordinates" class="md-nav__link">
+    Parallel Coordinates
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage.html" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-task" class="md-nav__link">
+    The Task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-learning" class="md-nav__link">
+    Deep Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-coordinates" class="md-nav__link">
+    Parallel Coordinates
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/koaning/human-learn/edit/master/docs/examples/model-mining.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Model Mining</h1>
+                
+                <p>In this example, we will demonstrate that you can use visual data mining techniques to discover meaningful patterns in your data. These patterns can be easily translated into a machine learning model by using the tools found in this package. </p>
+<p>You can find a full tutorial of this technique on <a href="https://calmcode.io">calmcode.io</a> but the main video can be viewed below.</p>
+<iframe src="https://player.vimeo.com/video/553884204" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="display: inline-block;"></iframe>
+
+<h2 id="the-task">The Task<a class="headerlink" href="#the-task" title="Permanent link">&para;</a></h2>
+<p>We're going to make a rule based model for the creditcard dataset. The main feature of the dataset is that it is suffering from a class imbalance. Instead of training a machine learning model, let's try to instead explore it with a parallel coordinates chart. If you scroll all the way to the bottom of this tutorial you'll see an example of such a chart. It shows a "train"-set.</p>
+<p>We explored the data just like in the video and that led us to define the following model. </p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">hulearn.classification</span> <span class="kn">import</span> <span class="n">FunctionClassifier</span>
+<span class="kn">from</span> <span class="nn">hulearn.experimental</span> <span class="kn">import</span> <span class="n">CaseWhenRuler</span>
+
+<span class="k">def</span> <span class="nf">make_prediction</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">ruler</span> <span class="o">=</span> <span class="n">CaseWhenRuler</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">ruler</span>
+     <span class="o">.</span><span class="n">add_rule</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;V11&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+     <span class="o">.</span><span class="n">add_rule</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;V17&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+     <span class="o">.</span><span class="n">add_rule</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;V14&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">8</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">ruler</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataf</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">FunctionClassifier</span><span class="p">(</span><span class="n">make_prediction</span><span class="p">)</span>
+</code></pre></div>
+<details><summary>Full Code</summary><p>First we load the data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">df_credit</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span>
+    <span class="n">data_id</span><span class="o">=</span><span class="mi">1597</span><span class="p">,</span>
+    <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">credit_train</span><span class="p">,</span> <span class="n">credit_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_credit</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>Next, we create a hiplot in jupyter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span> 
+<span class="kn">import</span> <span class="nn">hiplot</span> <span class="k">as</span> <span class="nn">hip</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">credit_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">],</span> <span class="n">credit_train</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5000</span><span class="p">)]</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+<span class="n">hip</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">))</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</code></pre></div>
+<p>Given that we have our model, we can make a classification report. </p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="c1"># Note that `fit` is a no-op here.</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">credit_train</span><span class="p">,</span> <span class="n">credit_train</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">credit_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">credit_test</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">],</span> <span class="n">preds</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p>When we ran the benchmark locally, we got the following classification report.</p>
+<div class="highlight"><pre><span></span><code>              precision    recall  f1-score   support
+
+       False       1.00      1.00      1.00    142165
+        True       0.70      0.73      0.71       239
+
+    accuracy                           1.00    142404
+   macro avg       0.85      0.86      0.86    142404
+weighted avg       1.00      1.00      1.00    142404
+</code></pre></div>
+<h2 id="deep-learning">Deep Learning<a class="headerlink" href="#deep-learning" title="Permanent link">&para;</a></h2>
+<p>It's not a perfect benchmark, but we could compare this result to the one that's demonstrated 
+on the <a href="https://keras.io/examples/structured_data/imbalanced_classification/">keras blog</a>. The 
+trained model there lists 86.67% precision but only 23.9% recall. Depending on your preferences
+for false-positives, you could argue that our model is outperforming the deep learning model. </p>
+<p>It's not 100% a fair comparison. You can imagine that the keras blogpost is written to explain 
+keras. The auther likely didn't attempt to make a state-of-the-art model. But what this demo does
+show is the merit of turning an exploratory data analysis into a model. You can end up with a 
+very interpretable model, you might learn something about your data along the way and the model
+might certainly still perform well.</p>
+<h2 id="parallel-coordinates">Parallel Coordinates<a class="headerlink" href="#parallel-coordinates" title="Permanent link">&para;</a></h2>
+<p>If you hover of the <code>group</code> name and right-click, you'll be able to set it for coloring and 
+repeat the experience in the video. By doing that it becomes quite easy to eyeball how to separate the two classes. The <code>V17</code> column especially seems powerful here. In real life we might ask "why?" this column is so distinctive but for now we'll just play around until we find a sensible model. </p>
+<iframe src="creditcard.html" width="100%" height=1200 frameborder="0">
+
+[hulearn.classification.functionclassifier]: /human-learn/api/classification.html#hulearn.classification.functionclassifier
+[hulearn.classification.functionclassifier.FunctionClassifier]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier
+[hulearn.classification.functionclassifier.FunctionClassifier.__init__]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.__init__
+[hulearn.classification.functionclassifier.FunctionClassifier.fit]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.fit
+[hulearn.classification.functionclassifier.FunctionClassifier.get_params]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.get_params
+[hulearn.classification.functionclassifier.FunctionClassifier.partial_fit]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.partial_fit
+[hulearn.classification.functionclassifier.FunctionClassifier.predict]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.predict
+[hulearn.classification.functionclassifier.FunctionClassifier.set_params]: /human-learn/api/classification.html#hulearn.classification.functionclassifier.FunctionClassifier.set_params
+[hulearn.classification.interactiveclassifier]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier
+[hulearn.classification.interactiveclassifier.InteractiveClassifier]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.__init__]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.__init__
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.fit]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.fit
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.from_json
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.poly_data]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.poly_data
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.predict]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict
+[hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba]: /human-learn/api/classification.html#hulearn.classification.interactiveclassifier.InteractiveClassifier.predict_proba
+[hulearn.regression.functionregressor]: /human-learn/api/regression.html#hulearn.regression.functionregressor
+[hulearn.regression.functionregressor.FunctionRegressor]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor
+[hulearn.regression.functionregressor.FunctionRegressor.__init__]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.__init__
+[hulearn.regression.functionregressor.FunctionRegressor.fit]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.fit
+[hulearn.regression.functionregressor.FunctionRegressor.get_params]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.get_params
+[hulearn.regression.functionregressor.FunctionRegressor.partial_fit]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.partial_fit
+[hulearn.regression.functionregressor.FunctionRegressor.predict]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.predict
+[hulearn.regression.functionregressor.FunctionRegressor.set_params]: /human-learn/api/regression.html#hulearn.regression.functionregressor.FunctionRegressor.set_params
+[hulearn.outlier.functionoutlier]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.__init__]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.__init__
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.fit]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.fit
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.get_params]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.get_params
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.partial_fit]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.partial_fit
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.predict]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.predict
+[hulearn.outlier.functionoutlier.FunctionOutlierDetector.set_params]: /human-learn/api/outlier.html#hulearn.outlier.functionoutlier.FunctionOutlierDetector.set_params
+[hulearn.outlier.interactiveoutlier]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.__init__]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.__init__
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.fit]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.fit
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.from_json]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.from_json
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.poly_data]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.poly_data
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.predict]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.predict
+[hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.score]: /human-learn/api/outlier.html#hulearn.outlier.interactiveoutlier.InteractiveOutlierDetector.score
+[hulearn.preprocessing.pipetransformer]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer
+[hulearn.preprocessing.pipetransformer.PipeTransformer]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer
+[hulearn.preprocessing.pipetransformer.PipeTransformer.__init__]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.__init__
+[hulearn.preprocessing.pipetransformer.PipeTransformer.fit]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.fit
+[hulearn.preprocessing.pipetransformer.PipeTransformer.get_params]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.get_params
+[hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.partial_fit
+[hulearn.preprocessing.pipetransformer.PipeTransformer.set_params]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.set_params
+[hulearn.preprocessing.pipetransformer.PipeTransformer.transform]: /human-learn/api/preprocessing.html#hulearn.preprocessing.pipetransformer.PipeTransformer.transform
+[hulearn.preprocessing.interactivepreprocessor]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.__init__]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.__init__
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.fit
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.from_json
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.pandas_pipe
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.poly_data]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.poly_data
+[hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform]: /human-learn/api/preprocessing.html#hulearn.preprocessing.interactivepreprocessor.InteractivePreprocessor.transform
+[hulearn.experimental.interactive.InteractiveCharts]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.InteractiveCharts
+[hulearn.experimental.interactive.InteractiveCharts.__init__]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.InteractiveCharts.__init__
+[hulearn.experimental.interactive.InteractiveCharts.add_chart]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.InteractiveCharts.add_chart
+[hulearn.experimental.interactive.InteractiveCharts.data]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.InteractiveCharts.data
+[hulearn.experimental.interactive.InteractiveCharts.to_json]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.InteractiveCharts.to_json
+[hulearn.experimental.interactive.parallel_coordinates]: /human-learn/api/interactive-charts.html#hulearn.experimental.interactive.parallel_coordinates
+[hulearn.common]: /human-learn/api/common.html#hulearn.common
+[hulearn.common.df_to_dictlist]: /human-learn/api/common.html#hulearn.common.df_to_dictlist
+[hulearn.common.flatten]: /human-learn/api/common.html#hulearn.common.flatten
+[hulearn.datasets]: /human-learn/api/datasets.html#hulearn.datasets
+[hulearn.datasets.load_fish]: /human-learn/api/datasets.html#hulearn.datasets.load_fish
+[hulearn.datasets.load_titanic]: /human-learn/api/datasets.html#hulearn.datasets.load_titanic
+[hulearn.experimental.ruler.CaseWhenRuler]: /human-learn/api/rulers.html#hulearn.experimental.ruler.CaseWhenRuler
+[hulearn.experimental.ruler.CaseWhenRuler.__init__]: /human-learn/api/rulers.html#hulearn.experimental.ruler.CaseWhenRuler.__init__
+[hulearn.experimental.ruler.CaseWhenRuler.add_rule]: /human-learn/api/rulers.html#hulearn.experimental.ruler.CaseWhenRuler.add_rule
+[hulearn.experimental.ruler.CaseWhenRuler.predict]: /human-learn/api/rulers.html#hulearn.experimental.ruler.CaseWhenRuler.predict
+[hulearn.experimental.ruler.CaseWhenRuler.transform]: /human-learn/api/rulers.html#hulearn.experimental.ruler.CaseWhenRuler.transform
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../api/rulers.html" title="Rulers" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Rulers
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="usage.html" title="Usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Usage
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Maintained by <a href="https://twitter.com/fishnets88">Vincent</a>.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
