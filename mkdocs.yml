@@ -27,7 +27,8 @@ nav:
       - Datasets: api/datasets.md
       - Rulers: api/rulers.md
   - Examples:
-    - Examples: examples/examples.md
+    - Model Mining: examples/model-mining.md
+    - Usage: examples/usage.md
     - FAQ: examples/faq.md
 plugins:
   - mkdocstrings:
