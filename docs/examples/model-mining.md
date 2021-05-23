@@ -1,6 +1,6 @@
 In this example, we will demonstrate that you can use visual data mining techniques to discover meaningful patterns in your data. These patterns can be easily translated into a machine learning model by using the tools found in this package. 
 
-You can find a full tutorial of this technique on [calmcode.io](https://calmcode.io) but the main video can be viewed below.
+You can find a full tutorial of this technique on [calmcode](https://calmcode.io/model-mining/introduction.html) but the main video can be viewed below.
 
 <iframe src="https://player.vimeo.com/video/553884204" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="display: inline-block;"></iframe>
 
