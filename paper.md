@@ -21,16 +21,19 @@ This package contains scikit-learn compatible tools that make it easier to const
 
 # Statement of need
 
-There's been a transition from rule-based systems to ones that use machine-learning.
+There's been a transition from rule-based systems to ones that use machine-learning. Initially, systems were written to take data and to apply rules to them to output labels.
 
 ![](docs/examples/rules.png)
+
+Recently, it's become much more fashionable to take data with labels and to use machine-learning algorithms to figure out appropriate rules.
+
 ![](docs/examples/ml.png)
 
-We started wondering if we might have lost something in this transition. Machine learning can be generally applied but it is also capable of making bad decision that are very hard to understand. Even with the benefit of hindsight, it's often very hard to understand how an algorithm makes a decision.
+We started wondering if we might have lost something in this transition. Machine learning can be generally applied but it is also capable of making bad decision that are very hard to debug. Even with the benefit of hindsight, it's often very hard to understand how an algorithm makes a decision.
 
 At the same time, it's also true that many classification problems can be handled by natural intelligence too. The goal of this package is to make it easier to turn the act of exploratory data analysis into a well understand model. These models can serve as a simple benchmark that represents domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components but we also host a suite of interactive widgets that might help construct models as well.
+The library features components to easily turn python functions into scikit-learn compatible components. Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets that might help construct models as well.
 
 ![](docs/screenshot.png)
 
