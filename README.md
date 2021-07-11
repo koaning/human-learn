@@ -134,5 +134,17 @@ We're open to ideas for the repository but please discuss any feature you'd like
 before working on a PR. This way folks will know somebody is working on a feature and the
 implementation can be discussed with the maintainer upfront. 
 
+If you want to quickly get started locally you can run the following command to set the 
+local development environment up. 
 
+```
+make develop
+```
 
+If you want to run all the tests/checks locally you can run.
+
+```
+make check
+```
+
+This will run flake8, black, pytest and test the documentation pages. 
