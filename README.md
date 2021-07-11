@@ -39,6 +39,12 @@ You can install this tool via `pip`.
 python -m pip install human-learn
 ```
 
+The project builds on top of a modern installation of [scikit-learn](https://scikit-learn.org/stable/index.html)
+and [pandas](https://pandas.pydata.org/). It also
+uses [bokeh](https://bokeh.org/) for interactive jupyter elements, [shapely](https://pypi.org/project/Shapely/) 
+for the point-in-poly algorithms and [clumper](https://koaning.github.io/clumper/)
+to deal with json datastructures. 
+
 ## Documentation
 
 Detailed documentation of this tool can be found [here](https://koaning.github.io/human-learn/).
@@ -121,3 +127,12 @@ this dataset is to predict who might have survived the titanic disaster.
 The fish market dataset is also hosted in this library. The goal of this dataset
 is to predict the weight of fish. However, it can also be turned into a classification problem
 by predicting the species.
+
+## Contribution
+
+We're open to ideas for the repository but please discuss any feature you'd like to add 
+before working on a PR. This way folks will know somebody is working on a feature and the
+implementation can be discussed with the maintainer upfront. 
+
+
+
