@@ -33,7 +33,7 @@ We started wondering if we might have lost something in this transition. Machine
 
 At the same time, it's also true that many classification problems can be handled by natural intelligence too. The goal of this package is to make it easier to turn the act of exploratory data analysis into a well understand model. These models can serve as a simple benchmark that represents domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets (interactive_Jupyter_widgets), made with Bokeh (@bokeh), that might help construct models from Jupyter (@jupyter) as well.
+The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets (@interactive_Jupyter_widgets), made with Bokeh (@bokeh), that might help construct models from Jupyter (@jupyter) as well.
 
 ![](docs/screenshot.png)
 
