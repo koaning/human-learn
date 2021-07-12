@@ -33,7 +33,7 @@ We started wondering if we might have lost something in this transition. Machine
 
 At the same time, it's also true that many classification problems can be handled by natural intelligence too. The goal of this package is to make it easier to turn the act of exploratory data analysis into a well understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark that represents domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets, made with Bokeh (@bokeh), that might help construct models from Jupyter (@jupyter) as well.
+The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
 
 ![](docs/screenshot.png)
 
@@ -43,7 +43,7 @@ The above screenshot demonstrates the `InteractiveChart` interface that can be u
 
 This project was developed in my spare time while being employed at Rasa. They have been very supportive of me working on my own projects on the side and I would like to recognise them for being a great employer.
 
-I also want to acknowledge that I'm building on the shoulders of giants. The popular drawing widget in this library would not have been possible without the wider bokeh, jupyter and ipywidgets communities.
+I also want to acknowledge that I'm building on the shoulders of giants. The popular drawing widget in this library would not have been possible without the wider bokeh (@bokeh), jupyter (@jupyter) and scikit-learn communities.
 
 There have been also been small contributions on Github from Joshua Adelman, Kay Hoogland and Gabriel Luiz Freitas Almeida.
 
