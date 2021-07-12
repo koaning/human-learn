@@ -29,11 +29,11 @@ Recently, it's become much more fashionable to take data with labels and to use 
 
 ![](docs/examples/ml.png)
 
-We started wondering if we might have lost something in this transition. Machine learning can be generally applied but it is also capable of making bad decision that are very hard to debug. Even with the benefit of hindsight, it's often very hard to understand how an algorithm makes a decision.
+We started wondering if we might have lost something in this transition. Machine learning can be generally applied but it is also capable of making bad decision that are very hard to debug.  Tools like SHAP (@NIPS2017_7062) and LIME (@lime) try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight it's very hard to truly understand what is happening.
 
-At the same time, it's also true that many classification problems can be handled by natural intelligence too. The goal of this package is to make it easier to turn the act of exploratory data analysis into a well understand model. These models can serve as a simple benchmark that represents domain knowledge which is a great starting point for any predictive project.
+At the same time, it's also true that many classification problems can be handled by natural intelligence too. The goal of this package is to make it easier to turn the act of exploratory data analysis into a well understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark that represents domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets (@interactive_Jupyter_widgets), made with Bokeh (@bokeh), that might help construct models from Jupyter (@jupyter) as well.
+The library features components to easily turn python functions into scikit-learn compatible components (@sklearn_api). Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also host a suite of interactive widgets, made with Bokeh (@bokeh), that might help construct models from Jupyter (@jupyter) as well.
 
 ![](docs/screenshot.png)
 
