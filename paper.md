@@ -29,7 +29,7 @@ Recently, it's become much more fashionable to take data with labels and to use 
 
 ![](docs/examples/ml.png)
 
-We started wondering if we might have lost something in this transition. Machine learning is a general tool, but it is capable of making bad decisions. Decisions that are very hard to debug too.  Tools like SHAP [@NIPS2017_7062] and LIME [@lime] try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight, it's tough to understand what is happening.
+We started wondering if we might have lost something in this transition. Machine learning is a general tool, but it is capable of making bad decisions. Decisions that are very hard to debug too.  Tools like SHAP [@NIPS2017_7062] and LIME [@lime] try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight, it's tough to understand what is happening. 
 
 At the same time, it's also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
 
@@ -71,6 +71,8 @@ grid.fit(X, y)
 These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data.
 
 ![](https://koaning.github.io/human-learn/examples/tree.png)
+
+This example also demonstrates the main difference between this library and [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
 Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
 
