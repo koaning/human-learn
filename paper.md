@@ -71,7 +71,7 @@ These function-based models can be very powerful because they allow the user the
 
 ![](https://koaning.github.io/human-learn/examples/tree.png)
 
-This example also demonstrates the main difference between this library and [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
+This example also demonstrates the main difference between this library and snokel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
 Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
 
