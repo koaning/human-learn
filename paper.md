@@ -33,11 +33,68 @@ We started wondering if we might have lost something in this transition. Machine
 
 At the same time, it's also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components [@sklearn_api]. Both the `FunctionClassifier` and the `FunctionRegressor` can turn python functions into grid-searchable components. Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
+The library features components to easily turn python functions into scikit-learn compatible components [@sklearn_api]. 
+
+```python
+import numpy as np
+from hulearn.classification import FunctionClassifier
+
+def fare_based(dataf, threshold=10):
+    """
+    The assumption is that folks who paid more are wealthier and are more
+    likely to have recieved access to lifeboats.
+    """
+    return np.array(dataf['fare'] > threshold).astype(int)
+
+# The function is now turned into a scikit-learn compatible classifier.
+mod = FunctionClassifier(fare_based)
+```
+
+Besides the `FunctionClassifier`, the library also features a `FunctionRegressor` and a `FunctionOutlierDetector`. These can all take a function and turn the keyword parameters into grid-searchable parameters. 
+
+```python
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import precision_score, recall_score, accuracy_score, make_scorer
+
+# The GridSearch object can now "grid-search" over this argument.
+# We also add a bunch of metrics to our approach so we can measure.
+grid = GridSearchCV(mod,
+                    cv=2,
+                    param_grid={'threshold': np.linspace(0, 100, 30)},
+                    scoring={'accuracy': make_scorer(accuracy_score),
+                             'precision': make_scorer(precision_score),
+                             'recall': make_scorer(recall_score)},
+                    refit='accuracy')
+grid.fit(X, y)
+```
+
+These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data.
+
+![](https://koaning.github.io/human-learn/examples/tree.png)
+
+Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
+
+```python
+from hulearn.experimental.interactive import InteractiveCharts
+
+df = load_penguins()
+clf = InteractiveCharts(df, labels="species")
+
+# It's best to run this in a single cell.
+clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
+```
+
+An example of a drawn widget is shown below.
 
 ![](docs/screenshot.png)
 
-The above screenshot demonstrates the `InteractiveChart` interface. This interface allows the user to draw machine learning models. These models can be used for classification, outlier detection, labeling tasks, or general data exploration.
+This interface allows the user to draw machine learning models. These models can be used for classification, outlier detection, labeling tasks, or general data exploration.
+
+```python
+from hulearn.classification import InteractiveClassifier
+
+model = InteractiveClassifier(json_desc=clf.data())
+```
 
 # Acknowledgements
 
