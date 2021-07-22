@@ -94,6 +94,8 @@ This interface allows the user to draw machine learning models. These models can
 ```python
 from hulearn.classification import InteractiveClassifier
 
+# This classifier uses a point-in-poly method to convert the drawn
+# data from `clf` into a scikit-learn classifier. 
 model = InteractiveClassifier(json_desc=clf.data())
 ```
 
