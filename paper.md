@@ -17,7 +17,7 @@ bibliography: paper.bib
 
 # Summary
 
-This package contains scikit-learn compatible tools that make it easier to construct and benchmark rule-based systems designed by humans. There are tools to turn python functions into scikit-learn compatible components and interactive jupyter widgets that allow the user to draw models. One can also use it to design rules on top of existing models that, for example, can trigger a classifier fallback when outliers are detected.
+This package contains scikit-learn compatible tools that make it easier to construct and benchmark rule-based systems designed by humans. There are tools to turn Python functions into scikit-learn compatible components and interactive jupyter widgets that allow the user to draw models. One can also use it to design rules on top of existing models that, for example, can trigger a classifier fallback when outliers are detected.
 
 # Statement of need
 
@@ -33,7 +33,7 @@ We started wondering if we might have lost something in this transition. Machine
 
 At the same time, it's also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
 
-The library features components to easily turn python functions into scikit-learn compatible components [@sklearn_api]. 
+The library features components to easily turn Python functions into scikit-learn compatible components [@sklearn_api]. 
 
 ```python
 import numpy as np
@@ -71,7 +71,7 @@ These function-based models can be very powerful because they allow the user the
 
 ![A rule based systems that resorts to ML when rules don't cover the example.\label{fig:tree}](https://koaning.github.io/human-learn/examples/tree.png)
 
-This example also demonstrates the main difference between this library and snokel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
+This example also demonstrates the main difference between this library and Snokel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
 Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
 
