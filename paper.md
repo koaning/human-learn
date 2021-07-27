@@ -85,7 +85,7 @@ clf = InteractiveCharts(df, labels="species")
 clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
 ```
 
-This interface allows the user to draw machine learning models. These models can be used for classification, outlier detection, labeling tasks, or general data exploration.
+This interface allows the user to draw machine learning models. They can be used for classification, outlier detection, labeling tasks, or general data exploration. The snippet below demonstrates how to define a classifier based on the drawings.
 
 ```python
 from hulearn.classification import InteractiveClassifier
