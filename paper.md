@@ -33,6 +33,14 @@ We started wondering if we might have lost something in this transition. Machine
 
 At the same time, it is also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
 
+# Features 
+
+Human-learn can be installed via pip. 
+
+```
+pip install human-learn
+```
+
 The library features components to easily turn Python functions into scikit-learn compatible components [@sklearn_api]. 
 
 ```python
