@@ -67,13 +67,13 @@ grid = GridSearchCV(mod,
 grid.fit(X, y)
 ```
 
-These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data. An ideal use-case for this library is to combine rule based systems with machine learning based systems. An example of this is shown in \label{fig:tree}. 
+These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data. An ideal use-case for this library is to combine rule based systems with machine learning based systems. An example of this is shown in \autoref{fig:tree}. 
 
 ![A rule based systems that resorts to ML when rules don't cover the example.\label{fig:tree}](https://koaning.github.io/human-learn/examples/tree.png)
 
 This example also demonstrates the main difference between this library and Snokel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
-Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well.
+Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well. An example of a drawn widget is shown below in figure \autoref{fig:draw}.
 
 ```python
 from hulearn.experimental.interactive import InteractiveCharts
@@ -85,10 +85,6 @@ clf = InteractiveCharts(df, labels="species")
 clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
 ```
 
-An example of a drawn widget is shown below in figure \label{fig:draw}. .
-
-![A screenshot of the drawing widget. \label{fig:draw}](docs/screenshot.png)
-
 This interface allows the user to draw machine learning models. These models can be used for classification, outlier detection, labeling tasks, or general data exploration.
 
 ```python
@@ -98,6 +94,8 @@ from hulearn.classification import InteractiveClassifier
 # data from `clf` into a scikit-learn classifier. 
 model = InteractiveClassifier(json_desc=clf.data())
 ```
+
+![A screenshot of the drawing widget. \label{fig:draw}](docs/screenshot.png)
 
 # Acknowledgements
 
