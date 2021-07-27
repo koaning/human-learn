@@ -23,11 +23,11 @@ This package contains scikit-learn compatible tools that make it easier to const
 
 There's been a transition from rule-based systems to ones that use machine learning. Initially, systems converted data to labels by applying rules.
 
-![](docs/examples/rules.png)
+![Rule Based Systems.\label{fig:rulebased}](docs/examples/rules.png)
 
 Recently, it's become much more fashionable to take data with labels and to use machine-learning algorithms to figure out appropriate rules.
 
-![](docs/examples/ml.png)
+![Machine Learning Based Systems.\label{fig:mlbased}](docs/examples/ml.png)
 
 We started wondering if we might have lost something in this transition. Machine learning is a general tool, but it is capable of making bad decisions. Decisions that are very hard to debug too.  Tools like SHAP [@NIPS2017_7062] and LIME [@lime] try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight, it's tough to understand what is happening. 
 
@@ -67,9 +67,9 @@ grid = GridSearchCV(mod,
 grid.fit(X, y)
 ```
 
-These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data.
+These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data. An ideal use-case for this library is to combine rule based systems with machine learning based systems. An example of this is shown in \label{fig:tree}. 
 
-![](https://koaning.github.io/human-learn/examples/tree.png)
+![A rule based systems that resorts to ML when rules don't cover the example.\label{fig:tree}](https://koaning.github.io/human-learn/examples/tree.png)
 
 This example also demonstrates the main difference between this library and snokel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
@@ -85,9 +85,9 @@ clf = InteractiveCharts(df, labels="species")
 clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
 ```
 
-An example of a drawn widget is shown below.
+An example of a drawn widget is shown below in figure \label{fig:draw}. .
 
-![](docs/screenshot.png)
+![A screenshot of the drawing widget. \label{fig:draw}](docs/screenshot.png)
 
 This interface allows the user to draw machine learning models. These models can be used for classification, outlier detection, labeling tasks, or general data exploration.
 
