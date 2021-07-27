@@ -29,9 +29,9 @@ Recently, it has become much more fashionable to take data with labels and to us
 
 ![Machine Learning Based Systems.\label{fig:mlbased}](docs/examples/ml.png)
 
-We started wondering if we might have lost something in this transition. Machine learning is a general tool, but it is capable of making bad decisions. Decisions that are very hard to debug too.  Tools like SHAP [@NIPS2017_7062] and LIME [@lime] try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight, it's tough to understand what is happening. 
+We started wondering if we might have lost something in this transition. Machine learning is a general tool, but it is capable of making bad decisions. Decisions that are very hard to debug too.  Tools like SHAP [@NIPS2017_7062] and LIME [@lime] try to explain why algorithms make certain decisions in hindsight, but even with the benefit of hindsight, it is tough to understand what is happening. 
 
-At the same time, it's also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
+At the same time, it is also true that many classification problems can be done by natural intelligence. This package aims to make it easier to turn the act of exploratory data analysis into a well-understood model. These "human" models are very explainable from the start. If nothing else, they can serve as a simple benchmark representing domain knowledge which is a great starting point for any predictive project.
 
 The library features components to easily turn Python functions into scikit-learn compatible components [@sklearn_api]. 
 
