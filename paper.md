@@ -81,7 +81,7 @@ from hulearn.experimental.interactive import InteractiveCharts
 df = load_penguins()
 clf = InteractiveCharts(df, labels="species")
 
-# It is best to run this in a single cell.
+# It is best to add charts in their own seperate notebook cells
 clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
 ```
 
