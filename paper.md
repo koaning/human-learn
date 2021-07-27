@@ -25,7 +25,7 @@ There's been a transition from rule-based systems to ones that use machine learn
 
 ![Rule Based Systems.\label{fig:rulebased}](docs/examples/rules.png)
 
-Recently, it's become much more fashionable to take data with labels and to use machine-learning algorithms to figure out appropriate rules.
+Recently, it has become much more fashionable to take data with labels and to use machine-learning algorithms to figure out appropriate rules.
 
 ![Machine Learning Based Systems.\label{fig:mlbased}](docs/examples/ml.png)
 
@@ -81,7 +81,7 @@ from hulearn.experimental.interactive import InteractiveCharts
 df = load_penguins()
 clf = InteractiveCharts(df, labels="species")
 
-# It's best to run this in a single cell.
+# It is best to run this in a single cell.
 clf.add_chart(x="bill_length_mm", y="bill_depth_mm")
 ```
 
