@@ -62,7 +62,12 @@ Besides the `FunctionClassifier`, the library also features a `FunctionRegressor
 
 ```python
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import *
+from sklearn.metrics import (
+    precision_score, 
+    recall_score, 
+    accuracy_score, 
+    make_scorer
+)
 
 # The GridSearch object can now "grid-search" over this model.
 grid = GridSearchCV(mod,
