@@ -82,9 +82,9 @@ grid.fit(X, y)
 
 ## Quick Comparison 
 
-The example below shows how you can construct a `FunctionClassifier` that
-predicts according to the "woman and children first"-quote from the Titanic
-movie.
+The example below shows a `FunctionClassifier` that predicts all women 
+and children from the upper class survive, based on the "woman and children first"-quote
+from the Titanic movie.
 
 ```python
 def make_prediction(dataf, age=15):
