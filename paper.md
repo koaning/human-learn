@@ -80,6 +80,34 @@ grid = GridSearchCV(mod,
 grid.fit(X, y)
 ```
 
+## Quick Comparison 
+
+The example below shows how you can construct a `FunctionClassifier` that
+predicts according to the "woman and children first"-quote from the Titanic
+movie.
+
+```python
+def make_prediction(dataf, age=15):
+    women_rule = (dataf['pclass'] < 3.0) & (dataf['sex'] == "female")
+    children_rule = (dataf['pclass'] < 3.0) & (dataf['age'] <= age)
+    return women_rule | children_rule
+
+mod = FunctionClassifier(make_prediction)
+```
+
+We've compared the performance of this model with a `RandomForestClassifier`.
+Here's how the models compare;
+
+|Model                 | accuracy | precision  | recall|
+---                    | ---      | ---        | ---
+|Women & Children Rule |0.808157	| 0.952168   | 0.558621
+|RandomForestClassifier|0.813869	| 0.785059   | 0.751724
+
+The simple rule-based model seems to offer a relevant trade-off, even if
+it's only used as an initial benchmark.
+
+## Rule Based Models 
+
 These function-based models can be very powerful because they allow the user the define rules for situations for which there is no data available. In the case of financial fraud, if a child has above median income, this should trigger risk. Machine learning models cannot learn if there is no data but rules can be defined even if, in this case, a child with above median income doesn't appear in the training data. An ideal use-case for this library is to combine rule based systems with machine learning based systems. An example of this is shown in \autoref{fig:tree}. 
 
 ![A rule based systems that resorts to ML when rules do not cover the example.\label{fig:tree}](https://koaning.github.io/human-learn/examples/tree.png)
