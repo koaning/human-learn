@@ -96,7 +96,7 @@ mod = FunctionClassifier(make_prediction)
 ```
 
 We've compared the performance of this model with a `RandomForestClassifier`.
-Here's how the models compare;
+The validation-set results are shown in the table below.
 
 |Model                 | accuracy | precision  | recall|
 ---                    | ---      | ---        | ---
