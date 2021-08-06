@@ -114,7 +114,9 @@ These function-based models can be very powerful because they allow the user the
 
 This example also demonstrates the main difference between this library and Snorkel [@snorkel]. This library offers methods to turn domain knowledge immediately into models, as opposed to labelling-functions.
 
-Human-learn also hosts interactive widgets, made with Bokeh, that might help construct models from Jupyter as well. An example of a drawn widget is shown below in \autoref{fig:draw}.
+## Interactive Widgets 
+
+Human-learn also hosts interactive widgets, made with Bokeh, that might help construct rule-based models more expressively. These widgets can be used from the familiar Jupyter environment. An example of such a drawn widget is shown below in \autoref{fig:draw}.
 
 ```python
 from hulearn.experimental.interactive import InteractiveCharts
