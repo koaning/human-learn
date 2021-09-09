@@ -29,6 +29,8 @@ def double(x, factor=2):
             "check_dtype_object",
             "check_complex_data",
             "check_fit1d",
+            "check_sample_weights_list",
+            "check_sample_weights_pandas_series",
         ],
     ),
 )
