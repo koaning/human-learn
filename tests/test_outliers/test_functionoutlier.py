@@ -46,6 +46,8 @@ def class_based(dataf, sex="male", pclass=1):
             "check_methods_subset_invariance",
             "check_fit2d_predict1d",
             "check_estimator_sparse_data",
+            "check_sample_weights_list",
+            "check_sample_weights_pandas_series",
         ],
     ),
 )

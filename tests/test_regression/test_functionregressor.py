@@ -43,6 +43,8 @@ def predict_variant(X):
             "check_estimators_nan_inf",
             "check_estimator_sparse_data",
             "check_estimators_partial_fit_n_features",
+            "check_sample_weights_list",
+            "check_sample_weights_pandas_series",
         ],
     ),
 )

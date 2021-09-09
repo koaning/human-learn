@@ -55,6 +55,8 @@ def class_based(dataf, sex="male", pclass=1):
             "check_estimator_sparse_data",
             "check_supervised_y_no_nan",
             "check_estimators_partial_fit_n_features",
+            "check_sample_weights_list",
+            "check_sample_weights_pandas_series",
         ],
     ),
 )
