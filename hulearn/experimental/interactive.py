@@ -181,7 +181,7 @@ class SingleInteractiveChart:
             self.poly_patches[k] = self.plot.patches(
                 [], [], fill_color=col, fill_alpha=0.4, line_alpha=0.0
             )
-            icon_path = resource_filename("hulearn", f"images/{col}.png")
+            icon_path = pathlib.Path(resource_filename("hulearn", f"images/{col}.png"))
             self.poly_draw[k] = PolyDrawTool(
                 renderers=[self.poly_patches[k]], custom_icon=icon_path
             )
