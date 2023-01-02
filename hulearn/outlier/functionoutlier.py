@@ -23,8 +23,8 @@ class FunctionOutlierDetector(BaseEstimator, OutlierMixin):
         Fit the classifier. No-Op.
         """
         # Run it to confirm no error happened.
-        self.fitted_ = True
         _ = self.func(X, **self.kwargs)
+        self.fitted_ = True
         return self
 
     def partial_fit(self, X, y=None):
