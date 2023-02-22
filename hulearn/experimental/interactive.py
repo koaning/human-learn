@@ -13,6 +13,7 @@ from bokeh.models import PolyDrawTool, PolyEditTool
 from bokeh.layouts import row
 from bokeh.models.widgets import Div
 from bokeh.io import output_notebook
+from bokeh.resources import INLINE
 
 
 def color_dot(name, color):
@@ -42,7 +43,7 @@ class InteractiveCharts:
     """
 
     def __init__(self, dataf, labels, color=None):
-        output_notebook()
+        output_notebook(INLINE)
         self.dataf = dataf
         self.labels = labels
         self.charts = []
@@ -183,7 +184,7 @@ class SingleInteractiveChart:
             )
             icon_path = pathlib.Path(resource_filename("hulearn", f"images/{col}.png"))
             self.poly_draw[k] = PolyDrawTool(
-                renderers=[self.poly_patches[k]], custom_icon=icon_path
+                renderers=[self.poly_patches[k]], icon=icon_path
             )
         c = self.plot.circle([], [], size=5, color="black")
         edit_tool = PolyEditTool(
