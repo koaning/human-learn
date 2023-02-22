@@ -6,9 +6,9 @@ import hulearn
 base_packages = [
     "scikit-learn>=0.23.2",
     "pandas>=0.23.4",
-    "clumper>=0.2.5",
+    "clumper>=0.2.5,<0.3.0",
     "Shapely>=1.7.1",
-    "bokeh>=2.2.1",
+    "bokeh>=2.2.1,<3.0.0",
 ]
 
 docs_packages = [
