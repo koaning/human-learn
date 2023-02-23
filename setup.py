@@ -12,8 +12,7 @@ base_packages = [
 ]
 
 docs_packages = [
-    "mkdocs==1.1",
-    "mkdocs-material==4.6.3",
+    "mkdocs-material>=9.0.0",
     "mkdocstrings==0.8.0",
 ]
 
@@ -65,9 +64,10 @@ setup(
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "License :: OSI Approved :: MIT License",
         "Topic :: Scientific/Engineering",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
