@@ -12,8 +12,7 @@ base_packages = [
 ]
 
 docs_packages = [
-    "mkdocs==1.1",
-    "mkdocs-material==4.6.3",
+    "mkdocs-material>=9.0.0",
     "mkdocstrings==0.8.0",
 ]
 
