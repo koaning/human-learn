@@ -2,6 +2,7 @@ from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_is_fitted
 from sklearn.utils.multiclass import unique_labels
 
+
 class FunctionClassifier(BaseEstimator, ClassifierMixin):
     """
     This class allows you to pass a function to make the predictions you're interested in.
