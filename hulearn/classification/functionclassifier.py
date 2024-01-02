@@ -1,6 +1,6 @@
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_is_fitted
-
+from sklearn.utils.multiclass import unique_labels
 
 class FunctionClassifier(BaseEstimator, ClassifierMixin):
     """
@@ -46,6 +46,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
         """
         # Run it to confirm no error happened.
         _ = self.func(X, **self.kwargs)
+        self.classes_ = unique_labels(y)
         self.fitted_ = True
         return self
 
@@ -55,6 +56,7 @@ class FunctionClassifier(BaseEstimator, ClassifierMixin):
         """
         # Run it to confirm no error happened.
         _ = self.func(X, **self.kwargs)
+        self.classes_ = classes
         self.fitted_ = True
         return self
 
