@@ -7,7 +7,7 @@
 
 <img src="docs/logo.png" width=225 align="right">
 
-# Human Learn
+### Human Learn
 
 > Machine Learning models should play by the rules, literally.
 
