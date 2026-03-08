@@ -1,18 +1,17 @@
-import pytest
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import GridSearchCV
+import pytest
 from sklearn.metrics import accuracy_score, make_scorer
+from sklearn.model_selection import GridSearchCV
 
+from hulearn.common import flatten
 from hulearn.datasets import load_titanic
 from hulearn.outlier import FunctionOutlierDetector
-from hulearn.common import flatten
-
 from tests.conftest import (
-    select_tests,
     general_checks,
-    outlier_checks,
     nonmeta_checks,
+    outlier_checks,
+    select_tests,
 )
 
 
@@ -45,7 +44,7 @@ def class_based(dataf, sex="male", pclass=1):
             "check_fit1d",
             "check_methods_subset_invariance",
             "check_fit2d_predict1d",
-            "check_estimator_sparse_data",
+            "check_estimator_sparse_array",
             "check_sample_weights_list",
             "check_sample_weights_pandas_series",
         ],

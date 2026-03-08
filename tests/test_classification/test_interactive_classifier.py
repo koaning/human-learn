@@ -1,18 +1,16 @@
 import pytest
-
 from sklearn.model_selection import GridSearchCV
-from sklego.datasets import load_penguins
 from sklearn.pipeline import Pipeline
+from sklego.datasets import load_penguins
 
-from hulearn.preprocessing import PipeTransformer
 from hulearn.classification import InteractiveClassifier
 from hulearn.common import flatten
-
+from hulearn.preprocessing import PipeTransformer
 from tests.conftest import (
-    select_tests,
-    general_checks,
     classifier_checks,
+    general_checks,
     nonmeta_checks,
+    select_tests,
 )
 
 
@@ -22,7 +20,7 @@ from tests.conftest import (
         include=flatten([general_checks, classifier_checks, nonmeta_checks]),
         exclude=[
             "check_estimators_pickle",
-            "check_estimator_sparse_data",
+            "check_estimator_sparse_array",
             "check_estimators_nan_inf",
             "check_pipeline_consistency",
             "check_complex_data",
@@ -121,3 +119,23 @@ def test_ignore_bad_data():
 
     clf = InteractiveClassifier(json_desc=data)
     assert len(list(clf.poly_data)) == 0
+
+
+def test_buffer_positive():
+    clf = InteractiveClassifier.from_json("tests/test_classification/demo-data.json", buffer=1.0)
+    df = load_penguins(as_frame=True).dropna()
+    X, y = df.drop(columns=["species"]), df["species"]
+
+    preds = clf.fit(X, y).predict_proba(X)
+    assert preds.shape[0] == df.shape[0]
+    assert preds.shape[1] == 3
+
+
+def test_buffer_negative():
+    clf = InteractiveClassifier.from_json("tests/test_classification/demo-data.json", buffer=-0.5)
+    df = load_penguins(as_frame=True).dropna()
+    X, y = df.drop(columns=["species"]), df["species"]
+
+    preds = clf.fit(X, y).predict_proba(X)
+    assert preds.shape[0] == df.shape[0]
+    assert preds.shape[1] == 3

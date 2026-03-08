@@ -1,18 +1,18 @@
 import pandas as pd
 
-from hulearn.datasets import load_titanic
 from hulearn.classification import FunctionClassifier
+from hulearn.datasets import load_titanic
 from hulearn.experimental import CaseWhenRuler
 
 
 def test_smoke_casewhen():
-    from sklearn.model_selection import GridSearchCV
     from sklearn.metrics import (
-        make_scorer,
         accuracy_score,
+        make_scorer,
         precision_score,
         recall_score,
     )
+    from sklearn.model_selection import GridSearchCV
 
     def make_prediction(dataf, gender_rule=True, child_rule=True, fare_rule=True):
         ruler = CaseWhenRuler(default=0)
@@ -32,7 +32,7 @@ def test_smoke_casewhen():
             )
 
         if fare_rule:
-            ruler.add_rule(when=lambda d: (d["fare"] > 100), then=1, name="fare-rule")
+            ruler.add_rule(when=lambda d: d["fare"] > 100, then=1, name="fare-rule")
 
         return ruler.predict(dataf)
 

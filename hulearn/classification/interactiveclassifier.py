@@ -3,11 +3,10 @@ import pathlib
 
 import numpy as np
 import pandas as pd
-from shapely.geometry import Point
-from shapely.geometry.polygon import Polygon
-
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_is_fitted
+
+from hulearn.common import count_hits, iter_poly_data
 
 
 class InteractiveClassifier(BaseEstimator, ClassifierMixin):
@@ -18,6 +17,7 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         json_desc: chart data in dictionary form
         smoothing: smoothing to apply to poly-counts
         refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
+        buffer: buffer to apply to drawn polygons (positive = grow, negative = shrink). Grid-searchable.
 
     Usage:
 
@@ -50,13 +50,14 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
     ```
     """
 
-    def __init__(self, json_desc, smoothing=0.001, refit=True):
+    def __init__(self, json_desc, smoothing=0.001, refit=True, buffer=0.0):
         self.json_desc = json_desc
         self.smoothing = smoothing
         self.refit = refit
+        self.buffer = buffer
 
     @classmethod
-    def from_json(cls, path, smoothing=0.001, refit=True):
+    def from_json(cls, path, smoothing=0.001, refit=True, buffer=0.0):
         """
         Load the classifier from json stored on disk.
 
@@ -64,6 +65,7 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
             path: path of the json file
             smoothing: smoothing to apply to poly-counts
             refit: if `True`, you no longer need to call `.fit(X, y)` in order to `.predict(X)`
+            buffer: buffer to apply to drawn polygons
 
         Usage:
 
@@ -74,42 +76,14 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         ```
         """
         json_desc = json.loads(pathlib.Path(path).read_text())
-        return InteractiveClassifier(
-            json_desc=json_desc, smoothing=smoothing, refit=refit
-        )
-
-    def _clean_poly_data(self, json_desc):
-        """TODO: we need to prevent poly data with only two datapoints"""
-        return json_desc
+        return InteractiveClassifier(json_desc=json_desc, smoothing=smoothing, refit=refit, buffer=buffer)
 
     @property
     def poly_data(self):
-        for chart in self.json_desc:
-            chard_id = chart["chart_id"]
-            labels = chart["polygons"].keys()
-            coords = chart["polygons"].values()
-            for lab, p in zip(labels, coords):
-                x_lab, y_lab = p.keys()
-                x_coords, y_coords = list(p.values())
-                for i in range(len(x_coords)):
-                    poly_data = list(zip(x_coords[i], y_coords[i]))
-                    if len(poly_data) >= 3:
-                        poly = Polygon(poly_data)
-                        yield {
-                            "x_lab": x_lab,
-                            "y_lab": y_lab,
-                            "poly": poly,
-                            "label": lab,
-                            "chart_id": chard_id,
-                        }
+        return iter_poly_data(self.json_desc, buffer=self.buffer)
 
     def _count_hits(self, clf_data, data_in):
-        counts = {k: 0 for k in self.classes_}
-        for c in clf_data:
-            point = Point(data_in[c["x_lab"]], data_in[c["y_lab"]])
-            if c["poly"].contains(point):
-                counts[c["label"]] += 1
-        return counts
+        return count_hits(clf_data, data_in, self.classes_)
 
     def fit(self, X, y):
         """
@@ -137,25 +111,15 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         clf.predict_proba(X)
         ```
         """
-        # Because we're not doing anything during training, for convenience this
-        # method can formally "fit" during the predict call. This is a scikit-learn
-        # anti-pattern so we allow you to turn this off.
         if self.refit:
             if not self.fitted_:
                 self.fit(X)
         check_is_fitted(self, ["classes_", "fitted_"])
         if isinstance(X, pd.DataFrame):
-            hits = [
-                self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()
-            ]
+            hits = [self._count_hits(self.poly_data, x[1].to_dict()) for x in X.iterrows()]
         else:
-            hits = [
-                self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)})
-                for x in X
-            ]
-        count_arr = (
-            np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
-        )
+            hits = [self._count_hits(self.poly_data, {k: v for k, v in enumerate(x)}) for x in X]
+        count_arr = np.array([[h[c] for c in self.classes_] for h in hits]) + self.smoothing
         return count_arr / count_arr.sum(axis=1).reshape(-1, 1)
 
     def predict(self, X):
@@ -177,6 +141,4 @@ class InteractiveClassifier(BaseEstimator, ClassifierMixin):
         ```
         """
         check_is_fitted(self, ["classes_", "fitted_"])
-        return np.array(
-            [self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)]
-        )
+        return np.array([self.classes_[i] for i in self.predict_proba(X).argmax(axis=1)])

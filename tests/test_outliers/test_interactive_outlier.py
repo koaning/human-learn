@@ -1,19 +1,18 @@
-import pytest
 import numpy as np
+import pytest
+from sklearn.metrics import accuracy_score, make_scorer
 from sklearn.model_selection import GridSearchCV
-from sklego.datasets import load_penguins
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import make_scorer, accuracy_score
+from sklego.datasets import load_penguins
 
-from hulearn.preprocessing import PipeTransformer
-from hulearn.outlier import InteractiveOutlierDetector
 from hulearn.common import flatten
-
+from hulearn.outlier import InteractiveOutlierDetector
+from hulearn.preprocessing import PipeTransformer
 from tests.conftest import (
-    select_tests,
-    general_checks,
     classifier_checks,
+    general_checks,
     nonmeta_checks,
+    select_tests,
 )
 
 
@@ -23,7 +22,7 @@ from tests.conftest import (
         include=flatten([general_checks, classifier_checks, nonmeta_checks]),
         exclude=[
             "check_estimators_pickle",
-            "check_estimator_sparse_data",
+            "check_estimator_sparse_array",
             "check_estimators_nan_inf",
             "check_pipeline_consistency",
             "check_complex_data",
@@ -52,16 +51,12 @@ def test_estimator_checks(test_fn):
     We're skipping a lot of tests here mainly because this model is "bespoke"
     it is *not* general. Therefore a lot of assumptions are broken.
     """
-    clf = InteractiveOutlierDetector.from_json(
-        "tests/test_classification/demo-data.json"
-    )
+    clf = InteractiveOutlierDetector.from_json("tests/test_classification/demo-data.json")
     test_fn(InteractiveOutlierDetector, clf)
 
 
 def test_base_predict_usecase():
-    clf = InteractiveOutlierDetector.from_json(
-        "tests/test_classification/demo-data.json"
-    )
+    clf = InteractiveOutlierDetector.from_json("tests/test_classification/demo-data.json")
     df = load_penguins(as_frame=True).dropna()
     X, y = df.drop(columns=["species"]), df["species"]
 
@@ -75,9 +70,7 @@ def identity(x):
 
 
 def test_grid_predict():
-    clf = InteractiveOutlierDetector.from_json(
-        "tests/test_classification/demo-data.json"
-    )
+    clf = InteractiveOutlierDetector.from_json("tests/test_classification/demo-data.json")
     pipe = Pipeline(
         [
             ("id", PipeTransformer(identity)),
@@ -132,3 +125,12 @@ def test_ignore_bad_data():
 
     clf = InteractiveOutlierDetector(json_desc=data)
     assert len(list(clf.poly_data)) == 0
+
+
+def test_buffer_parameter():
+    clf = InteractiveOutlierDetector.from_json("tests/test_classification/demo-data.json", buffer=1.0)
+    df = load_penguins(as_frame=True).dropna()
+    X, y = df.drop(columns=["species"]), df["species"]
+
+    preds = clf.fit(X, y).predict(X)
+    assert preds.shape[0] == df.shape[0]

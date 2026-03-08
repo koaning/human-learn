@@ -9,9 +9,7 @@ k_vals = (1, 2, 5)
 np_types = (np.int32, np.float32, np.float64)
 
 
-@pytest.fixture(
-    scope="module", params=[_ for _ in it.product(n_vals, k_vals, np_types)]
-)
+@pytest.fixture(scope="module", params=[_ for _ in it.product(n_vals, k_vals, np_types)])
 def random_xy_dataset_regr(request):
     n, k, np_type = request.param
     np.random.seed(42)
@@ -20,9 +18,7 @@ def random_xy_dataset_regr(request):
     return X, y
 
 
-@pytest.fixture(
-    scope="module", params=[_ for _ in it.product(n_vals, k_vals, np_types)]
-)
+@pytest.fixture(scope="module", params=[_ for _ in it.product(n_vals, k_vals, np_types)])
 def random_xy_dataset_clf(request):
     n, k, np_type = request.param
     np.random.seed(42)
@@ -61,7 +57,7 @@ nonmeta_checks = (
     estimator_checks.check_pipeline_consistency,
     estimator_checks.check_estimators_nan_inf,
     estimator_checks.check_estimators_overwrite_params,
-    estimator_checks.check_estimator_sparse_data,
+    estimator_checks.check_estimator_sparse_array,
     estimator_checks.check_estimators_pickle,
 )
 

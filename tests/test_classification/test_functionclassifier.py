@@ -1,18 +1,16 @@
-import pytest
 import numpy as np
 import pandas as pd
+import pytest
 from sklearn.model_selection import GridSearchCV
 
-
-from hulearn.datasets import load_titanic
 from hulearn.classification.functionclassifier import FunctionClassifier
 from hulearn.common import flatten
-
+from hulearn.datasets import load_titanic
 from tests.conftest import (
-    select_tests,
-    general_checks,
     classifier_checks,
+    general_checks,
     nonmeta_checks,
+    select_tests,
 )
 
 
@@ -52,7 +50,7 @@ def class_based(dataf, sex="male", pclass=1):
             "check_complex_data",
             "check_estimators_empty_data_messages",
             "check_estimators_nan_inf",
-            "check_estimator_sparse_data",
+            "check_estimator_sparse_array",
             "check_supervised_y_no_nan",
             "check_estimators_partial_fit_n_features",
             "check_sample_weights_list",

@@ -1,15 +1,14 @@
-import pytest
 import numpy as np
-
+import pytest
 from sklearn.model_selection import GridSearchCV
-from hulearn.regression.functionregressor import FunctionRegressor
-from hulearn.common import flatten
 
+from hulearn.common import flatten
+from hulearn.regression.functionregressor import FunctionRegressor
 from tests.conftest import (
-    select_tests,
     general_checks,
-    regressor_checks,
     nonmeta_checks,
+    regressor_checks,
+    select_tests,
 )
 
 
@@ -41,7 +40,7 @@ def predict_variant(X):
             "check_complex_data",
             "check_estimators_empty_data_messages",
             "check_estimators_nan_inf",
-            "check_estimator_sparse_data",
+            "check_estimator_sparse_array",
             "check_estimators_partial_fit_n_features",
             "check_sample_weights_list",
             "check_sample_weights_pandas_series",

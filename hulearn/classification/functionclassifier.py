@@ -1,6 +1,6 @@
 from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.utils.validation import check_is_fitted
 from sklearn.utils.multiclass import unique_labels
+from sklearn.utils.validation import check_is_fitted
 
 
 class FunctionClassifier(BaseEstimator, ClassifierMixin):

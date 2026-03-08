@@ -1,18 +1,19 @@
 .PHONY: docs build
 
-flake:
-	flake8 hulearn tests setup.py
+lint:
+	.venv/bin/ruff check hulearn tests
+	.venv/bin/ruff format --check hulearn tests
+
+format:
+	.venv/bin/ruff check --fix hulearn tests
+	.venv/bin/ruff format hulearn tests
 
 install:
-	pip install -e ".[test]"
-
-develop:
-	pip install -e ".[dev]"
-	pre-commit install
-	python setup.py develop
+	uv venv
+	uv pip install -e ".[dev]"
 
 test:
-	pytest --nbval-lax --disable-warnings --cov=hulearn tests
+	.venv/bin/pytest --disable-warnings --cov=hulearn tests
 
 clean:
 	rm -rf .pytest_cache
@@ -23,19 +24,8 @@ clean:
 	rm -rf .coverage*
 	rm -rf tests/.ipynb_checkpoints
 
-black:
-	black --check .
-
-test-notebooks:
-	pytest --nbval-lax docs/guide/notebooks/*.ipynb
-
-check: black flake test clean test-notebooks
+check: lint test clean
 
 pypi: clean
-	python setup.py sdist
-	python setup.py bdist_wheel --universal
-	twine upload dist/*
-
-build:
-	npm run build
-	cp -r public/* hulearn/static
+	uv build
+	uv publish

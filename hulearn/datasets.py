@@ -1,5 +1,4 @@
-import os
-from pkg_resources import resource_filename
+import importlib.resources
 
 import pandas as pd
 
@@ -21,7 +20,7 @@ def load_titanic(return_X_y: bool = False, as_frame: bool = False):
     X, y = load_titanic(return_X_y=True)
     ```
     """
-    filepath = resource_filename("hulearn", os.path.join("data", "titanic.zip"))
+    filepath = str(importlib.resources.files("hulearn").joinpath("data", "titanic.zip"))
     df = pd.read_csv(filepath)
     if as_frame:
         return df
@@ -51,7 +50,7 @@ def load_fish(return_X_y: bool = False, as_frame: bool = False):
     X, y = load_fish(return_X_y=True)
     ```
     """
-    filepath = resource_filename("hulearn", os.path.join("data", "fish.zip"))
+    filepath = str(importlib.resources.files("hulearn").joinpath("data", "fish.zip"))
     df = pd.read_csv(filepath)
     if as_frame:
         return df

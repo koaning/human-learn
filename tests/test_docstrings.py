@@ -1,16 +1,14 @@
 import pytest
 from mktestdocs import check_docstring, get_codeblock_members
 
+from hulearn.common import df_to_dictlist, flatten
 from hulearn.datasets import load_titanic
 from hulearn.experimental import CaseWhenRuler
-from hulearn.common import flatten, df_to_dictlist
 
 members = get_codeblock_members(CaseWhenRuler)
 
 
-@pytest.mark.parametrize(
-    "func", [load_titanic, flatten, df_to_dictlist], ids=lambda d: d.__name__
-)
+@pytest.mark.parametrize("func", [load_titanic, flatten, df_to_dictlist], ids=lambda d: d.__name__)
 def test_docstring(func):
     check_docstring(obj=func)
 

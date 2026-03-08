@@ -1,15 +1,13 @@
 import pytest
-
+from sklearn.pipeline import FeatureUnion, Pipeline
 from sklego.datasets import load_penguins
-from sklearn.pipeline import Pipeline, FeatureUnion
-from hulearn.preprocessing import InteractivePreprocessor, PipeTransformer
 
 from hulearn.common import flatten
-
+from hulearn.preprocessing import InteractivePreprocessor, PipeTransformer
 from tests.conftest import (
-    select_tests,
     general_checks,
     nonmeta_checks,
+    select_tests,
 )
 
 
@@ -63,9 +61,7 @@ def test_grid_predict_usecase():
         [
             (
                 "features",
-                FeatureUnion(
-                    [("original", PipeTransformer(identity)), ("new_feats", tfm)]
-                ),
+                FeatureUnion([("original", PipeTransformer(identity)), ("new_feats", tfm)]),
             ),
         ]
     )
@@ -111,3 +107,13 @@ def test_ignore_bad_data():
 
     clf = InteractivePreprocessor(json_desc=data)
     assert len(list(clf.poly_data)) == 0
+
+
+def test_buffer_parameter():
+    tfm = InteractivePreprocessor.from_json("tests/test_classification/demo-data.json", buffer=1.0)
+    df = load_penguins(as_frame=True).dropna()
+    X, y = df.drop(columns=["species"]), df["species"]
+
+    preds = tfm.fit(X, y).transform(X)
+    assert preds.shape[0] == df.shape[0]
+    assert preds.shape[1] == 3

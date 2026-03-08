@@ -1,16 +1,16 @@
-import pytest
 import numpy as np
-from sklearn.pipeline import Pipeline
-from sklearn.naive_bayes import GaussianNB
+import pytest
 from sklearn.model_selection import GridSearchCV
+from sklearn.naive_bayes import GaussianNB
+from sklearn.pipeline import Pipeline
 
-from hulearn.preprocessing import PipeTransformer
 from hulearn.common import flatten
+from hulearn.preprocessing import PipeTransformer
 from tests.conftest import (
-    select_tests,
     general_checks,
-    transformer_checks,
     nonmeta_checks,
+    select_tests,
+    transformer_checks,
 )
 
 
@@ -50,9 +50,7 @@ def test_basic_example(factor):
 
 def test_works_with_pipeline_gridsearch(random_xy_dataset_clf):
     X, y = random_xy_dataset_clf
-    pipe = Pipeline(
-        [("pipe", PipeTransformer(func=double, factor=1)), ("mod", GaussianNB())]
-    )
+    pipe = Pipeline([("pipe", PipeTransformer(func=double, factor=1)), ("mod", GaussianNB())])
     grid = GridSearchCV(pipe, cv=2, param_grid={"pipe__factor": [1, 2, 3]})
     grid.fit(X, y).predict(X)
 
